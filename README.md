@@ -1,5 +1,4 @@
 ## usersテーブル
-
 | Column          | Type    | Options                   |
 | --------------- | ------- | ------------------------- |
 | nickname        | string  | null: false, unique: true |
@@ -25,7 +24,6 @@
 | selling_items   | string  |                           |
 | sold_items      | string  |                           |
 | purchased_items | string  |                           |
-
 ### Association
 - has_many :items
 - has_many :comments
@@ -33,9 +31,10 @@
 - has_many :rates
 - has_many :news
 - has_many :todos
+- has_many :buyers
+
 
 ## itemsテーブル
-
 | Column        | Type    | Option                         |
 | ------------- | ------- | ------------------------------ |
 | name          | string  | null: false                    |
@@ -48,23 +47,39 @@
 | user_id       | integer | null: false, foreign_key: true |
 | brand_id      | integer | null: false, foreign_key: true |
 | trade_id      | integer | null: false, foreign_key: true |
-
 ## Association
 - belongs_to :user
 - belongs_to :barnd
 - has_many :images
 - has_many :comments
 - has_many :likes
-- has_many :categories
+- has_many :categories, through: items_categories
+
+## buyersテーブル
+| Column  | Type    | Option                         |
+| ------- | ------- | ------------------------------ |
+| item_id | integer | null: false, foreign_key: true |
+| user_id | integer | null: false, foreign_key: true |
+## Association
+- belongs_to :user
+
+
+## commentsテーブル
+| Column  | Type    | Option                         |
+| ------- | ------- | ------------------------------ |
+| comment | text    |                                |
+| item_id | integer | null: false, foreign_key: true |
+| user_id | integer | null: false, foreign_key: true |
+## Association
+- belongs_to :item
+- belongs_to :user
 
 
 ## imagesテーブル
-
 | Column  | Type    | Option                         |
 | ------- | ------- | ------------------------------ |
 | image   | string  | null :false                    |
 | item_id | integer | null: false, foreign_key: true |
-
 ## Association
 - belongs_to :item
 
@@ -73,15 +88,35 @@
 | Column | Type   | Option      |
 | ------ | ------ | ----------- |
 | name   | string | null: false |
-
 ## Association
 - has_many :items
+
+
+## items_categoriesテーブル
+| Column      | Type    | Option                         |
+| ----------- | ------- | ------------------------------ |
+| item_id     | integer | null: false, foreign_key: true |
+| category_id | integer | null: false, foreign_key: true |
+## Association
+- belongs_to :item
+- belongs_to :category
+
+
+## categoriesテーブル
+| Column    | Type    | Option                         |
+| --------- | ------- | ------------------------------ |
+| name      | string  |                                |
+| parent_id | integer | null: false, foreign_key: true |
+## Association
+- has_many :items, through: items_categories
 
 
 ## tradesテーブル
 | Column | Type   | Option |
 | ------ | ------ | ------ |
 | status | string |        |
+## Association
+- has_many :trade_comments
 
 
 ## trade_commentsテーブル
@@ -89,46 +124,42 @@
 | -------- | ------- | ------------------------------ |
 | comment  | text    |                                |
 | trade_id | integer | null: false, foreign_key: true |
-
 ## Association
 - belongs_to :trade
+
 
 ## likesテーブル
 | Column  | Type    | Option                         |
 | ------- | ------- | ------------------------------ |
 | item_id | integer | null: false, foreign_key: true |
 | user_id | integer | null: false, foreign_key: true |
-
 ## Association
 - belongs_to :item
 - belongs_to :user
 
 
 ## ratesテーブル
+| Column   | Type    | Option                         |
+| -------- | ------- | ------------------------------ |
+| status   | string  | null: false                    |
+| trade_id | integer | null: false, foreign_key: true |
+| user_id  | integer | null: false, foreign_key: true |q
+## Association
+- belongs_to :user
 
-## todos
 
-# README
+## todosテーブル
+| Column  | Type    | Option                         |
+| ------- | ------- | ------------------------------ |
+| title   | text    | null: false                    |
+| text    | text    | null: false                    |
+| user_id | integer | null: false, foreign_key: true |
+- belongs_to :user
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## newsテーブル
+| Column  | Type    | Option                         |
+| ------- | ------- | ------------------------------ |
+| title   | text    | null: false                    |
+| text    | text    | null: false                    |
+| user_id | integer | null: false, foreign_key: true |
+- belongs_to :user
