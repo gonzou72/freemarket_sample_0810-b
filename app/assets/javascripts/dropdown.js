@@ -15,17 +15,17 @@ $(function () {
   });
   
   // マウスカーソルがメニュー上/メニュー外
-  $('span,ul').hover(function(){
+  $('.bottom__left').hover(function(){
     over_flg = true;
   }, function(){
     over_flg = false;
   });  
   
   // メニュー領域外をクリックしたらメニューを閉じる
-  $('h3').mouseout(function() {
+  $('.bottom__left').mouseout(function() {
     if (over_flg == false) {
       $('span').removeClass('selected');
-      $('ul').slideUp('fast');
+      $('ul').slideUp('100');
     }
   });
 });
