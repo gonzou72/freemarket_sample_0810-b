@@ -1,30 +1,33 @@
+# データベース設計
+
 ## usersテーブル
-| Column          | Type    | Options                   |
-| --------------- | ------- | ------------------------- |
-| nickname        | string  | null: false, unique: true |
-| email           | string  | null: false, unique: true |
-| password        | string  | null: false               |
-| last_name       | string  | null: false               |
-| first_name      | string  | null: false               |
-| last_name_kana  | string  | null: false               |
-| first_name_kana | string  | null: false               |
-| birth_day       | integer | null: false               |
-| postal_code     | integer | null: false               |
-| prefecture      | string  | null: false               |
-| city            | string  | null: false               |
-| street          | string  | null: false               |
-| building_name   | string  |                           |
-| phone           | integer |                           |
-| card_number     | integer | null: false               |
-| valid_month     | integer | null: false               |
-| valid_year      | integer | null: false               |
-| security_code   | integer | null: false               |
-| profile_picture | string  |                           |
-| profile_text    | text    |                           |
-| selling_items   | string  |                           |
-| sold_items      | string  |                           |
-| purchased_items | string  |                           |
-### Association
+
+| Column          | Type    | Options                                |
+| --------------- | ------- | -------------------------------------- |
+| nickname        | string  | index: true, null: false, unique: true |
+| email           | string  | null: false, unique: true              |
+| password        | string  | null: false                            |
+| last_name       | string  | null: false                            |
+| first_name      | string  | null: false                            |
+| last_name_kana  | string  | null: false                            |
+| first_name_kana | string  | null: false                            |
+| birth_day       | date    | null: false                            |
+| postal_code     | string  | null: false                            |
+| prefecture      | string  | null: false                            |
+| city            | string  | null: false                            |
+| street          | string  | null: false                            |
+| building_name   | string  |                                        |
+| phone           | string  |                                        |
+| card_number     | integer | null: false                            |
+| valid_month     | integer | null: false                            |
+| valid_year      | integer | null: false                            |
+| security_code   | integer | null: false                            |
+| profile_picture | string  |                                        |
+| profile_text    | text    |                                        |
+|                 |         |                                        |
+
+Association
+
 - has_many :items
 - has_many :comments
 - has_many :likes
@@ -33,133 +36,202 @@
 - has_many :todos
 - has_many :buyers
 
+---
 
 ## itemsテーブル
-| Column        | Type    | Option                         |
-| ------------- | ------- | ------------------------------ |
-| name          | string  | null: false                    |
-| details       | text    | null: false                    |
-| price         | integer | null: false                    |
-| condition     | string  | null: false                    |
-| shipping_fee  | integer | null: false                    |
-| ship_out_area | string  | null: false                    |
-| ship_out_date | integer | null: false                    |
-| user_id       | integer | null: false, foreign_key: true |
-| brand_id      | integer | null: false, foreign_key: true |
-| trade_id      | integer | null: false, foreign_key: true |
-## Association
+
+| Column        | Type       | Option                         |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     | null: false                    |
+| details       | text       | null: false                    |
+| price         | integer    | null: false                    |
+| condition     | string     | null: false                    |
+| shipping_fee  | integer    | null: false                    |
+| ship_out_area | string     | null: false                    |
+| ship_out_date | string     | null: false                    |
+| user_id       | references | null: false, foreign_key: true |
+| brand_id      | references | null: false, foreign_key: true |
+| trade_id      | references | null: false, foreign_key: true |
+|               |            |                                |
+
+Association
+
 - belongs_to :user
 - belongs_to :barnd
 - has_many :images
 - has_many :comments
 - has_many :likes
-- has_many :categories, through: items_categories
+- has_many :categories, through: item_categories
+- has_one :trade
+
+---
 
 ## buyersテーブル
-| Column  | Type    | Option                         |
-| ------- | ------- | ------------------------------ |
-| item_id | integer | null: false, foreign_key: true |
-| user_id | integer | null: false, foreign_key: true |
-## Association
+
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| item_id | references | null: false, foreign_key: true |
+| user_id | references | null: false, foreign_key: true |
+|         |            |                                |
+
+Association
+
 - belongs_to :user
 
+---
 
 ## commentsテーブル
-| Column  | Type    | Option                         |
-| ------- | ------- | ------------------------------ |
-| comment | text    |                                |
-| item_id | integer | null: false, foreign_key: true |
-| user_id | integer | null: false, foreign_key: true |
-## Association
+
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| comment | text       |                                |
+| item_id | references | null: false, foreign_key: true |
+| user_id | references | null: false, foreign_key: true |
+|         |            |                                |
+
+Association
+
 - belongs_to :item
 - belongs_to :user
 
 
 ## imagesテーブル
-| Column  | Type    | Option                         |
-| ------- | ------- | ------------------------------ |
-| image   | string  | null :false                    |
-| item_id | integer | null: false, foreign_key: true |
-## Association
+
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| image   | string     | null :false                    |
+| item_id | references | null: false, foreign_key: true |
+|         |            |                                |
+
+Association
+
 - belongs_to :item
 
+---
 
 ## brandsテーブル
-| Column | Type   | Option      |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-## Association
+
+| Column | Type   | Option                   |
+| ------ | ------ | ------------------------ |
+| name   | string | index: true, null: false |
+|        |        |                          |
+
+Association
+
 - has_many :items
 
+---
 
-## items_categoriesテーブル
-| Column      | Type    | Option                         |
-| ----------- | ------- | ------------------------------ |
-| item_id     | integer | null: false, foreign_key: true |
-| category_id | integer | null: false, foreign_key: true |
-## Association
+## item_categoriesテーブル
+
+| Column      | Type       | Option                         |
+| ----------- | ---------- | ------------------------------ |
+| item_id     | references | null: false, foreign_key: true |
+| category_id | references | null: false, foreign_key: true |
+|             |            |                                |
+
+Association
+
 - belongs_to :item
 - belongs_to :category
 
+---
 
 ## categoriesテーブル
-| Column    | Type    | Option                         |
-| --------- | ------- | ------------------------------ |
-| name      | string  |                                |
-| parent_id | integer | null: false, foreign_key: true |
-## Association
-- has_many :items, through: items_categories
 
+| Column    | Type       | Option                         |
+| --------- | ---------- | ------------------------------ |
+| name      | string     |                                |
+| parent_id | references | null: false, foreign_key: true |
+|           |            |                                |
+
+Association
+
+- has_many :items, through: item_categories
+
+---
 
 ## tradesテーブル
+
 | Column | Type   | Option |
 | ------ | ------ | ------ |
 | status | string |        |
-## Association
-- has_many :trade_comments
+|        |        |        |
 
+Association
+
+- has_many :trade_comments
+- belongs_to :item
+
+---
 
 ## trade_commentsテーブル
-| Column   | Type    | Option                         |
-| -------- | ------- | ------------------------------ |
-| comment  | text    |                                |
-| trade_id | integer | null: false, foreign_key: true |
-## Association
+
+| Column   | Type       | Option                         |
+| -------- | ---------- | ------------------------------ |
+| comment  | text       |                                |
+| trade_id | references | null: false, foreign_key: true |
+|          |            |                                |
+
+Association
+
 - belongs_to :trade
 
+---
 
 ## likesテーブル
-| Column  | Type    | Option                         |
-| ------- | ------- | ------------------------------ |
-| item_id | integer | null: false, foreign_key: true |
-| user_id | integer | null: false, foreign_key: true |
-## Association
+
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| item_id | references | null: false, foreign_key: true |
+| user_id | references | null: false, foreign_key: true |
+|         |            |                                |
+
+Association
+
 - belongs_to :item
 - belongs_to :user
 
+---
 
 ## ratesテーブル
-| Column   | Type    | Option                         |
-| -------- | ------- | ------------------------------ |
-| status   | string  | null: false                    |
-| trade_id | integer | null: false, foreign_key: true |
-| user_id  | integer | null: false, foreign_key: true |q
-## Association
+
+| Column   | Type       | Option                         |
+| -------- | ---------- | ------------------------------ |
+| status   | string     | null: false                    |
+| trade_id | references | null: false, foreign_key: true |
+| user_id  | references | null: false, foreign_key: true |
+| item_id  | references | null: false, foreign_key: true |
+|          |            |                                |
+
+Association
+
 - belongs_to :user
 
+---
 
 ## todosテーブル
-| Column  | Type    | Option                         |
-| ------- | ------- | ------------------------------ |
-| title   | text    | null: false                    |
-| text    | text    | null: false                    |
-| user_id | integer | null: false, foreign_key: true |
+
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| title   | text       | null: false                    |
+| text    | text       | null: false                    |
+| user_id | references | null: false, foreign_key: true |
+|         |            |                                |
+
+Association
+
 - belongs_to :user
 
 ## newsテーブル
-| Column  | Type    | Option                         |
-| ------- | ------- | ------------------------------ |
-| title   | text    | null: false                    |
-| text    | text    | null: false                    |
-| user_id | integer | null: false, foreign_key: true |
+
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| title   | text       | null: false                    |
+| text    | text       | null: false                    |
+| user_id | references | null: false, foreign_key: true |
+|         |            |                                |
+
+Association
+
 - belongs_to :user
