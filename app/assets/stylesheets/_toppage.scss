@@ -6,16 +6,13 @@
   &__top{
     height:50px;
     width:100%;
-    font-size:20px;
+    font-size:30px;
     line-height:50px;
     display:flex;
-    float:left;
     font-family: 'Hannotate SC',sans-serif;
       &--search{
       font-size:20px;
-      width:100%;
       input{
-        float:right;
         position:absolute;
         height:40px;
         width:80%;
@@ -26,10 +23,9 @@
       }
     }
     .hidden{
-      z-index:1;
       position:absolute;
       right:1%;
-      top:15%;
+      top:17%;
       border:none;
     }
     .search-icon{
@@ -39,55 +35,25 @@
   .header__bottom{
     height:50px;
     width:100%;
-    clear:both;
     display:flex;
     font-size:15px;
-    font-family: YuGothic,'Yu Gothic',sans-serif;
+    font-family: YuGothic;
     .bottom__left{
       display:flex;
       position:absolute;
       left:0;
       bottom:10%;
-      &--category{
+      &--type{
         margin-right:20px;
-        position: relative;
         span{
           cursor:pointer;
           font-weight:bold;
         }
-        .category__icon{
+        .type__icon{
           color:red;
         }
         ul{
-          z-index:2;
-          display:none;
-          position:absolute;
-          height:325px;
-          width:200px;
-          background-color:white;
-          h3{
-            line-height:40px;
-            height:40px;
-            width:200px;
-            background-color:white;
-            .btn{
-              color:black;
-              text-decoration:none;
-            }
-          }
-        }
-      }
-      &--bland{
-        position: relative;
-        span{
-          cursor:pointer;
-          font-weight:bold;
-        }
-        .bland__icon{
-          color:red;
-        }
-        ul{
-          z-index:2;
+          z-index:1;
           display:none;
           position:absolute;
           h3{
@@ -96,8 +62,7 @@
             width:200px;
             background-color:white;
             .btn{
-              color:black;
-              text-decoration:none;
+              @include btn(black);
             }
           }
         }
@@ -115,18 +80,16 @@
         color:white;
         padding:5px;
         .btn{
-          color:white;
-          text-decoration: none;
+          @include btn(white);
         }
       }
       &--login{
-        color:rgb(24, 172, 235);
-        border:1px solid rgb(24, 172, 235);
+        border:1px solid $light_blue;
         border-radius:5px;
+        color:$light_blue;
         padding:5px;
         .btn{
-          color:rgb(24, 172, 235);
-          text-decoration: none;
+          @include btn($light_blue);
         }
       }
     }
@@ -150,33 +113,29 @@
     &__top{
       height:30px;
       width:100%;
-      text-align:center;
       margin-bottom:30px;
       .btn{
-        color:rgb(24, 172, 235);
-        text-decoration:none;
+        @include btn($light_blue);
       }
     }
     &__items{
       height:330px;
       width:100%;
       &--item{
-        position:relative;
         height:330px;
         width:20%;
         margin:10px;
         display:inline-block;
-        text-align:center;
       }
     }
     &__footer{
-      font-size:15px;
       position:relative;
+      top:10px;
+      font-size:15px;
       float:right;
       .btn{
         font-weight:normal;
-        color:rgb(24, 172, 235);
-        text-decoration:none;  
+        @include btn($light_blue);
       }
     }
   }
@@ -190,76 +149,52 @@
   width:100%;
   display:flex;
   justify-content: center; 
-  background-color:rgb(54, 52, 52);
+  background-color:$gray;
   color:white;
   font-size:10px;
   &__about{
-    margin-top:30px;
-    height:300px;
-    width:15%;
+    @include head;
     h1{
-      font-size:16px;
-      margin:10px 0;
-      font-weight:bold;
+      @include h1;
     }
     h2{
-      font-size:12px;
-      margin-top:10px;
+      @include h2;
     }
     h3{
       display:flex;
+      .icon::after{
+        position:relative;
+        color: white;
+        font-family:'fontawesome';
+        font-size:30px;
+        top:20px;
+      }
+      .icon{
+        margin-right:20px;
+        text-decoration:none;
+      }
       .twitter::after{
-          position:relative;
-          color: white;
-          font-family:'fontawesome';
-          content:'\f099';
-          font-size:30px;
-          top:20px;
-        }
-        .twitter{
-          margin-right:20px;
-          text-decoration:none;
-        }
-        .facebook::after{
-          position:relative;
-          color: white;
-          font-family:'fontawesome';
-          content:'\f082';
-          font-size:30px;
-          top:20px;
-        }
-        .facebook{
-          text-decoration:none;
-        }
-      //   margin-top:10px;
-      //   margin-right:20px;
-      //   font-size:30px;
-      // }
+        content:'\f099';
+      }
+      .facebook::after{
+        content:'\f082';
+      }
     }
   }
   &__help{
-    margin-top:30px;
-    height:300px;
-    width:15%;
+    @include head;
     h1{
-      font-size:16px;
-      margin:10px 0;
-      font-weight:bold;
+      @include h1;
     }
     h2{
-      font-size:12px;
-      margin:10px 0;
+      @include h2;
     }
   }
   &__private{
     margin-left:10px;
-    margin-top:30px;
-    height:300px;
-    width:35%;
+    @include head($width:35%);
     h1{
-      font-size:16px;
-      margin:10px 0;
-      font-weight:bold;
+      @include h1;
     }
     div{
       margin-right:30px;
@@ -272,26 +207,20 @@
   }
   &__country{
     font-size:10px;
-    margin-top:30px;
-    height:300px;
-    width:15%;
+    @include head;
     h1{
-      font-size:16px;
-      margin:10px 0;
-      font-weight:bold;
+      @include h1;
     }
     h2{
-      font-size:12px;
-      margin:10px 0;
+      @include h2;
     }
   }
 }
 .footer{
   position:relative;
   color:white;
-  background-color:rgb(54, 52, 52);
+  background-color:$gray;
   height:50px;
-  width:100%;
   display:flex;
   justify-content: center; 
   h1{
@@ -299,29 +228,25 @@
     left:10%;
     .btn{
       font-size:30px;
-      color:white;
-      text-decoration:none;
+      @include btn(white);
     }
   }
   h2{
     font-size:10px;
     position:absolute;
     bottom:0;
-
   }
 }
 .gotop{
   position:fixed;
   right:2%;
   bottom:30px;
-  z-index:1;
   &__content{
     color:white;
     position:relative;
     text-align:center;
     font-size:20px;
     a{
-      position:relative;
       color:white;
       display:block;
       text-decoration:none;
@@ -336,7 +261,6 @@
     }
     a::after{
       position:relative;
-      color: white;
       font-family:'fontawesome';
       content:'\f030';
       font-size:60px;

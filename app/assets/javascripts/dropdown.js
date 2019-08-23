@@ -6,7 +6,7 @@ $(function () {
     } else {
       // 表示しているメニューを閉じる
       $('span').removeClass('selected');
-      $('ul').hide();
+      $('.dropdown').hide(10);
 
       // メニュー表示
       $(this).addClass('selected').next('ul').slideDown('fast');
@@ -25,7 +25,7 @@ $(function () {
   $('.bottom__left').mouseout(function() {
     if (over_flg == false) {
       $('span').removeClass('selected');
-      $('ul').slideUp('100');
+      $('.dropdown').slideUp(10);
     }
   });
 });

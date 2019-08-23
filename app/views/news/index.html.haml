@@ -9,11 +9,11 @@
         =fa_icon "search",class:"search-icon"
   .header__bottom
     .bottom__left
-      .bottom__left--category
-        =fa_icon "list-ul",class:"category__icon"
+      .bottom__left--type
+        =fa_icon "list-ul",class:"type__icon"
         %span
           カテゴリーから探す
-        %ul
+        %ul{class:"dropdown"}
           %h3
             =link_to"レディース",new_news_path,method: :get,class:"btn"
             <br>
@@ -55,11 +55,11 @@
             <br>
           %h3
             =link_to"カテゴリー一覧",new_news_path,method: :get,class:"btn"
-      .bottom__left--bland
-        =fa_icon "tag",class:"bland__icon"
+      .bottom__left--type
+        =fa_icon "tag",class:"type__icon"
         %span
           ブランドから探す
-        %ul
+        %ul{class:"dropdown"}
           %h3
             =link_to"シャネル",new_news_path,method: :get,class:"btn"
             <br>
@@ -83,12 +83,15 @@
       .bottom__right--login
         =link_to"ログイン",new_news_path,method: :get,class:"btn"
 .slide-top
-  %a{href:"/news/new/"}
-    = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
-  %a{href:"/news/new/"}
-    = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
-  %a{href:"/news/new/"}
-    = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
+  %div
+    %a{href:"/news/new/"}
+      = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
+  %div
+    %a{href:"/news/new/"}
+      = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
+  %div
+    %a{href:"/news/new/"}
+      = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
 .pickup-bigframe
   ピックアップカテゴリー
   = render partial: "frame",locals: {group:"レディース"}
@@ -116,8 +119,8 @@
     %h2
       メルカリロゴ利用ガイドライン<br>
     %h3
-      %a{href:"https://twitter.com/mercari_jp",class:"twitter"}
-      %a{href:"https://www.facebook.com/mercarijp",class:"facebook"}
+      %a{href:"https://twitter.com/mercari_jp",class:"icon twitter"}
+      %a{href:"https://www.facebook.com/mercarijp",class:"icon facebook"}
   .guide__help
     %h1
       ヘルプ＆ガイド<br>
