@@ -31,7 +31,7 @@ Association
 - has_many :items
 - has_many :comments
 - has_many :likes
-- has_many :rates
+- has_many :ratings
 - has_many :news
 - has_many :todos
 - has_many :buyers
@@ -40,19 +40,20 @@ Association
 
 ## itemsテーブル
 
-| Column        | Type       | Option                         |
-| ------------- | ---------- | ------------------------------ |
-| name          | string     | null: false                    |
-| details       | text       | null: false                    |
-| price         | integer    | null: false                    |
-| condition     | string     | null: false                    |
-| shipping_fee  | integer    | null: false                    |
-| ship_out_area | string     | null: false                    |
-| ship_out_date | string     | null: false                    |
-| user_id       | references | null: false, foreign_key: true |
-| brand_id      | references | null: false, foreign_key: true |
-| trade_id      | references | null: false, foreign_key: true |
-|               |            |                                |
+| Column          | Type       | Option                         |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| details         | text       | null: false                    |
+| price           | integer    | null: false                    |
+| condition       | string     | null: false                    |
+| shipping_fee    | integer    | null: false                    |
+| shipping_method | string     | null: false                    |
+| ship_out_area   | string     | null: false                    |
+| ship_out_date   | string     | null: false                    |
+| user_id         | references | null: false, foreign_key: true |
+| brand_id        | references | null: false, foreign_key: true |
+| trade_id        | references | null: false, foreign_key: true |
+|                 |            |                                |
 
 Association
 
@@ -63,6 +64,7 @@ Association
 - has_many :likes
 - has_many :categories, through: item_categories
 - has_one :trade
+- has_many :delivery_methods
 
 ---
 
@@ -77,6 +79,7 @@ Association
 Association
 
 - belongs_to :user
+- has_many :ratings
 
 ---
 
@@ -84,7 +87,6 @@ Association
 
 | Column  | Type       | Option                         |
 | ------- | ---------- | ------------------------------ |
-| comment | text       |                                |
 | item_id | references | null: false, foreign_key: true |
 | user_id | references | null: false, foreign_key: true |
 |         |            |                                |
@@ -93,7 +95,6 @@ Association
 
 - belongs_to :item
 - belongs_to :user
-
 
 ## imagesテーブル
 
@@ -151,17 +152,30 @@ Association
 
 ---
 
+## delivery_methodテーブル
+
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| item_id | references | null: false, foreign_key: true |
+|         |            |                                |
+
+Association
+
+- belongs_to :item
+
 ## tradesテーブル
 
-| Column | Type   | Option |
-| ------ | ------ | ------ |
-| status | string |        |
-|        |        |        |
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| status  | string     |                                |
+| item_id | references | null: false, foreing_key: true |
+|         |            |                                |
 
 Association
 
 - has_many :trade_comments
 - belongs_to :item
+- has_one :rating
 
 ---
 
@@ -194,15 +208,16 @@ Association
 
 ---
 
-## ratesテーブル
+## ratingsテーブル
 
-| Column   | Type       | Option                         |
-| -------- | ---------- | ------------------------------ |
-| status   | string     | null: false                    |
-| trade_id | references | null: false, foreign_key: true |
-| user_id  | references | null: false, foreign_key: true |
-| item_id  | references | null: false, foreign_key: true |
-|          |            |                                |
+| Column        | Type       | Option                         |
+| ------------- | ---------- | ------------------------------ |
+| user_id       | references | null: false, foreign_key: true |
+| buyer_id      | references | null: false, foreign_key: true |
+| seller_rating | string     | null: false                    |
+| buyer_rating  | string     | null: false                    |
+| trade_id      | references | null: false, foreign_key: true |
+|               |            |                                |
 
 Association
 
