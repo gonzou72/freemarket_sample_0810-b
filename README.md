@@ -35,6 +35,8 @@ Association
 - has_many :news
 - has_many :todos
 - has_many :buyers
+- has_many :addresses
+- has_many :credit_cards
 
 ---
 
@@ -249,6 +251,41 @@ Association
 | text    | text       | null: false                    |
 | user_id | references | null: false, foreign_key: true |
 |         |            |                                |
+
+Association
+
+- belongs_to :user
+
+---
+
+## addressテーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| postal_code     | string     | null: false                    |
+| prefecture      | string     | null: false                    |
+| city            | string     | null: false                    |
+| street          | string     | null: false                    |
+| building_name   | string     |                                |
+| phone           | string     |                                |
+| user_id         | references | null: false, foreign_key: true |
+
+Association
+
+- belongs_to :user
+
+---
+
+## credit_cardテーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| card_number     | integer    | null: false                    |
+| valid_month     | integer    | null: false                    |
+| valid_year      | integer    | null: false                    |
+| security_code   | integer    | null: false                    |
+| user_id         | references | null: false, foreign_key: true |
+|                 |            |                                |
 
 Association
 
