@@ -12,16 +12,6 @@
 | last_name_kana  | string  | null: false                            |
 | first_name_kana | string  | null: false                            |
 | birth_day       | date    | null: false                            |
-| postal_code     | string  | null: false                            |
-| prefecture      | string  | null: false                            |
-| city            | string  | null: false                            |
-| street          | string  | null: false                            |
-| building_name   | string  |                                        |
-| phone           | string  |                                        |
-| card_number     | integer | null: false                            |
-| valid_month     | integer | null: false                            |
-| valid_year      | integer | null: false                            |
-| security_code   | integer | null: false                            |
 | profile_picture | string  |                                        |
 | profile_text    | text    |                                        |
 |                 |         |                                        |
