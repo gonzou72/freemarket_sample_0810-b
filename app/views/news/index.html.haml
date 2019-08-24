@@ -1,0 +1,174 @@
+.header
+  .header__top
+    = image_tag '/assets/logo.png',height:"50px",width:"50px;"
+    mercari
+    .header__top--search
+      %input{type:"text",placeholder:"何かお探しですか？",name:"search"}
+    .header__top--submit
+      %button{type:"submit",name:"submit",class:"hidden"}
+        =fa_icon "search",class:"search-icon"
+  .header__bottom
+    .bottom__left
+      .bottom__left--type
+        =fa_icon "list-ul",class:"type__icon"
+        %span
+          カテゴリーから探す
+        %ul{class:"dropdown"}
+          %h3
+            =link_to"レディース",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"メンズ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ベビー・キッズ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"インテリア・住まい・小物",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"本・音楽・ゲーム",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"おもちゃ・ホビー・グッズ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"コスメ・香水・美容",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"家電・スマホ・カメラ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"スポーツ・レジャー",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ハンドメイド",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"チケット",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"自動車・オートバイ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"その他",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"カテゴリー一覧",new_news_path,method: :get,class:"btn"
+      .bottom__left--type
+        =fa_icon "tag",class:"type__icon"
+        %span
+          ブランドから探す
+        %ul{class:"dropdown"}
+          %h3
+            =link_to"シャネル",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ナイキ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ルイ　ヴィトン",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"シュプリーム",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"アディダス",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ブランド一覧",new_news_path,method: :get,class:"btn"
+    .bottom__right
+      .bottom__right--member
+        =link_to"新規会員登録",new_news_path,method: :get,class:"btn"
+      .bottom__right--login
+        =link_to"ログイン",new_news_path,method: :get,class:"btn"
+.slide-top
+  %div
+    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+  %div
+    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+  %div
+    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+.pickup-bigframe
+  ピックアップカテゴリー
+  = render partial: "frame",locals: {group:"レディース"}
+  = render partial: "frame",locals: {group:"メンズ"}
+  = render partial: "frame",locals: {group:"ベビー・キッズ"}
+  = render partial: "frame",locals: {group:"コスメ・香水・美容"}
+.pickup-bigframe
+  ピックアップブランド
+  = render partial: "frame",locals: {group:"シャネル"}
+  = render partial: "frame",locals: {group:"ルイヴィトン"}
+  = render partial: "frame",locals: {group:"シュプリーム"}
+  = render partial: "frame",locals: {group:"ナイキ"}
+.slide-bottom
+  = image_tag '/assets/slide_bottom.png',height:"260px",width:"100%;"
+.guide
+  .guide__about
+    %h1
+      メルカリについて<br>
+    %h2
+      会社概要<br>
+    %h2
+      プレスリリース<br>
+    %h2
+      公式ブログ<br>
+    %h2
+      メルカリロゴ利用ガイドライン<br>
+    %h3
+      =link_to "","https://twitter.com/mercari_jp",class:"icon twitter"
+      =link_to "","https://www.facebook.com/mercarijp",class:"icon facebook"
+  .guide__help
+    %h1
+      ヘルプ＆ガイド<br>
+    %h2
+      らくらくメルカリ便<br>
+    %h2
+      ゆうゆうメルカリ便<br>
+    %h2
+      大型メルカリ便<br>
+    %h2
+      車体取引ガイド<br>
+    %h2
+      メルカリあんしん・あんぜん宣言！<br>
+    %h2
+      偽ブランド品撲滅への取り組み<br>
+    %h2
+      メルカリボックス<br>
+  .guide__private
+    %h1
+      プライバシーと利用規約<br>
+    %div
+      %h2
+        プライバシーポリシー<br>
+      %h2
+        メルカリ利用規約<br>
+      %h2
+        あんしんスマホサポート制度に関<br>する利用規約<br>
+    %div 
+      %h2
+        コンプライアンスポリシー<br>
+      %h2
+        個人データの安全管理に関わる基本<br>方針<br>
+      %h2
+        特定商取引に関する表記<br>
+      %h2 
+        資金決済法に基づく表示<br>
+      %h2
+        法令遵守と犯罪防止のために<br>
+  .guide__country
+    %h1
+      国<br>
+    %h2
+      日本<br>
+    %h2
+      United States<br>
+.footer
+  %h1
+    = image_tag '/assets/logo.png',height:"30px",width:"30px;"
+    =link_to"merucari",new_news_path,method: :get,class:"btn"
+  %h2
+    © 2019 Mercari
+.gotop
+  .gotop__content
+    =link_to content_tag(:span, "出品"),"/news/new/",class:"camera"

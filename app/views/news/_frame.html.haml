@@ -1,0 +1,14 @@
+.smallframe
+  .smallframe__top 
+    =link_to"#{group}新着アイテム",new_news_path,method: :get,class:"btn"
+  .smallframe__items
+    .smallframe__items--item
+      = render partial: "item"
+    .smallframe__items--item
+      = render partial: "item"
+    .smallframe__items--item
+      = render partial: "item"
+    .smallframe__items--item
+      = render partial: "item"
+  .smallframe__footer
+    =link_to"全ての商品をみる",new_news_path,method: :get,class:"btn"
