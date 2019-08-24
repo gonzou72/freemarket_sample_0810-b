@@ -37,7 +37,7 @@ Association
 | name            | string     | null: false                    |
 | details         | text       | null: false                    |
 | price           | integer    | null: false                    |
-| condition       | string     | null: false                    |
+| condition       | integer    | null: false                    |
 | shipping_fee    | integer    | null: false                    |
 | shipping_method | string     | null: false                    |
 | ship_out_area   | string     | null: false                    |
@@ -80,6 +80,7 @@ Association
 
 | Column  | Type       | Option                         |
 | ------- | ---------- | ------------------------------ |
+| comment | string     |                                |
 | item_id | references | null: false, foreign_key: true |
 | user_id | references | null: false, foreign_key: true |
 |         |            |                                |
@@ -147,10 +148,10 @@ Association
 
 ## delivery_methodテーブル
 
-| Column  | Type       | Option                         |
-| ------- | ---------- | ------------------------------ |
-| item_id | references | null: false, foreign_key: true |
-|         |            |                                |
+| Column          | Type       | Option                         |
+| --------------- | ---------- | ------------------------------ |
+| delivery_method | integer    | null: false                    |
+| item_id         | references | null: false, foreign_key: true |
 
 Association
 
@@ -160,7 +161,7 @@ Association
 
 | Column  | Type       | Option                         |
 | ------- | ---------- | ------------------------------ |
-| status  | string     |                                |
+| status  | integer    | null: false                    |
 | item_id | references | null: false, foreing_key: true |
 |         |            |                                |
 
