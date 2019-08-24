@@ -84,14 +84,11 @@
         =link_to"ログイン",new_news_path,method: :get,class:"btn"
 .slide-top
   %div
-    %a{href:"/news/new/"}
-      = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
+    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
   %div
-    %a{href:"/news/new/"}
-      = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
+    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
   %div
-    %a{href:"/news/new/"}
-      = image_tag '/assets/slide_bottom.png',height:"290px",width:"100%;"
+    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
 .pickup-bigframe
   ピックアップカテゴリー
   = render partial: "frame",locals: {group:"レディース"}
