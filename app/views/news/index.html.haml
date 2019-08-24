@@ -1,6 +1,6 @@
 .header
   .header__top
-    = image_tag '/assets/logo.png',height:"50px",width:"50px;"
+    = image_tag '/images/logo.png',height:"50px",width:"50px;"
     mercari
     .header__top--search
       %input{type:"text",placeholder:"何かお探しですか？",name:"search"}
@@ -84,11 +84,11 @@
         =link_to"ログイン",new_news_path,method: :get,class:"btn"
 .slide-top
   %div
-    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
   %div
-    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
   %div
-    =link_to image_tag('/assets/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
 .pickup-bigframe
   ピックアップカテゴリー
   = render partial: "frame",locals: {group:"レディース"}
@@ -102,7 +102,7 @@
   = render partial: "frame",locals: {group:"シュプリーム"}
   = render partial: "frame",locals: {group:"ナイキ"}
 .slide-bottom
-  = image_tag '/assets/slide_bottom.png',height:"260px",width:"100%;"
+  = image_tag '/images/slide_bottom.png',height:"260px",width:"100%;"
 .guide
   .guide__about
     %h1
@@ -165,7 +165,7 @@
       United States<br>
 .footer
   %h1
-    = image_tag '/assets/logo.png',height:"30px",width:"30px;"
+    = image_tag '/images/logo.png',height:"30px",width:"30px;"
     =link_to"merucari",new_news_path,method: :get,class:"btn"
   %h2
     © 2019 Mercari
