@@ -25,7 +25,7 @@ Association
 - has_many :news
 - has_many :todos
 - has_many :buyers
-- has_many :addresses
+- has_one :address
 - has_many :credit_cards
 
 ---
@@ -80,7 +80,7 @@ Association
 
 | Column  | Type       | Option                         |
 | ------- | ---------- | ------------------------------ |
-| comment | string     |                                |
+| comment | text       |                                |
 | item_id | references | null: false, foreign_key: true |
 | user_id | references | null: false, foreign_key: true |
 |         |            |                                |
