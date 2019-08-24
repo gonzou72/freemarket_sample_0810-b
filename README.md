@@ -62,7 +62,7 @@ Association
 - has_many :images
 - has_many :comments
 - has_many :likes
-- has_many :categories, through: item_categories
+- has_many :categories, through: :item_categories
 - has_one :trade
 - has_many :delivery_methods
 
@@ -79,6 +79,7 @@ Association
 Association
 
 - belongs_to :user
+- belongs_to :item
 - has_many :ratings
 
 ---
@@ -148,7 +149,7 @@ Association
 
 Association
 
-- has_many :items, through: item_categories
+- has_many :items, through: :item_categories
 
 ---
 
@@ -222,6 +223,7 @@ Association
 Association
 
 - belongs_to :user
+- belongs_to :buyer
 
 ---
 
