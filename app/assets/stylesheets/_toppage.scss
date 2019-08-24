@@ -258,6 +258,10 @@
         position:relative;
         top:10px;
       }
+      span::after{
+        content: "\A" ;
+        white-space: pre;
+      }
     }
     a::after{
       position:relative;
