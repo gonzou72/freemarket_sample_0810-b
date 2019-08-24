@@ -4,10 +4,10 @@ $(document).ready(function(){
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay:true,
-    autoplaySpeed:300,
+    autoplaySpeed:3000,
     accessibility: true,
     pauseOnFocus: false,
-    pauseOnHover: false,
-    pauseOnDotsHover: false
+    pauseOnHover: true,
+    pauseOnDotsHover: true
   });
 });
