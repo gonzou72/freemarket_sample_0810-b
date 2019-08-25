@@ -57,7 +57,7 @@ Association
 - has_many :categories, through: :item_categories
 - has_one :status
 - has_many :delivery_methods
-- has_many :buyers
+- has_one :buyer
 
 ---
 
