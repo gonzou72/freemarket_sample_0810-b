@@ -44,7 +44,7 @@ Association
 | ship_out_date   | string     | null: false                    |
 | user_id         | references | null: false, foreign_key: true |
 | brand_id        | references | null: false, foreign_key: true |
-| trade_id        | references | null: false, foreign_key: true |
+| status_id       | references | null: false, foreign_key: true |
 |                 |            |                                |
 
 Association
@@ -55,8 +55,9 @@ Association
 - has_many :comments
 - has_many :likes
 - has_many :categories, through: :item_categories
-- has_one :trade
+- has_one :status
 - has_many :delivery_methods
+- has_many :buyers
 
 ---
 
@@ -157,7 +158,7 @@ Association
 
 - belongs_to :item
 
-## tradesテーブル
+## statusテーブル
 
 | Column  | Type       | Option                         |
 | ------- | ---------- | ------------------------------ |
@@ -167,23 +168,23 @@ Association
 
 Association
 
-- has_many :trade_comments
+- has_many :status_comments
 - belongs_to :item
 - has_one :rating
 
 ---
 
-## trade_commentsテーブル
+## status_commentsテーブル
 
-| Column   | Type       | Option                         |
-| -------- | ---------- | ------------------------------ |
-| comment  | text       |                                |
-| trade_id | references | null: false, foreign_key: true |
-|          |            |                                |
+| Column    | Type       | Option                         |
+| --------- | ---------- | ------------------------------ |
+| comment   | text       |                                |
+| status_id | references | null: false, foreign_key: true |
+|           |            |                                |
 
 Association
 
-- belongs_to :trade
+- belongs_to :status
 
 ---
 
@@ -210,14 +211,14 @@ Association
 | buyer_id      | references | null: false, foreign_key: true |
 | seller_rating | string     | null: false                    |
 | buyer_rating  | string     | null: false                    |
-| trade_id      | references | null: false, foreign_key: true |
+| status_id      | references | null: false, foreign_key: true |
 |               |            |                                |
 
 Association
 
 - belongs_to :user
 - belongs_to :buyer
-- has_one :trade
+- has_one :status
 
 ---
 
@@ -267,7 +268,7 @@ Association
 
 ---
 
-## credit_cardテーブル
+## credit_cardsテーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
