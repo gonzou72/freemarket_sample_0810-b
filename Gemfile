@@ -43,6 +43,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -66,3 +68,4 @@ gem "devise"
 gem "font-awesome-rails"
 gem "jquery-rails"
 gem "jquery-slick-rails"
+gem 'erb2haml'
