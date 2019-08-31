@@ -37,6 +37,7 @@ Association
 | name            | string     | null: false                    |
 | details         | text       | null: false                    |
 | price           | integer    | null: false                    |
+| size            | integer    |                                |
 | condition       | integer    | null: false                    |
 | shipping_fee    | integer    | null: false                    |
 | shipping_method | string     | null: false                    |
