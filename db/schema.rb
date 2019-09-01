@@ -20,7 +20,16 @@ ActiveRecord::Schema.define(version: 20190901150603) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image",      null: false
+    t.string   "image1",     null: false
+    t.string   "image2",     null: false
+    t.string   "image3",     null: false
+    t.string   "image4",     null: false
+    t.string   "image5",     null: false
+    t.string   "image6",     null: false
+    t.string   "image7",     null: false
+    t.string   "image8",     null: false
+    t.string   "image9",     null: false
+    t.string   "image10",    null: false
     t.integer  "item_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
