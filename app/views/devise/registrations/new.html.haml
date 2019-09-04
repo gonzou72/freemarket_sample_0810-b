@@ -1,4 +1,96 @@
-%h2 Sign up
+.registration
+  .header
+    = image_tag '/images/logo-main.png',height:"49px",width:"185px;"
+  .main
+    .head-registration
+      会員情報入力
+    .inner-registration
+      .inner-registration__contents
+        .inner-registration__contents--title
+          ニックネーム
+        .inner-registration__contents--require
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"例）メルカリ太郎",name:"content"}
+        .inner-registration__contents--title
+          メールアドレス
+        .inner-registration__contents--require
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"PC・携帯どちらでも可",name:"content"}
+        .inner-registration__contents--title
+          パスワード
+        .inner-registration__contents--require
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"7文字以上",name:"content"}
+        .inner-registration__contents--title
+          パスワード（確認）
+        .inner-registration__contents--require
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"7文字以上",name:"content"}
+        .inner-registration__contents--title
+          本人確認
+        .inner-registration__contents--text
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .inner-registration__contents--title
+          お名前（全角）
+        .inner-registration__contents--require
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"例）山田",name:"content"}
+          %input{type:"text", placeholder:"例）彩",name:"content"}
+        .inner-registration__contents--title
+          お名前カナ（全角）
+        .inner-registration__contents--require
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"例）ヤマダ",name:"content"}
+          %input{type:"text", placeholder:"例）アヤ",name:"content"}
+        .inner-registration__contents--title
+          生年月日
+        .inner-registration__contents--require
+          必須
+        .inner-registration__contents--input
+          %form{action: "#", method: "GET"}
+          %select{name: "content"}
+            %option{value: ""} ---
+            %option{value: "2019"} 2019
+          年
+          %form{action: "#", method: "GET"}
+          %select{name: "content"}
+            %option{value: ""} ---
+            %option{value: "1"} 1
+          月
+          %form{action: "#", method: "GET"}
+          %select{name: "content"}
+            %option{value: ""} ---
+            %option{value: "1"} 1
+          日
+        .inner-registration__contents--attentions
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .inner-registration__contents--attentions-confirm
+          「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+        .inner-registration__contents--attentions-btn
+          次へ進む
+        .inner-registration__contents--attentions-guide
+          本人情報の登録について
+  .footer
+    .guide-contents
+      .guide-contents__policy
+        プライバシーポリシー
+      .guide-ontents__terms
+        メルカリ利用規約
+      .guide-contents__notation
+        特定商取引に関する表記
+    .footer-logo
+      =link_to image_tag('/images/logo-grey.png',height:"65px",width:"80px"),"/news"
+    .footer-content
+      © 2019 Mercari
+  
+  
+  %h2 Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
