@@ -1256,10 +1256,10 @@
         また、出品をもちまして加盟店規約に同意したことになります。
     .item__register--exhibit
       .exhibit__btn
-        出品する
+        =link_to"出品する",news_index_path,method: :get,class:"btn"
     .item__register--return
       .return__btn
-        もどる
+        =link_to"もどる",news_index_path,method: :get,class:"btn"
   .item__guide
     .item__guide--type
       プライバシーポリシー

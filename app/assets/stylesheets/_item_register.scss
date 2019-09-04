@@ -315,6 +315,10 @@
       .exhibit__btn{
         color:white;
         background-color:rgb(245, 75, 75);
+        .btn{
+          color:white;
+          text-decoration:none;
+        }
       }
     }
     &--return{
@@ -327,6 +331,10 @@
       .return__btn{
         color:white;
         background-color:rgb(210, 210, 210);
+        .btn{
+          color:white;
+          text-decoration:none;
+        }
       }
     }
   }
