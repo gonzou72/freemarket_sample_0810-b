@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20190905162816) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-<<<<<<< Updated upstream
+
     t.string   "name",                                        null: false
     t.text     "details",         limit: 65535,               null: false
     t.integer  "price",                                       null: false
@@ -59,24 +59,8 @@ ActiveRecord::Schema.define(version: 20190905162816) do
     t.string   "category_2",                    default: "0", null: false
     t.string   "category_3"
     t.string   "brand"
-=======
-    t.string   "name",                          null: false
-    t.text     "details",         limit: 65535, null: false
-    t.integer  "price",                         null: false
-    t.integer  "size",                          null: false
-    t.integer  "condition",                     null: false
-    t.integer  "shipping_fee",                  null: false
-    t.string   "shipping_method",               null: false
-    t.string   "ship_out_area",                 null: false
-    t.string   "ship_out_date",                 null: false
-    t.integer  "user_id",                       null: false
-    t.integer  "status_id",                     null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "category_1"
-    t.string   "category_2"
-    t.string   "category_3"
->>>>>>> Stashed changes
+
+
     t.index ["status_id"], name: "index_items_on_status_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
