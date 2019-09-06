@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190901150603) do
+ActiveRecord::Schema.define(version: 20190906092852) do
 
-  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_brands_on_name", using: :btree
+    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -41,17 +42,16 @@ ActiveRecord::Schema.define(version: 20190901150603) do
     t.text     "details",         limit: 65535, null: false
     t.integer  "price",                         null: false
     t.integer  "size",                          null: false
+    t.string   "brand"
     t.integer  "condition",                     null: false
     t.integer  "shipping_fee",                  null: false
     t.string   "shipping_method",               null: false
     t.string   "ship_out_area",                 null: false
     t.string   "ship_out_date",                 null: false
     t.integer  "user_id",                       null: false
-    t.integer  "brand_id",                      null: false
-    t.integer  "status_id",                     null: false
+    t.integer  "status_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["status_id"], name: "index_items_on_status_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(version: 20190901150603) do
     t.integer  "status",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "item_id"
-    t.index ["item_id"], name: "index_statuses_on_item_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -85,8 +83,6 @@ ActiveRecord::Schema.define(version: 20190901150603) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "items", "brands"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
-  add_foreign_key "statuses", "items"
 end

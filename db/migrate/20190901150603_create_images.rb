@@ -12,7 +12,6 @@ class CreateImages < ActiveRecord::Migration[5.0]
       t.string     :image9 , null: false
       t.string     :image10, null: false
       t.references :item,    null: false, foreigen_key: true
-
       t.timestamps         null: false
     end
   end
