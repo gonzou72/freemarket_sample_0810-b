@@ -1,6 +1,6 @@
 $(function () {
   $(".side_cost").change(function() { 
-    var val =$('input[name=cost]').val();
+    var val =$('#sum').val();
     if(val>=300){
     var fee=val*0.1
     var benefit=val-fee

@@ -90,7 +90,7 @@
         }
         &--content{
           margin-top:10px;
-          input{
+          .name{
             padding-left:15px;
             height:40px;
             width:100%;
@@ -316,7 +316,6 @@
         color:white;
         background-color:rgb(245, 75, 75);
         .btn{
-          color:white;
           text-decoration:none;
         }
       }
