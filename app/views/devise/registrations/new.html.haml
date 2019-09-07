@@ -3,16 +3,7 @@
     .header__logo
     = image_tag '/images/logo-main.png',height:"49px",width:"185px;"
     .header__progress-bar
-      .header__progress-bar--active
-      会員情報
-      .progress-status
-      電話番号認証
-      .progress-status
-      お届け先住所入力
-      .progress-status
-      支払い方法
-      .progress-status
-      完了
+    = image_tag '/images/progress-bar.png',height:"50px",width:"500px;"
 
   .main
     .head-registration
@@ -51,14 +42,15 @@
           お名前（全角）
         .inner-registration__contents--require.side
           必須
-        .inner-registration__contents--input
+        .inner-registration__contents--input.half
           %input{type:"text", placeholder:"例）山田",name:"content"}
+        .inner-registration__contents--input.half
           %input{type:"text", placeholder:"例）彩",name:"content"}
         .inner-registration__contents--title.side
           お名前カナ（全角）
         .inner-registration__contents--require.side
           必須
-        .inner-registration__contents--input
+        .inner-registration__contents--input.half
           %input{type:"text", placeholder:"例）ヤマダ",name:"content"}
           %input{type:"text", placeholder:"例）アヤ",name:"content"}
         .inner-registration__contents--title.side
@@ -91,12 +83,15 @@
           次へ進む
         .inner-registration__contents--attentions-guide
           本人情報の登録について
-  .footer
-    .footer__guide
-      %h5 プライバシーポリシー
-      %h5 メルカリ利用規約
-      %h5 特定商取引に関する表記
-    .footer__logo
-      =link_to image_tag('/images/logo-grey.png',height:"65px",width:"80px"),"/news"
-    .footer__copyright
+  .footer-user
+    .footer-user__guide
+      .footer-user__guide--privacy
+      プライバシーポリシー  
+      .footer-user__guide--terms
+      メルカリ利用規約  
+      .footer-user__guide--notification
+      特定商取引に関する表記
+    .footer-user__logo
+      =link_to image_tag('/images/logo-grey.png',height:"70px",width:"80px"),"/news"
+    .footer-user__copyright
       © 2019 Mercari
