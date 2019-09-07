@@ -1,6 +1,19 @@
-.registration
+.account-page
   .header
+    .header__logo
     = image_tag '/images/logo-main.png',height:"49px",width:"185px;"
+    .header__progress-bar
+      .header__progress-bar--active
+      会員情報
+      .progress-status
+      電話番号認証
+      .progress-status
+      お届け先住所入力
+      .progress-status
+      支払い方法
+      .progress-status
+      完了
+
   .main
     .head-registration
       会員情報入力
@@ -30,7 +43,7 @@
           必須
         .inner-registration__contents--input
           %input{type:"text", placeholder:"7文字以上",name:"content"}
-        .inner-registration__contents--title
+        .inner-registration__contents--identification
           本人確認
         .inner-registration__contents--text
           安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -70,23 +83,20 @@
           日
         .inner-registration__contents--attentions
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-        .inner-registration__contents--attentions-confirm
+        .inner-registration__contents--text
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-        .inner-registration__contents--attentions-btn
+        .inner-registration__contents--next-btn
           次へ進む
         .inner-registration__contents--attentions-guide
           本人情報の登録について
   .footer
-    .guide-contents
-      .guide-contents__policy
-        プライバシーポリシー
-      .guide-ontents__terms
-        メルカリ利用規約
-      .guide-contents__notation
-        特定商取引に関する表記
+    .footer-guide
+      %h5 プライバシーポリシー
+      %h5 メルカリ利用規約
+      %h5 特定商取引に関する表記
     .footer-logo
       =link_to image_tag('/images/logo-grey.png',height:"65px",width:"80px"),"/news"
-    .footer-content
+    .footer-copyright
       © 2019 Mercari
   
   
