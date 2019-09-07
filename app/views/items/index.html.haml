@@ -1,11 +1,11 @@
 = render partial: "header"
 .slide-top
   %div
-    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/items/new/"
   %div
-    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/items/new/"
   %div
-    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/items/new/"
 .pickup-bigframe
   ピックアップカテゴリー
   = render partial: "frame",locals: {group:"レディース"}
@@ -83,9 +83,9 @@
 .footer
   %h1
     = image_tag '/images/logo.png',height:"30px",width:"30px;"
-    =link_to"merucari",new_news_path,method: :get,class:"btn"
+    =link_to"merucari",new_item_path,method: :get,class:"btn"
   %h2
     © 2019 Mercari
 .gotop
   .gotop__content
-    =link_to content_tag(:span, "出品"),"/news/new/",class:"camera"
+    =link_to content_tag(:span, "出品"),"/items/new/",class:"camera"
