@@ -57,17 +57,19 @@
           生年月日
         .inner-registration__contents--require.side
           必須
-        .inner-registration__contents--input
+        .inner-registration__contents--select
           %form{action: "#", method: "GET"}
           %select{name: "content"}
             %option{value: ""} ---
             %option{value: "2019"} 2019
           年
+        .inner-registration__contents--select
           %form{action: "#", method: "GET"}
           %select{name: "content"}
             %option{value: ""} ---
             %option{value: "1"} 1
           月
+        .inner-registration__contents--select
           %form{action: "#", method: "GET"}
           %select{name: "content"}
             %option{value: ""} ---
