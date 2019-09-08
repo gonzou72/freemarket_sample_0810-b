@@ -136,11 +136,11 @@ Association
 
 ## categoriesテーブル
 
-| Column    | Type       | Option                         |
-| --------- | ---------- | ------------------------------ |
-| name      | string     |                                |
-| parent_id | references | null: false, foreign_key: true |
-|           |            |                                |
+| Column   | Type   | Option      |
+| -------- | ------ | ----------- |
+| name     | string |             |
+| ancestry | string | index: true |
+|          |        |             |
 
 Association
 
