@@ -4,7 +4,6 @@
     = image_tag '/images/logo-main.png',height:"49px",width:"185px;"
     .header__progress-bar
     = image_tag '/images/progress-bar.png',height:"50px",width:"500px;"
-
   .main
     .head-registration
       会員情報入力
@@ -57,23 +56,24 @@
         .inner-registration__contents--require.side
           必須
         .inner-registration__contents--select
-          %form{action: "#", method: "GET"}
-          %select{name: "content"}
-            %option{value: ""} ---
-            %option{value: "2019"} 2019
-          年
-        .inner-registration__contents--select
-          %form{action: "#", method: "GET"}
-          %select{name: "content"}
-            %option{value: ""} ---
-            %option{value: "1"} 1
-          月
-        .inner-registration__contents--select
-          %form{action: "#", method: "GET"}
-          %select{name: "content"}
-            %option{value: ""} ---
-            %option{value: "1"} 1
-          日
+          .inner-registration__contents--select-year
+            %form{action: "#", method: "GET"}
+            %select{name: "content"}
+              %option{value: ""} ---
+              %option{value: "2019"} 2019
+            年
+          .inner-registration__contents--select-month
+            %form{action: "#", method: "GET"}
+            %select{name: "content"}
+              %option{value: ""} ---
+              %option{value: "1"} 1
+            月
+          .inner-registration__contents--select-day
+            %form{action: "#", method: "GET"}
+            %select{name: "content"}
+              %option{value: ""} ---
+              %option{value: "1"} 1
+            日
         .inner-registration__contents--attentions
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .hinner-registration__contents--authentication
