@@ -37,6 +37,7 @@ Association
 | name            | string     | null: false                    |
 | details         | text       | null: false                    |
 | price           | integer    | null: false                    |
+| size            | integer    |                                |
 | condition       | integer    | null: false                    |
 | shipping_fee    | integer    | null: false                    |
 | shipping_method | string     | null: false                    |
@@ -135,11 +136,11 @@ Association
 
 ## categoriesテーブル
 
-| Column    | Type       | Option                         |
-| --------- | ---------- | ------------------------------ |
-| name      | string     |                                |
-| parent_id | references | null: false, foreign_key: true |
-|           |            |                                |
+| Column   | Type   | Option      |
+| -------- | ------ | ----------- |
+| name     | string |             |
+| ancestry | string | index: true |
+|          |        |             |
 
 Association
 
