@@ -50,6 +50,9 @@
           vertical-align: top;
           margin: 0 0 0 8px;
         }
+        &--input {
+          display: flex;
+        }
         input {
           height: 30px;
           width:100%;
@@ -60,8 +63,7 @@
           margin: 8px 0 28px 0;
         }
         input.input-default-half {
-          width: calc(50% - 6px);
-          display:inline-block;
+          margin-left: 10px;
         }
         &--identification {
           font-weight: 600;
@@ -71,15 +73,14 @@
           margin: 8px 0 32px 0;
         }
         &--select {
-
-          select {
-            height: 48px;
-            width:20%;
-            display:inline-block;
-            border: 1px solid #ccc;
-            background: 0;
-            font-size: 16px;
-          }
+          display: flex;
+        }
+        select {
+          height: 48px;
+          width:20%;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
         }
         &--attentions {
           color: lightslategrey;
