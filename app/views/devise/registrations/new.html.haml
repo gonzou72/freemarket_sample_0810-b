@@ -1,45 +1,98 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname, autofocus: true
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
-  .field
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name
-  .field
-    = f.label :last_name_kana
-    %br/
-    = f.text_field :last_name_kana
-  .field
-    = f.label :first_name_kana
-    %br/
-    = f.text_field :first_name_kana
-  .field
-    = f.label :birth_day
-    %br/
-    = raw sprintf(f.date_select(:birth_day, use_month_numbers: true, start_year: 1900, end_year: (Time.now.year), prompt: "--", date_separator: '%s'),"年 \n", '月 ') + '日'
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.account-page
+  .header
+    .header__logo
+    = image_tag '/images/logo-main.png',height:"49px",width:"185px;"
+    .header__progress-bar
+    = image_tag '/images/progress-bar.png',height:"50px",width:"500px;"
+  .main
+    .head-registration
+      会員情報入力
+    .inner-registration
+      .inner-registration__contents
+        .inner-registration__contents--title.side
+          ニックネーム
+        .inner-registration__contents--require.side
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"例）メルカリ太郎",name:"content"}
+        .inner-registration__contents--title.side
+          メールアドレス
+        .inner-registration__contents--require.side
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"PC・携帯どちらでも可",name:"content"}
+        .inner-registration__contents--title.side
+          パスワード
+        .inner-registration__contents--require.side
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"7文字以上",name:"content"}
+        .inner-registration__contents--title.side
+          パスワード（確認）
+        .inner-registration__contents--require.side
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"7文字以上",name:"content"}
+        .inner-registration__contents--identification
+          本人確認
+        .inner-registration__contents--text
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .inner-registration__contents--title.side
+          お名前（全角）
+        .inner-registration__contents--require.side
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"例）山田",name:"content", class: "input-default-half"}
+          %input{type:"text", placeholder:"例）彩",name:"content", class: "input-default-half"}
+        .inner-registration__contents--title.side
+          お名前カナ（全角）
+        .inner-registration__contents--require.side
+          必須
+        .inner-registration__contents--input
+          %input{type:"text", placeholder:"例）ヤマダ",name:"content", class: "input-default-half"}
+          %input{type:"text", placeholder:"例）アヤ",name:"content", class: "input-default-half"}
+        .inner-registration__contents--title.side
+          生年月日
+        .inner-registration__contents--require.side
+          必須
+        .inner-registration__contents--select
+          .inner-registration__contents--select-year
+            %form{action: "#", method: "GET"}
+            %select{name: "content"}
+              %option{value: ""} ---
+              %option{value: "2019"} 2019
+            年
+          .inner-registration__contents--select-month
+            %form{action: "#", method: "GET"}
+            %select{name: "content"}
+              %option{value: ""} ---
+              %option{value: "1"} 1
+            月
+          .inner-registration__contents--select-day
+            %form{action: "#", method: "GET"}
+            %select{name: "content"}
+              %option{value: ""} ---
+              %option{value: "1"} 1
+            日
+        .inner-registration__contents--attentions
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .hinner-registration__contents--authentication
+        = image_tag '/images/reCAPTCHA.png',height:"80px",width:"320px;"
+        .inner-registration__contents--agreement
+          「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+        .inner-registration__contents--next-btn
+          次へ進む
+        .inner-registration__contents--attentions-guide
+          本人情報の登録について
+  .footer-user
+    .footer-user__guide
+      .footer-user__guide--privacy
+      プライバシーポリシー  
+      .footer-user__guide--terms
+      メルカリ利用規約  
+      .footer-user__guide--notification
+      特定商取引に関する表記
+    .footer-user__logo
+      =link_to image_tag('/images/logo-grey.png',height:"70px",width:"80px"),"/news"
+    .footer-user__copyright
+      © 2019 Mercari
