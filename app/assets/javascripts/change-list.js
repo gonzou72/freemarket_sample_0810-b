@@ -17,7 +17,7 @@ $(function(){
 
   $('.histories-title li').on('click',function(){
     var index = $('.histories-title li').index(this);
-    console.log(index)
+    
     if (index == 0 ){
       $('.histories-past-trading').addClass('hidden');
       $('.histories-title__past-trading').removeClass('active');
