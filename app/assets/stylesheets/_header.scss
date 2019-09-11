@@ -187,11 +187,11 @@
             height: 80px;
             margin: 0 10px;
             li{
-              background-color: lighten($color: gray, $amount: 30%);
+              background-color: whitesmoke;
               height: 40px;
               line-height: 40px;
               padding: 0 5px;
-              border: 1px solid gray;
+              border: 1px solid lightgray;
               .status__name{
                 float:left;
                 width: 100px;

@@ -1,0 +1,9 @@
+=link_to new_news_path, method: :get, class:"btn" do
+  %li.histories-content
+    =image_tag('/images/logo.png', height:"48px", width:"48px", class: "histories-content__icon")
+    .histories-text
+      %p.histories-text__title
+        取引中のテキストを入れる場所。
+      %p.histories-text__status-icon
+        取引状態
+    =fa_icon "angle-right",class:"histories-content__angle-icon"

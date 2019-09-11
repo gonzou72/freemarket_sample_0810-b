@@ -1,0 +1,98 @@
+.navigation-bar
+  %ul.navigation-menu
+    =link_to mypages_path, method: :get, class:"btn" do
+      %li
+        %p マイページ
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p お知らせ
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p やることリスト
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p いいね！一覧
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p 出品する
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p 出品した商品 - 出品中
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p 出品した商品 - 取引中
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p 出品した商品 - 売却済み
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p 購入した商品 - 取引中
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p 購入した商品 - 過去の取引
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p ニュース一覧
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p 評価一覧
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p ガイド
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p お問い合わせ
+        =fa_icon "angle-right",class:"type__icon"
+  %ul.navigation-merpay
+    %h2.navigation-merpay__title メルペイ
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p 売上・振込申請
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p ポイント
+        =fa_icon "angle-right",class:"type__icon"
+  %ul.navigation-edit
+    %h2.navigation-edit__title 設定
+    =link_to root_path, method: :get, class:"btn" do
+      %li
+        %p プロフィール
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li.edit-profile
+        %p.status__name 発送元・お届け先住所変更
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li.edit-profile
+        %p.status__name 支払い方法
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li.edit-profile
+        %p.status__name メール/パスワード
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li.edit-profile
+        %p.status__name 本人情報
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to root_path, method: :get, class:"btn" do
+      %li.edit-profile
+        %p.status__name 電話番号の確認
+        =fa_icon "angle-right",class:"type__icon"
+    =link_to destroy_user_session_path, method: :delete, class:"btn" do
+      %li.edit-profile
+        %p.status__name ログアウト
+        =fa_icon "angle-right",class:"type__icon"

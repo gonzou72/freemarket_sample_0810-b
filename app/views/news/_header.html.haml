@@ -80,9 +80,9 @@
     .bottom__right
       - unless user_signed_in?
         .bottom__right--member 
-          =link_to"新規会員登録",new_news_path,method: :get,class:"btn"
+          =link_to"新規会員登録",new_user_registration_path,method: :get,class:"btn"
         .bottom__right--login
-          =link_to"ログイン",new_news_path,method: :get,class:"btn"
+          =link_to"ログイン",new_user_session_path,method: :get,class:"btn"
       - if user_signed_in?
         .bottom__right--news
           %span
@@ -126,7 +126,7 @@
                   %p 日時を入れる予定場所
         .bottom__right--mypage
           %span
-            =link_to content_tag(:p, fa_icon("user-circle-o type__icon")+" マイページ"), new_news_path, method: :get, class:"btn droplist"
+            =link_to content_tag(:p, fa_icon("user-circle-o type__icon")+" マイページ"), mypages_path, method: :get, class:"btn droplist"
           %ul{class:"dropdown mypagelist"}
             %ul.mypagelist__header.btn
               =image_tag('/images/logo.png',height:"60px",width:"60px", class: "img__myicon")
