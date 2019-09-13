@@ -8,82 +8,66 @@
     .head-registration
       会員情報入力
     .inner-registration
-      .inner-registration__contents
-        .inner-registration__contents--title.side
-          ニックネーム
-        .inner-registration__contents--require.side
-          必須
-        .inner-registration__contents--input
-          %input{type:"text", placeholder:"例）メルカリ太郎",name:"content"}
-        .inner-registration__contents--title.side
-          メールアドレス
-        .inner-registration__contents--require.side
-          必須
-        .inner-registration__contents--input
-          %input{type:"text", placeholder:"PC・携帯どちらでも可",name:"content"}
-        .inner-registration__contents--title.side
-          パスワード
-        .inner-registration__contents--require.side
-          必須
-        .inner-registration__contents--input
-          %input{type:"text", placeholder:"7文字以上",name:"content"}
-        .inner-registration__contents--title.side
-          パスワード（確認）
-        .inner-registration__contents--require.side
-          必須
-        .inner-registration__contents--input
-          %input{type:"text", placeholder:"7文字以上",name:"content"}
-        .inner-registration__contents--identification
-          本人確認
-        .inner-registration__contents--text
-          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-        .inner-registration__contents--title.side
-          お名前（全角）
-        .inner-registration__contents--require.side
-          必須
-        .inner-registration__contents--input
-          %input{type:"text", placeholder:"例）山田",name:"content", class: "input-default-half"}
-          %input{type:"text", placeholder:"例）彩",name:"content", class: "input-default-half"}
-        .inner-registration__contents--title.side
-          お名前カナ（全角）
-        .inner-registration__contents--require.side
-          必須
-        .inner-registration__contents--input
-          %input{type:"text", placeholder:"例）ヤマダ",name:"content", class: "input-default-half"}
-          %input{type:"text", placeholder:"例）アヤ",name:"content", class: "input-default-half"}
-        .inner-registration__contents--title.side
-          生年月日
-        .inner-registration__contents--require.side
-          必須
-        .inner-registration__contents--select
-          .inner-registration__contents--select-year
-            %form{action: "#", method: "GET"}
-            %select{name: "content"}
-              %option{value: ""} ---
-              %option{value: "2019"} 2019
-            年
-          .inner-registration__contents--select-month
-            %form{action: "#", method: "GET"}
-            %select{name: "content"}
-              %option{value: ""} ---
-              %option{value: "1"} 1
-            月
-          .inner-registration__contents--select-day
-            %form{action: "#", method: "GET"}
-            %select{name: "content"}
-              %option{value: ""} ---
-              %option{value: "1"} 1
-            日
-        .inner-registration__contents--attentions
-          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-        .hinner-registration__contents--authentication
-        = image_tag '/images/reCAPTCHA.png',height:"80px",width:"320px;"
-        .inner-registration__contents--agreement
-          「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-        .inner-registration__contents--next-btn
-          次へ進む
-        .inner-registration__contents--attentions-guide
-          本人情報の登録について
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        .inner-registration__contents
+          .inner-registration__contents--title.side
+            ニックネーム
+          .inner-registration__contents--require.side
+            必須
+          .inner-registration__contents--input
+            = f.text_field :nickname, placeholder:"例）メルカリ太郎", class: "input-form"
+          .inner-registration__contents--title.side
+            メールアドレス
+          .inner-registration__contents--require.side
+            必須
+          .inner-registration__contents--input
+            = f.email_field :email, autocomplete: "email", placeholder:"PC・携帯どちらでも可", class: "input-form"
+          .inner-registration__contents--title.side
+            パスワード
+          .inner-registration__contents--require.side
+            必須
+          .inner-registration__contents--input
+            = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上", class: "input-form"
+          .inner-registration__contents--title.side
+            パスワード（確認）
+          .inner-registration__contents--require.side
+            必須
+          .inner-registration__contents--input
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"7文字以上", class: "input-form"
+          .inner-registration__contents--identification
+            本人確認
+          .inner-registration__contents--text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .inner-registration__contents--title.side
+            お名前（全角）
+          .inner-registration__contents--require.side
+            必須
+          .inner-registration__contents--input
+            = f.text_field :last_name, placeholder:"例）山田", class: "input-default-half input-form"
+            = f.text_field :first_name, placeholder:"例）彩", class: "input-default-half input-form"
+          .inner-registration__contents--title.side
+            お名前カナ（全角）
+          .inner-registration__contents--require.side
+            必須
+          .inner-registration__contents--input
+            = f.text_field :last_name_kana, placeholder:"例）ヤマダ", class: "input-default-half input-form"
+            = f.text_field :first_name_kana, placeholder:"例）アヤ", class: "input-default-half input-form"
+          .inner-registration__contents--title.side
+            生年月日
+          .inner-registration__contents--require.side
+            必須
+          .inner-registration__contents--select
+            = raw sprintf(f.date_select(:birth_day, use_month_numbers: true, start_year: 1900, end_year: (Time.now.year), prompt: "--", date_separator: '%s'),"年 \n", '月 ')
+            %p 日
+          .inner-registration__contents--attentions
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .hinner-registration__contents--authentication
+          = image_tag '/images/reCAPTCHA.png',height:"80px",width:"320px;"
+          .inner-registration__contents--agreement
+            「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+          = f.submit "次へ進む", class: "inner-registration__contents--next-btn"
+          .inner-registration__contents--attentions-guide
+            本人情報の登録について
   .footer-user
     .footer-user__guide
       .footer-user__guide--privacy
