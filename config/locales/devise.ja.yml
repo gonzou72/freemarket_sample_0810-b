@@ -63,7 +63,7 @@ ja:
       too_short: "は%{count}文字以上に設定して下さい。"
       too_long: "は%{count}文字以下に設定して下さい。"
       invalid: "は有効でありません。"
-      confirmation: "が内容とあっていません。"
+      confirmation: "が異なります。"
   date:
     month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
     order:
