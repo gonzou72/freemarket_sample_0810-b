@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20190906092852) do
     t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -39,19 +38,21 @@ ActiveRecord::Schema.define(version: 20190906092852) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "detail",          limit: 65535
+    t.text     "detail",            limit: 65535
     t.integer  "price"
     t.integer  "size"
     t.string   "brand"
-    t.integer  "condition"
-    t.integer  "shipping_fee"
+    t.string   "condition"
+    t.string   "shipping_fee"
     t.string   "shipping_method"
     t.string   "ship_out_area"
     t.string   "ship_out_date"
+    t.string   "category_id"
+    t.string   "category_ancestry"
     t.integer  "user_id"
     t.integer  "status_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["status_id"], name: "index_items_on_status_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
