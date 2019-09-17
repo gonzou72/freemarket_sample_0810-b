@@ -60,3 +60,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  def profile_update
+    current_user.assign_attributes(account_update_params)
+    if current_user.save
+	    redirect_to profile_mypages_path, notice: 'プロフィールを更新しました'
+    else
+      render 'mypages/profile' 
+    end
+  end
+  
+  protected
+  
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:profile_text, :nickname])
+  end
+end
