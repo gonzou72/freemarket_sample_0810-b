@@ -1,41 +1,30 @@
 $(function () {
-  function append(child){
+  function append(){
     var append = `<select id="hidden_one" name="item[category_id]">
                     <option value="">---</option>
-                    <option value="1">${child.id}</option>
-                    <option value="2">メンズ</option>
-                    <option value="3">ベビー・キッズ</option>
-                    <option value="4">インテリア・住まい・小物</option>
-                    <option value="5">本・音楽・ゲーム</option>
-                    <option value="6">おもちゃ・ホビー・グッズ</option>
-                    <option value="7">コスメ・香水・美容</option>
-                    <option value="8">家電・スマホ・カメラ</option>
-                    <option value="9">スポーツ・レジャー</option>
-                    <option value="10">ハンドメイド</option>
-                    <option value="11">チケット</option>
-                    <option value="12">自動車・オートバイ</option>
-                    <option value="13">その他</option></select>
-                  </select>`
+                  </select>
+                `
     $("#append").append(append);
   }
-  function append_two(child_two){
-    var append = `<select id="hidden_two" name="item[category_id]">
+  function choice(child){
+    for (var i=1; i<child.length; i++){
+      var choice = `<option value="${child[i].id}">${child[i].name}</option>
+                    `
+      $("#hidden_one").append(choice);
+    }
+  }
+  function append_two(){
+    var append_two = `<select id="hidden_two" name="item[category_id]">
                     <option value="">---</option>
-                    <option value="1">${child_two.id}</option>
-                    <option value="2">メンズ</option>
-                    <option value="3">ベビー・キッズ</option>
-                    <option value="4">インテリア・住まい・小物</option>
-                    <option value="5">本・音楽・ゲーム</option>
-                    <option value="6">おもちゃ・ホビー・グッズ</option>
-                    <option value="7">コスメ・香水・美容</option>
-                    <option value="8">家電・スマホ・カメラ</option>
-                    <option value="9">スポーツ・レジャー</option>
-                    <option value="10">ハンドメイド</option>
-                    <option value="11">チケット</option>
-                    <option value="12">自動車・オートバイ</option>
-                    <option value="13">その他</option></select>
                   </select>`
-    $("#append_two").append(append);
+    $("#append_two").append(append_two);
+  }
+  function choice_two(child){
+    for (var i=1; i<child.length; i++){
+      var choice = `<option value="${child[i].id}">${child[i].name}</option>
+                    `
+      $("#hidden_two").append(choice);
+    }
   }
   $("#exist").on("change",function() { 
     var parentValue = document.getElementById("display").value;
@@ -49,8 +38,8 @@ $(function () {
     })
     .done(function(children){
       $("#append").empty();
-      append(children);
-      debugger;
+      append();
+      choice(children);
     })
     .fail(function(){
       $(".detail__contents--type").text("fail")
@@ -66,29 +55,36 @@ $(function () {
       },
       dataType:'json'
     })
-    binding.pry
-    .done(function(child_two){
+    .done(function(children_two){
       $("#append_two").empty();
-      append_two(child_two);
+      append_two();
+      choice_two(children_two);
     })
     .fail(function(){
       $(".detail__contents--type").text("fail")
     })
   });
-  // $(".size_open").change(function() {
-  //   var val=$(this).val();
-  //     $('.hidden_size').css("display","block");
-  //     $('.detail__contents .side').css("display","inline-block");
-  //   if(val == "浴衣" || val == "着物" || val == "振袖" || val == "長袖袴/半袖袴"){
-  //     $('.hidden_size').css("display","none");
-  //   };
-  // });
-  // $(".hidden_two").change(function() {
-  //   $('.hidden_bland').css("display","inline-block");
-  // });
+  $("#append_two").change(function() {
+    var val=$(this).val();
+      $('.hidden_size').css("display","block");
+      $('.detail__contents .side').css("display","inline-block");
+    if(val == "浴衣" || val == "着物" || val == "振袖" || val == "長袖袴/半袖袴"){
+      $('.hidden_size').css("display","none");
+    };
+  });
+  $("#append_two").change(function() {
+    $('.hidden_bland').css("display","inline-block");
+  });
 
-  // $("#hidden_way").change(function() {
-  //   var val=$(this).val();
-  //     $(val).css("display","inline-block");
-  // });
+  $("#item_shipping_fee").change(function() {
+    var val=$(this).val();
+    if (val == "送料込み(出品者負担)"){
+      $(".way_arrival").css("display","none");
+      $(".way_departure").css("display","inline-block");
+    }
+    if (val == "着払い(購入者負担)"){
+      $(".way_departure").css("display","none");
+      $(".way_arrival").css("display","inline-block");
+    }
+  });
 });

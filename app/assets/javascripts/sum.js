@@ -1,5 +1,5 @@
 $(function () {
-  $(".side_cost").change(function() { 
+  $(".side_cost").keyup(function() { 
     var val =$('#sum').val();
     if(val>=300){
     var fee=val*0.1
@@ -7,8 +7,12 @@ $(function () {
     $(".side_fee").text(fee);
     $(".side_benefit").text(benefit);
     }
-    else{
-      $(".sale__error").css("visibility","visible");
-    };
+    if(val<300){
+      $(".side_fee").text("-");
+      $(".side_benefit").text("-");
+      }
+    // else{
+    //   $(".sale__error").css("visibility","visible");
+    // };
   });
 });

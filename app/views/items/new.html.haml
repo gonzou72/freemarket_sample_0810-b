@@ -17,8 +17,10 @@
           .image__contents--description
             最大10枚までアップロードできます
           .image__contents--content
-            %input{type:"file",name:"file",multiple:"multiple"}
-            =fa_icon "camera",class:"camera-icon"
+            =f.fields_for :images do |i|
+              =i.label :image do
+                = i.file_field :image, multiple:true
+                =fa_icon "camera",class:"camera-icon"
       .item__register--name
         .name__contents
           .name__contents--title.side
@@ -79,13 +81,13 @@
             配送の方法
           .delivery__contents--btn.side.way_departure.hidden
             必須
-          .delivery__contents--content.way_departure.hidden
+          .delivery__contents--content.way_departure.hidden.delivery_way
             =f.select :shipping_method,[["未定"],["らくらくメルカリ便"],["ゆうメール"],["レターパック"],["普通郵便(定形,定形外)"],["クロネコヤマト"],["らくらくメルカリ便"],["ゆうパック"],["クリップポスト"],["ゆうパケット"]],prompt:"---"
           .delivery__contents--type.side.way_arrival.hidden
             配送の方法
           .delivery__contents--btn.side.way_arrival.hidden
             必須
-          .delivery__contents--content.way_arrival.hidden
+          .delivery__contents--content.way_arrival.hidden.delivery_way
             =f.select :shipping_method,[["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],prompt:"---"
           .delivery__contents--type.side
             発送元の地域

@@ -313,10 +313,13 @@
       height:50px;
       width:90%;
       .exhibit__btn{
-        color:white;
-        background-color:rgb(245, 75, 75);
         .btn{
+          height:50px;
+          width:100%;    
+          color:white;
           text-decoration:none;
+          background-color:rgb(245, 75, 75);
+          border:none;
         }
       }
     }
@@ -325,12 +328,11 @@
       text-align:center;
       line-height:50px;
       margin:0 auto;
-      height:50px;
       width:40%;
       .return__btn{
-        color:white;
-        background-color:rgb(210, 210, 210);
         .btn{
+          background-color:rgb(210, 210, 210);
+          padding: 17px 34%;
           color:white;
           text-decoration:none;
         }
