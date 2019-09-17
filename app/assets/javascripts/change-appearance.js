@@ -50,5 +50,13 @@ $(function(){
       color: ''
     });
   });
-
+// ボタンをクリックした際に背景色を変更する。(mypages/profile)
+  $('.profile-btn__submit').on('click',function(){
+    $(this).fadeTo("slow", 0.4);
+    $(this).css({
+      backgroundColor: 'gray',
+      borderColor: 'darkgray'
+    });
+    $(this).fadeTo("slow", 1.0);
+  });
 });
