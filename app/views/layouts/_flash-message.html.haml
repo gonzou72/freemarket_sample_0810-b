@@ -1,0 +1,5 @@
+.flash-message
+  - flash.each do |key, value|
+    = content_tag :div, class: key do
+      = value
+      = fa_icon "close", class:"close-icon"
