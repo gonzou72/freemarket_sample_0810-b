@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :items, only: [:new,:create]
     resources :mypages, only: [:index] do
       collection do
-        get :profile
+        get :profile, :identification
+        patch :identification_update
+        post :identification_create
       end
     end
 end
