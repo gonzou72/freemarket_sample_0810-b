@@ -49,12 +49,7 @@
             =f.collection_select :category_id, @parents, :id, :name,{prompt:"---"},id:"display"
           .detail__contents--content#append
           .detail__contents--content#append_two
-          .detail__contents--type.side.hidden_size.hidden
-            サイズ
-          .detail__contents--btn.side.hidden_size.hidden
-            必須
-          .detail__contents--content.hidden_size.hidden
-            =f.select :size,[["XXS以下"],["XS(SS)"],["S"],["M"],["L"],["XL(LL)"],["2XL(3L)"],["3XL(4L)"],["4XL(5L)以上"],["FREE SIZE"]],prompt:"---"
+          .detail__contents--type#hidden_size
           .detail__contents--type.side.hidden_bland.hidden
             ブランド
           .detail__contents--btn.bland-btn.side.hidden_bland.hidden
@@ -76,19 +71,8 @@
           .delivery__contents--btn.side
             必須
           .delivery__contents--content
-            =f.select :shipping_fee,[["送料込み(出品者負担)"],["着払い(購入者負担)"]],prompt:"---",id:"hidden_way"
-          .delivery__contents--type.side.way_departure.hidden
-            配送の方法
-          .delivery__contents--btn.side.way_departure.hidden
-            必須
-          .delivery__contents--content.way_departure.hidden.delivery_way
-            =f.select :shipping_method,[["未定"],["らくらくメルカリ便"],["ゆうメール"],["レターパック"],["普通郵便(定形,定形外)"],["クロネコヤマト"],["らくらくメルカリ便"],["ゆうパック"],["クリップポスト"],["ゆうパケット"]],prompt:"---"
-          .delivery__contents--type.side.way_arrival.hidden
-            配送の方法
-          .delivery__contents--btn.side.way_arrival.hidden
-            必須
-          .delivery__contents--content.way_arrival.hidden.delivery_way
-            =f.select :shipping_method,[["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],prompt:"---"
+            =f.select :shipping_fee,[["送料込み(出品者負担)"],["着払い(購入者負担)"]],prompt:"---",id:"display_size"
+          .delivery__contents--content.delivery_way
           .delivery__contents--type.side
             発送元の地域
           .delivery__contents--btn.side

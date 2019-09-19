@@ -158,11 +158,17 @@
           top:5px;
           font-size:16px;
           margin-bottom:50px;
-          select{
+          input{
             height:45px;
             width:100%;
+            border-radius:5px;
+            border:1px solid rgb(198, 198, 198);
           }
-          input{
+        }
+        select{
+          height:45px;
+          width:100%;
+          option{
             height:45px;
             width:100%;
             border-radius:5px;
@@ -212,9 +218,6 @@
             width:100%;
           }
         }
-      }
-      .hidden_way{
-        display:none;
       }
     }
     &--sale{

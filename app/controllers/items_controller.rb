@@ -8,10 +8,16 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        if params[:parent_id] != nil && params[:parent_id_two] == nil
+        if params[:parent_id] != nil
           @children=Category.find(params[:parent_id]).children
-        else params[:parent_id] == nil && params[:parent_id_two] != nil
+        elsif params[:parent_id] == nil && params[:parent_id_two] != nil
           @children_two=Category.find(params[:parent_id_two]).children
+        elsif params[:size] != nil
+          @size=params[:size]
+          @size_two=params[:size_two]
+          @size_three=params[:size_three]
+        elsif params[:delivery]!= nil
+          @delivery=params[:delivery]
         end
       end
     end
@@ -26,6 +32,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,:category_ancestry,images_attributes:[{image:[]}]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[{image:[]}]).merge(user_id: current_user.id)
   end
 end

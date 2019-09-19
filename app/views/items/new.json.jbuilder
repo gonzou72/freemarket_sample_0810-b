@@ -1,4 +1,4 @@
-if params[:parent_id] != nil && params[:parent_id_two] == nil
+if params[:parent_id] != nil
   json.array! @children do |child|
     json.id child.id
     json.name child.name
@@ -13,4 +13,13 @@ if params[:parent_id] == nil && params[:parent_id_two] != nil
     json.ancestry child_two.ancestry
   end
 end
+
+if params[:size] != nil
+  json.id @size
+  json.id_two @size_two
+  json.id_three @size_three
+end
   
+if params[:delivery]!= nil
+  json.way @delivery
+end

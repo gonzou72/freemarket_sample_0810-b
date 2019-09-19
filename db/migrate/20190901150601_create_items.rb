@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string      :name            
       t.text        :detail          
       t.integer     :price           
-      t.integer     :size            
+      t.string      :size            
       t.string      :brand
       t.string      :condition       
       t.string      :shipping_fee    
@@ -12,7 +12,6 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string      :ship_out_area   
       t.string      :ship_out_date   
       t.string      :category_id
-      t.string      :category_ancestry
       t.references  :user            ,foreign_key: true
       t.references  :status          ,foreign_key: true
       t.timestamps                   
