@@ -153,17 +153,6 @@ $(function () {
       $(".detail__contents--type").text("fail")
     })
   });
-  // $("#append_two").change(function() {
-  //   var val_main=$("#display").val();
-  //   var val_sub=$("#hidden_one").val();
-  //     $('.hidden_size').css("display","inline-block");
-  //   if(val_sub == "21"||val_sub=="22"||val_sub=="23"||val_sub=="24"||val_sub=="25"||val_sub=="26"||val_sub=="27"||val_sub=="28"||val_sub=="37"||val_sub=="39"||val_sub=="40"||val_sub=="41"||val_sub=="42"||val_sub=="44"||val_sub=="54"||val_sub=="55"||val_sub=="56"||val_sub=="57"||val_sub=="58"||val_sub=="59"||val_sub=="60"||val_sub=="61"){
-  //     $('.hidden_size').css("display","none");
-  //   };
-  //   if(val_main=="4"||val_main=="5"||val_main=="6"||val_main=="7"||val_main=="8"||val_main=="9"||val_main=="10"||val_main=="11"||val_main=="13"){
-  //     $('.hidden_size').css("display","none");
-  //   };
-  // });
   $("#append_two").on("change",function() { 
     var val = document.getElementById("display").value;
     var val_two= document.getElementById("hidden_one").value;

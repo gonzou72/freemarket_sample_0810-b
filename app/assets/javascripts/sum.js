@@ -11,8 +11,5 @@ $(function () {
       $(".side_fee").text("-");
       $(".side_benefit").text("-");
       }
-    // else{
-    //   $(".sale__error").css("visibility","visible");
-    // };
   });
 });
