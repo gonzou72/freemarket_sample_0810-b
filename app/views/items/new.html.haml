@@ -1,10 +1,10 @@
 .item
-  =form_for [@item] do |f|
+  = form_for [@item] do |f|
     .item__header
       .item__header--image
         = image_tag '/images/logo.png',height:"50px",width:"50px;"
       .item__header--content
-        =link_to"merucari",items_path,method: :get,class:"btn"
+        = link_to"merucari",items_path,method: :get,class:"btn"
     .item__register
       .item__register--header
         商品の情報を入力
@@ -17,26 +17,26 @@
           .image__contents--description
             最大10枚までアップロードできます
           .image__contents--content
-            =f.fields_for :images do |i|
-              =i.label :image do
+            = f.fields_for :images do |i|
+              = i.label :image do
                 = i.file_field :image, multiple:true
-                =fa_icon "camera",class:"camera-icon"
+                = fa_icon "camera",class:"camera-icon"
       .item__register--name
         .name__contents
           .name__contents--title.side
-            =f.label "商品名"
+            = f.label "商品名"
           .name__contents--btn.side
             必須
           .name__contents--content
-            =f.text_field :name,class:"name",placeholder:"商品名（必須40文字まで）"
+            = f.text_field :name,class:"name",placeholder:"商品名（必須40文字まで）"
       .item__register--description
         .description__contents
           .description__contents--title.side
-            =f.label "商品の説明"
+            = f.label "商品の説明"
           .description__contents--btn.side
             必須
           .description__contents--content
-            =f.text_field :detail,class:"details",placeholder:"商品の説明（必須1,000文字以内）（色、素材、商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            = f.text_field :detail,class:"details",placeholder:"商品の説明（必須1,000文字以内）（色、素材、商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       .item__register--detail
         .detail__title.side
           商品の詳細
@@ -46,7 +46,7 @@
           .detail__contents--btn.side
             必須
           .detail__contents--content#exist
-            =f.collection_select :category_id, @parents, :id, :name,{prompt:"---"},id:"display"
+            = f.collection_select :category_id, @parents, :id, :name,{prompt:"---"},id:"display"
           .detail__contents--content#append
           .detail__contents--content#append_two
           .detail__contents--type#hidden_size
@@ -55,13 +55,13 @@
           .detail__contents--btn.bland-btn.side.hidden_bland.hidden
             任意
           .detail__contents--content.hidden_bland.hidden
-            =f.text_field :brand
+            = f.text_field :brand
           .detail__contents--type.side
             商品の状態
           .detail__contents--btn.side
             必須
           .detail__contents--content
-            =f.select :condition,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],prompt:"---"
+            = f.select :condition,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],prompt:"---"
       .item__register--delivery
         .delivery__title.side
           配送について
@@ -71,31 +71,31 @@
           .delivery__contents--btn.side
             必須
           .delivery__contents--content
-            =f.select :shipping_fee,[["送料込み(出品者負担)"],["着払い(購入者負担)"]],prompt:"---",id:"display_size"
+            = f.select :shipping_fee,[["送料込み(出品者負担)"],["着払い(購入者負担)"]],prompt:"---",id:"display_size"
           .delivery__contents--content.delivery_way
           .delivery__contents--type.side
             発送元の地域
           .delivery__contents--btn.side
             必須
           .delivery__contents--content
-            =f.select :ship_out_area,[["北海道"],["青森県"],["岩手県"],["宮城県"],["秋田県"],["山形県"],["福島県"],["茨城県"],["栃木県"],["群馬県"],["埼玉県"],["千葉県"],["東京都"],["神奈川県"],["新潟県"],["富山県"],["石川県"],["福井県"],["山梨県"],["長野県"],["岐阜県"],["静岡県"],["愛知県"],["三重県"],["滋賀県"],["京都府"],["大阪府"],["兵庫県"],["奈良県"],["和歌山県"],["鳥取県"],["島根県"],["岡山県"],["広島県"],["山口県"],["徳島県"],["香川県"],["愛媛県"],["高知県"],["福岡県"],["佐賀県"],["長崎県"],["熊本県"],["大分県"],["宮崎県"],["鹿児島県"],["沖縄県"],["未定"]],prompt:"---"
+            = f.select :ship_out_area,[["北海道"],["青森県"],["岩手県"],["宮城県"],["秋田県"],["山形県"],["福島県"],["茨城県"],["栃木県"],["群馬県"],["埼玉県"],["千葉県"],["東京都"],["神奈川県"],["新潟県"],["富山県"],["石川県"],["福井県"],["山梨県"],["長野県"],["岐阜県"],["静岡県"],["愛知県"],["三重県"],["滋賀県"],["京都府"],["大阪府"],["兵庫県"],["奈良県"],["和歌山県"],["鳥取県"],["島根県"],["岡山県"],["広島県"],["山口県"],["徳島県"],["香川県"],["愛媛県"],["高知県"],["福岡県"],["佐賀県"],["長崎県"],["熊本県"],["大分県"],["宮崎県"],["鹿児島県"],["沖縄県"],["未定"]],prompt:"---"
           .delivery__contents--type.side
             発送までの日数
           .delivery__contents--btn.side
             必須
           .delivery__contents--content
-            =f.select( :ship_out_date,[["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]],prompt:"---")
+            = f.select( :ship_out_date,[["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]],prompt:"---")
       .item__register--sale
         .sale__title.side
           販売価格(300~9,999,999)
         .sale__contents.side
           .sale__contents--cost.side.side_center
-            =f.label "価格"
+            = f.label "価格"
             .sale__contents--btn.side
               必須
           .sale__contents--content.side_center.side_cost
             ¥
-            =f.number_field :price,placeholder:"例)300円",id: "sum"
+            = f.number_field :price,placeholder:"例)300円",id: "sum"
           .border
             .sale__contents--fee.side_center
               販売手数料(10%)
@@ -114,10 +114,10 @@
           また、出品をもちまして加盟店規約に同意したことになります。
       .item__register--exhibit
         .exhibit__btn
-          =f.submit "出品する",class: "btn"
+          = f.submit "出品する",class: "btn"
       .item__register--return
         .return__btn
-          =link_to"もどる",items_path,method: :get,class:"btn"
+          = link_to"もどる",items_path,method: :get,class:"btn"
     .item__guide
       .item__guide--type
         プライバシーポリシー
@@ -127,6 +127,6 @@
         特定商取引に関する表記
     .item__footer
       .item__footer--image
-        =link_to image_tag('/images/logo.png',height:"50px",width:"50px"),"/news/"
+        = link_to image_tag('/images/logo.png',height:"50px",width:"50px"),"/news/"
       .item__footer--content
         © 2019 Mercari

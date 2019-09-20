@@ -20,6 +20,6 @@ if params[:size] != nil
   json.id_three @size_three
 end
   
-if params[:delivery]!= nil
+if params[:delivery] != nil
   json.way @delivery
 end
