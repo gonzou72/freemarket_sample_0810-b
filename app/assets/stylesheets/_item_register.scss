@@ -90,7 +90,7 @@
         }
         &--content{
           margin-top:10px;
-          input{
+          .name{
             padding-left:15px;
             height:40px;
             width:100%;
@@ -158,11 +158,17 @@
           top:5px;
           font-size:16px;
           margin-bottom:50px;
-          select{
+          input{
             height:45px;
             width:100%;
+            border-radius:5px;
+            border:1px solid rgb(198, 198, 198);
           }
-          input{
+        }
+        select{
+          height:45px;
+          width:100%;
+          option{
             height:45px;
             width:100%;
             border-radius:5px;
@@ -212,9 +218,6 @@
             width:100%;
           }
         }
-      }
-      .hidden_way{
-        display:none;
       }
     }
     &--sale{
@@ -293,8 +296,9 @@
       .sale__error{
         color:red;
         text-align:center;
+        width:100%;
         padding:10px 0;
-        visibility: hidden;
+        display: none;
       }
     }
     &--attention{
@@ -313,11 +317,13 @@
       height:50px;
       width:90%;
       .exhibit__btn{
-        color:white;
-        background-color:rgb(245, 75, 75);
         .btn{
+          height:50px;
+          width:100%;    
           color:white;
           text-decoration:none;
+          background-color:rgb(245, 75, 75);
+          border:none;
         }
       }
     }
@@ -326,12 +332,11 @@
       text-align:center;
       line-height:50px;
       margin:0 auto;
-      height:50px;
       width:40%;
       .return__btn{
-        color:white;
-        background-color:rgb(210, 210, 210);
         .btn{
+          background-color:rgb(210, 210, 210);
+          padding: 17px 34%;
           color:white;
           text-decoration:none;
         }

@@ -10,45 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190906092852) do
+ActiveRecord::Schema.define(version: 20190919040448) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "postal_code",               null: false
+    t.integer  "prefecture",    default: 0, null: false
+    t.string   "city",                      null: false
+    t.string   "street",                    null: false
+    t.string   "building_name"
+    t.string   "phone"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image1",     null: false
-    t.string   "image2",     null: false
-    t.string   "image3",     null: false
-    t.string   "image4",     null: false
-    t.string   "image5",     null: false
-    t.string   "image6",     null: false
-    t.string   "image7",     null: false
-    t.string   "image8",     null: false
-    t.string   "image9",     null: false
-    t.string   "image10",    null: false
-    t.integer  "item_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.binary   "image",      limit: 16777215
+    t.integer  "item_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["item_id"], name: "index_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                          null: false
-    t.text     "details",         limit: 65535, null: false
-    t.integer  "price",                         null: false
-    t.integer  "size",                          null: false
+    t.string   "name"
+    t.text     "detail",          limit: 65535
+    t.integer  "price"
+    t.string   "size"
     t.string   "brand"
-    t.integer  "condition",                     null: false
-    t.integer  "shipping_fee",                  null: false
-    t.string   "shipping_method",               null: false
-    t.string   "ship_out_area",                 null: false
-    t.string   "ship_out_date",                 null: false
-    t.integer  "user_id",                       null: false
+    t.string   "condition"
+    t.string   "shipping_fee"
+    t.string   "shipping_method"
+    t.string   "ship_out_area"
+    t.string   "ship_out_date"
+    t.string   "category_id"
+    t.integer  "user_id"
     t.integer  "status_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
@@ -83,6 +87,7 @@ ActiveRecord::Schema.define(version: 20190906092852) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
 end

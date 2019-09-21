@@ -1,45 +1,91 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname, autofocus: true
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
-  .field
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name
-  .field
-    = f.label :last_name_kana
-    %br/
-    = f.text_field :last_name_kana
-  .field
-    = f.label :first_name_kana
-    %br/
-    = f.text_field :first_name_kana
-  .field
-    = f.label :birth_day
-    %br/
-    = raw sprintf(f.date_select(:birth_day, use_month_numbers: true, start_year: 1900, end_year: (Time.now.year), prompt: "--", date_separator: '%s'),"年 \n", '月 ') + '日'
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.account-page
+  .header
+    .header__logo
+    = image_tag '/images/logo-main.png',height:"49px",width:"185px;"
+    .header__progress-bar
+    = image_tag '/images/progress-bar.png',height:"50px",width:"500px;"
+  .main
+    .head-registration
+      会員情報入力
+    .inner-registration
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        .inner-registration__contents
+          .inner-registration__contents--title.side
+            ニックネーム
+          .inner-registration__contents--require.side
+            必須
+          .inner-registration__contents--input
+            = f.text_field :nickname, placeholder:"例）メルカリ太郎", class: "input-form"
+          = render partial: "devise/shared/custom_error_message", locals: { content: :nickname, f: f}
+          .inner-registration__contents--title.side.top_space
+            メールアドレス
+          .inner-registration__contents--require.side.top_space
+            必須
+          .inner-registration__contents--input
+            = f.email_field :email, autocomplete: "email", placeholder:"PC・携帯どちらでも可", class: "input-form"
+          = render partial: "devise/shared/custom_error_message", locals: { content: :email, f: f}
+          .inner-registration__contents--title.side.top_space
+            パスワード
+          .inner-registration__contents--require.side.top_space
+            必須
+          .inner-registration__contents--input
+            = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上", class: "input-form"
+          = render partial: "devise/shared/custom_error_message", locals: { content: :password, f: f}
+          .inner-registration__contents--title.side.top_space
+            パスワード（確認）
+          .inner-registration__contents--require.side.top_space
+            必須
+          .inner-registration__contents--input
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"7文字以上", class: "input-form"
+          = render partial: "devise/shared/custom_error_message", locals: { content: :password_confirmation, f: f}
+          .inner-registration__contents--identification
+            本人確認
+          .inner-registration__contents--text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .inner-registration__contents--title.side.top_space
+            お名前（全角）
+          .inner-registration__contents--require.side.top_space
+            必須
+          .inner-registration__contents--input
+            = f.text_field :last_name, placeholder:"例）山田", class: "input-default-half input-form"
+            = f.text_field :first_name, placeholder:"例）彩", class: "input-default-half input-form"
+          = render partial: "devise/shared/custom_error_message", locals: { content: :last_name, f: f}
+          = render partial: "devise/shared/custom_error_message", locals: { content: :first_name, f: f}
+          .inner-registration__contents--title.side.top_space
+            お名前カナ（全角）
+          .inner-registration__contents--require.side.top_space
+            必須
+          .inner-registration__contents--input
+            = f.text_field :last_name_kana, placeholder:"例）ヤマダ", class: "input-default-half input-form"
+            = f.text_field :first_name_kana, placeholder:"例）アヤ", class: "input-default-half input-form"
+          = render partial: "devise/shared/custom_error_message", locals: { content: :last_name_kana, f: f}
+          = render partial: "devise/shared/custom_error_message", locals: { content: :first_name_kana, f: f}
+          .inner-registration__contents--title.side.top_space
+            生年月日
+          .inner-registration__contents--require.side.top_space
+            必須
+          .inner-registration__contents--select
+            = raw sprintf(f.date_select(:birth_day, use_month_numbers: true, start_year: 1900, end_year: (Time.now.year), prompt: "--", date_separator: '%s'),"年 \n", '月 ')
+            %p 日
+          = render partial: "devise/shared/custom_error_message", locals: { content: :birth_day, f: f}
+          .inner-registration__contents--attentions
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .hinner-registration__contents--authentication
+          = image_tag '/images/reCAPTCHA.png',height:"80px",width:"320px;"
+          .inner-registration__contents--agreement
+            「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+          = f.submit "次へ進む", class: "inner-registration__contents--next-btn"
+          .inner-registration__contents--attentions-guide
+            本人情報の登録について
+  .footer-user
+    .footer-user__guide
+      .footer-user__guide--privacy
+      プライバシーポリシー  
+      .footer-user__guide--terms
+      メルカリ利用規約  
+      .footer-user__guide--notification
+      特定商取引に関する表記
+    .footer-user__logo
+      =link_to image_tag('/images/logo-grey.png',height:"70px",width:"80px"),"/news"
+    .footer-user__copyright
+      © 2019 Mercari

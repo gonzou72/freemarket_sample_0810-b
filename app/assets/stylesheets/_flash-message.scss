@@ -1,0 +1,19 @@
+.flash-message {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  .notice {
+    height: 50px;
+    line-height: 50px;
+    background-color: mintcream;
+    color: green;
+    text-align: center;
+  }
+
+  .close-icon{
+    float: right;
+    margin-right: 20px;
+    line-height: 50px;
+    font-size: 20px;
+  }
+}

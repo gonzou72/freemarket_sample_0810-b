@@ -1,0 +1,10 @@
+=link_to mypages_path, method: :get, class:"btn" do
+  %li.information-content
+    =image_tag('/images/logo.png', height:"48px", width:"48px", class: "information-content__icon")
+    .information-text
+      %p.information-text__title
+        【タイトル】テキスト内容
+      %p.information-text__times
+        =fa_icon "clock-o", class:"information-text__icon"
+        １日前
+    =fa_icon "angle-right",class:"information-content__angle-icon"

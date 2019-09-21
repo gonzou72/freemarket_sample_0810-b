@@ -1,0 +1,7 @@
+- if resource.errors.messages[content].any?
+  - resource.errors.messages[content].uniq.each do |message|
+    .devise__error-messages
+      .devise__error-message
+        = f.label content
+      .devise__error-message
+        = message
