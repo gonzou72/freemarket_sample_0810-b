@@ -136,11 +136,11 @@ Association
 
 ## categoriesテーブル
 
-| Column    | Type       | Option                         |
-| --------- | ---------- | ------------------------------ |
-| name      | string     |                                |
-| parent_id | references | null: false, foreign_key: true |
-|           |            |                                |
+| Column   | Type   | Option      |
+| -------- | ------ | ----------- |
+| name     | string |             |
+| ancestry | string | index: true |
+|          |        |             |
 
 Association
 
@@ -256,7 +256,7 @@ Association
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | postal_code     | string     | null: false                    |
-| prefecture      | string     | null: false                    |
+| prefecture      | integer    | null: false, default: 0        |
 | city            | string     | null: false                    |
 | street          | string     | null: false                    |
 | building_name   | string     |                                |

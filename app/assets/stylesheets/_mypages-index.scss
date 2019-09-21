@@ -1,0 +1,146 @@
+.wrapper{
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px;
+  background-color: whitesmoke;
+  font-family: 'YuGothic';
+  display: flex;
+  justify-content: center;
+  .btn{
+    @include btn(black);
+  }
+  .mypage-contents{
+    padding-top: 40px;
+    min-width: 700px;
+    min-height: 600px;
+    .mypage-header{
+      position: relative;
+      height: 200px;
+      .mypage-details{
+        position: absolute;
+        top: 40px;
+        left: 280px;
+        text-align: center;
+        &__myicon{
+          border-radius:  50%;
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+    .mypage-informations{
+      .information-title{
+        display: flex;
+        height: 80px;
+        cursor: pointer;
+        li{
+          width: 50%;
+          text-align: center;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 80px;
+        }
+      }
+      .information-news,.information-todos{
+        .information-content,.information-last{
+          height: 50px;
+          padding: 15px;
+          background-color: white;
+          border-bottom: 1px solid whitesmoke;
+          &__icon{
+            float: left;
+          }
+          .information-text{
+            float: left;
+            width: 580px;
+            font-size: 14px;
+            padding-left: 20px;
+            color: gray;
+          }
+          &__angle-icon{
+            float: right;
+            font-size: 24px;
+            line-height: 50px;
+          }
+          .information-last__link-btn{
+            height: 100%;
+            background-color: whitesmoke;
+            color: gray;
+            text-align: center;
+            line-height: 50px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .mypage-histories{
+      padding-top: 40px;
+      .histories-top{
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 80px;
+        background-color: white;
+      }
+      .histories-title{
+        display: flex;
+        height: 80px;
+        cursor: pointer;
+        li{
+          width: 50%;
+          text-align: center;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 80px;
+        }
+      }
+      .histories-trading,.histories-past-trading{
+        .histories-content,.histories-last{
+          height: 50px;
+          padding: 15px;
+          background-color: white;
+          border-bottom: 1px solid whitesmoke;
+          &__icon{
+            float: left;
+          }
+          .histories-text{
+            float: left;
+            font-size: 14px;
+            padding-left: 20px;
+            width: 580px;
+            color: gray;
+            &__status-icon{
+              background-color: gray;
+              color: white;
+              border-radius: 5px;
+              font-weight: bold;
+              height: 20px;
+              width: 70px;
+              text-align: center;
+            }
+          }
+          &__angle-icon{
+            float: right;
+            font-size: 24px;
+            line-height: 50px;
+          }
+          .histories-last__link-btn{
+            height: 100%;
+            background-color: whitesmoke;
+            color: gray;
+            text-align: center;
+            line-height: 50px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .hidden{
+      display: none;
+    }
+    .active{
+      background-color: white;
+      border-top: 2px solid red;
+    }
+  }
+}

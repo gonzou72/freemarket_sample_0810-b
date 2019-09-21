@@ -1,0 +1,172 @@
+.header
+  .header__top
+    = image_tag '/images/logo.png',height:"50px",width:"50px;"
+    mercari
+    .header__top--search
+      %input{type:"text",placeholder:"何かお探しですか？",name:"search"}
+    .header__top--submit
+      %button{type:"submit",name:"submit",class:"hidden"}
+        =fa_icon "search",class:"search-icon"
+  .header__bottom
+    .bottom__left
+      .bottom__left--type
+        =fa_icon "list-ul",class:"type__icon"
+        %span
+          カテゴリーから探す
+        %ul{class:"dropdown"}
+          %h3
+            =link_to"レディース",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"メンズ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ベビー・キッズ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"インテリア・住まい・小物",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"本・音楽・ゲーム",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"おもちゃ・ホビー・グッズ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"コスメ・香水・美容",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"家電・スマホ・カメラ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"スポーツ・レジャー",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ハンドメイド",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"チケット",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"自動車・オートバイ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"その他",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"カテゴリー一覧",new_news_path,method: :get,class:"btn"
+      .bottom__left--type
+        =fa_icon "tag",class:"type__icon"
+        %span
+          ブランドから探す
+        %ul{class:"dropdown"}
+          %h3
+            =link_to"シャネル",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ナイキ",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ルイ　ヴィトン",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"シュプリーム",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"アディダス",new_news_path,method: :get,class:"btn"
+            <br>
+          %h3
+            =link_to"ブランド一覧",new_news_path,method: :get,class:"btn"
+    .bottom__right
+      - unless user_signed_in?
+        .bottom__right--member 
+          =link_to"新規会員登録",new_user_registration_path,method: :get,class:"btn"
+        .bottom__right--login
+          =link_to"ログイン",new_user_session_path,method: :get,class:"btn"
+      - if user_signed_in?
+        .bottom__right--news
+          %span
+            =link_to content_tag(:p, fa_icon("bell-o type__icon")+" お知らせ"), new_news_path, method: :get, class:"btn droplist"
+          %ul{class:"dropdown"}
+            =link_to new_news_path,method: :get,class:"btn" do
+              %li
+                = image_tag('/images/logo.png',height:"50px",width:"50px")
+                .todos__text
+                  %p お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。
+                =fa_icon "angle-right",class:"type__icon"
+                .todos__time.btn
+                  %p 日時を入れる予定場所
+            =link_to new_news_path,method: :get,class:"btn" do
+              %li
+                = image_tag('/images/logo.png',height:"50px",width:"50px")
+                .todos__text
+                  %p おしらせその２
+                =fa_icon "angle-right",class:"type__icon"
+                .todos__time.btn
+                  %p 日時を入れる予定場所
+        .bottom__right--todos
+          %span
+            =link_to content_tag(:p, fa_icon("check type__icon")+" やることリスト"), new_news_path, method: :get, class:"btn droplist"
+          %ul{class:"dropdown"}
+            =link_to new_news_path,method: :get,class:"btn" do
+              %li
+                = image_tag('/images/logo.png',height:"50px",width:"50px")
+                .todos__text
+                  %p やることリストやることリストやることリストやることリスト
+                =fa_icon "angle-right",class:"type__icon"
+                .todos__time.btn
+                  %p 日時を入れる予定場所
+            =link_to new_news_path,method: :get,class:"btn" do
+              %li
+                = image_tag('/images/logo.png',height:"50px",width:"50px")
+                .todos__text
+                  %p やることリスト２
+                =fa_icon "angle-right",class:"type__icon"
+                .todos__time.btn
+                  %p 日時を入れる予定場所
+        .bottom__right--mypage
+          %span
+            =link_to content_tag(:p, fa_icon("user-circle-o type__icon")+" マイページ"), mypages_path, method: :get, class:"btn droplist"
+          %ul{class:"dropdown mypagelist"}
+            %ul.mypagelist__header.btn
+              =image_tag('/images/logo.png',height:"60px",width:"60px", class: "img__myicon")
+              =image_tag('/images/slide_bottom.png',height:"50%",width:"100%")
+              %p
+                =current_user.nickname
+              %p 評価：０ 出品数：０
+            %ul.mypagelist__status.btn
+              =link_to new_news_path, method: :get, class:"btn" do
+                %li
+                  %p.status__name 売上金
+                  =fa_icon "angle-right",class:"type__icon"
+                  %p.status__amount ¥0
+              =link_to new_news_path, method: :get, class:"btn" do
+                %li
+                  %p.status__name ポイント
+                  =fa_icon "angle-right",class:"type__icon"
+                  %p.status__amount P10000
+            %ul.mypagelist__detail.btn
+              =link_to new_news_path, method: :get, class:"btn" do
+                %li 
+                  %p いいね！一覧
+                  =fa_icon "angle-right",class:"type__icon"
+              =link_to new_news_path, method: :get, class:"btn" do
+                %li 
+                  %p 出品した商品 -出品中
+                  =fa_icon "angle-right",class:"type__icon"
+              =link_to new_news_path, method: :get, class:"btn" do
+                %li 
+                  %p 出品した商品 - 取引中
+                  =fa_icon "angle-right",class:"type__icon"
+              =link_to new_news_path, method: :get, class:"btn" do
+                %li 
+                  %p 出品した商品 - 売却済み
+                  =fa_icon "angle-right",class:"type__icon"
+              =link_to new_news_path, method: :get, class:"btn" do
+                %li 
+                  %p 購入した商品 - 取引中
+                  =fa_icon "angle-right",class:"type__icon"
+              =link_to new_news_path, method: :get, class:"btn" do
+                %li 
+                  %p 購入した商品 - 過去の取引
+                  =fa_icon "angle-right",class:"type__icon"

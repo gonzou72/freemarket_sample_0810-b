@@ -1,0 +1,25 @@
+= render partial: "news/header"
+= render "layouts/flash-message"
+.wrapper
+  = render partial: "mypages/navigationbar"
+  .profile-contents
+    = form_for(current_user, url: profile_update_path) do |f|
+      .profile-title
+        %h2 プロフィール
+      .profile-content
+        =image_tag('/images/700x200.png', height:"156px", width:"700px", class:"profile-content__background-image")
+        .profile-icons
+          =image_tag('/images/60x60.png', height:"60px", width:"60px", class: "profile-icons__myicon")
+          = f.text_field :nickname, class: "profile-icons__nickname", placeholder:"例)AYA☆セール中"
+        - if current_user.errors.messages[:nickname].any?
+          - current_user.errors.messages[:nickname].uniq.each do |message|
+            .error-messages
+              .error-message__label
+                = f.label :nickname
+              .error-message__detail
+                = message
+      .profile-text
+        = f.text_area :profile_text, class:"profile-text__textarea", placeholder:"例) こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめのオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+      .profile-btn
+        = f.submit "変更する", class:"profile-btn__submit"
+= render partial: "news/footer"
