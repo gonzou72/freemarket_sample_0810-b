@@ -69,6 +69,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
   
+  def step1_top
+  end
+
+  def step2_mail
+  end
+
+  def step3_tel
+  end
+
   protected
   
   def configure_account_update_params
