@@ -172,10 +172,10 @@ $(function () {
     .done(function(size){
       $("#hidden_size").empty();
       size_clothes();
-      if (size.id == "4" || "5" || "6" || "7" || "8" || "9" || "10" || "11" || "13"){
+      if (size.id == "4"|| size.id == "5" || size.id == "6" || size.id == "7" || size.id == "8" || size.id == "9" || size.id == "10" || size.id == "11" || size.id == "13"){
         $("#hidden_size").empty();
       }
-      if(size.id_two == "19" || "36" || "53"){
+      if(size.id_two == "19" || size.id_two == "36" || size.id_two == "53"){
         size_shoes();
       }
     })
