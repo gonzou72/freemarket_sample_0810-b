@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' } 
   devise_scope :user do
     patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
+    patch 'step1_top', to: 'users/registrations#step1_top', as: 'step1_top'
   end
 
   root to: 'news#index'
