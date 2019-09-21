@@ -15,18 +15,18 @@
           .inner-registration__contents--require.side
             必須
           .inner-registration__contents--input-name
-            %input{type:"text", placeholder:"例）メルカリ",name:"content"}
+            %input{type:"text", placeholder:"例）メルカリ",name:"content", class: "input-firstname"}
             </br>
-          .inner-registration__contents--input-firstname
+          .inner-registration__contents--input-name
             %input{type:"text", placeholder:"例）太郎",name:"content"}
           .inner-registration__contents--title.side
             お名前カナ
           .inner-registration__contents--require.side
             必須
           .inner-registration__contents--input-name
-            %input{type:"text", placeholder:"例）メルカリ",name:"content"}
+            %input{type:"text", placeholder:"例）メルカリ",name:"content", class: "input-firstname"}
             </br>
-          .inner-registration__contents--input-firstname-kana
+          .inner-registration__contents--input--name
             %input{type:"text", placeholder:"例）タロウ",name:"content"}
           .inner-registration__contents--title.side
             郵便番号
@@ -40,7 +40,7 @@
             必須
           .inner-registration__contents--select
             %form{action: "#", method: "GET"}
-            %select{name: "content"}
+            %select{name: "content", class: "select"}
               %option{value: ""} ---
               %option{value: "北海道"} 北海道
           .inner-registration__contents--title.side
@@ -68,5 +68,5 @@
           .inner-registration__contents--input
             %input{type:"text", placeholder:"例）09012345678",name:"content"}
           .inner-registration__contents--next-btn
-            =link_to "次へ進む", step3_tel_path, method: :get, class: 'btn-next'
+            =link_to "次へ進む", step5_payment_path, method: :get, class: 'btn-next'
   = render 'devise/registrations/footer'
