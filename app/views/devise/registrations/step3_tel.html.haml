@@ -16,7 +16,8 @@
           %p.phone-text
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
         .registration-form__content
-          %button.btn-sms{type: "submit"} SMSを送信する
+          =link_to step4_address_path, method: :get do
+            %button.btn-sms SMSを送信する
           %p.phone-text
             ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
         .phone-text-right
