@@ -1,4 +1,4 @@
-= render partial: "news/header"
+= render partial: "items/header"
 = render "layouts/flash-message"
 .wrapper
   = render partial: "mypages/navigationbar"
@@ -22,4 +22,4 @@
         = f.text_area :profile_text, class:"profile-text__textarea", placeholder:"例) こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめのオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
       .profile-btn
         = f.submit "変更する", class:"profile-btn__submit"
-= render partial: "news/footer"
+= render partial: "items/footer"

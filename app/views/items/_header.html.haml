@@ -126,7 +126,7 @@
                   %p 日時を入れる予定場所
         .bottom__right--mypage
           %span
-            = link_to content_tag(:p, fa_icon("user-circle-o type__icon")+" マイページ"), new_item_path, method: :get, class:"btn droplist"
+            = link_to content_tag(:p, fa_icon("user-circle-o type__icon")+" マイページ"), mypages_path, method: :get, class:"btn droplist"
           %ul{class:"dropdown mypagelist"}
             %ul.mypagelist__header.btn
               = image_tag('/images/logo.png',height:"60px",width:"60px", class: "img__myicon")
