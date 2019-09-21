@@ -81,8 +81,8 @@
         .inner-registration__contents--agreement
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
         .inner-registration__contents--next-btn
-          次へ進む
+          =link_to "次へ進む", step3_tel_path, method: :get
         .inner-registration__contents--attentions-guide
           本人情報の登録について
           %i.fa.fa-chevron-right
-= render 'devise/registrations/footer'
+  = render 'devise/registrations/footer'
