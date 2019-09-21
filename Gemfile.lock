@@ -275,7 +275,7 @@ DEPENDENCIES
   erb2haml
   factory_bot_rails
   font-awesome-rails
-  font-awesome-sass
+  font-awesome-sass (= 5.4.1)
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
