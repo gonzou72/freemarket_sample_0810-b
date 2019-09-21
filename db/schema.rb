@@ -37,36 +37,28 @@ ActiveRecord::Schema.define(version: 20190919040448) do
     t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image1",     null: false
-    t.string   "image2",     null: false
-    t.string   "image3",     null: false
-    t.string   "image4",     null: false
-    t.string   "image5",     null: false
-    t.string   "image6",     null: false
-    t.string   "image7",     null: false
-    t.string   "image8",     null: false
-    t.string   "image9",     null: false
-    t.string   "image10",    null: false
-    t.integer  "item_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.binary   "image",      limit: 16777215
+    t.integer  "item_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["item_id"], name: "index_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                                       null: false
-    t.text     "details",         limit: 65535,              null: false
-    t.integer  "price",                                      null: false
-    t.integer  "size",                                       null: false
-    t.integer  "condition",                                  null: false
-    t.integer  "shipping_fee",                               null: false
-    t.string   "shipping_method",               default: "", null: false
-    t.string   "ship_out_area",                 default: "", null: false
-    t.string   "ship_out_date",                 default: "", null: false
+    t.string   "name"
+    t.text     "detail",          limit: 65535
+    t.integer  "price"
+    t.string   "size"
+    t.string   "brand"
+    t.string   "condition"
+    t.string   "shipping_fee"
+    t.string   "shipping_method"
+    t.string   "ship_out_area"
+    t.string   "ship_out_date"
+    t.string   "category_id"
     t.integer  "user_id"
     t.integer  "brand_id"
     t.integer  "status_id"

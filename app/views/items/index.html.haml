@@ -1,11 +1,11 @@
 = render partial: "header"
 .slide-top
   %div
-    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    = link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/items/new/"
   %div
-    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    = link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/items/new/"
   %div
-    =link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/news/new/"
+    = link_to image_tag('/images/slide_bottom.png',height:"290px",width:"100%"),"/items/new/"
 .pickup-bigframe
   ピックアップカテゴリー
   = render partial: "frame",locals: {group:"レディース"}
