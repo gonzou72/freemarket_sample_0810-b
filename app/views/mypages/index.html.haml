@@ -1,10 +1,10 @@
-= render partial: "news/header"
+= render partial: "items/header"
 .wrapper
   = render partial: "navigationbar"
   .mypage-contents
     .mypage-header
       =image_tag('/images/700x200.png', height:"200px", width:"700px", class:"mypage-details__background-image")
-      =link_to new_news_path, method: :get, class:"btn" do
+      =link_to root_path, method: :get, class:"btn" do
         .mypage-details
           =image_tag('/images/60x60.png', height:"60px", width:"60px", class: "mypage-details__myicon")
           %p.mypage-details__nickname
@@ -22,7 +22,7 @@
         = render partial: "information-content"
         = render partial: "information-content"
         %li.information-last
-          =link_to new_news_path, method: :get, class:"btn" do
+          =link_to root_path, method: :get, class:"btn" do
             .information-last__link-btn
               一覧を見る
       %ul.information-todos.hidden
@@ -31,7 +31,7 @@
         = render partial: "information-content"
         = render partial: "information-content"
         %li.information-last
-          =link_to new_news_path, method: :get, class:"btn" do
+          =link_to root_path, method: :get, class:"btn" do
             .information-last__link-btn
               一覧を見る
     .mypage-histories
@@ -46,7 +46,7 @@
         = render partial: "histories-content"
         = render partial: "histories-content"
         %li.histories-last
-          =link_to new_news_path, method: :get, class:"btn" do
+          =link_to root_path, method: :get, class:"btn" do
             .histories-last__link-btn
               一覧を見る
       %ul.histories-past-trading.hidden
@@ -55,7 +55,7 @@
         = render partial: "histories-content"
         = render partial: "histories-content"
         %li.histories-last
-          =link_to new_news_path, method: :get, class:"btn" do
+          =link_to root_path, method: :get, class:"btn" do
             .histories-last__link-btn
               一覧を見る
-= render partial: "news/footer"
+= render partial: "items/footer"
