@@ -256,7 +256,7 @@ Association
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | postal_code     | string     | null: false                    |
-| prefecture      | string     | null: false                    |
+| prefecture      | integer    | null: false, default: 0        |
 | city            | string     | null: false                    |
 | street          | string     | null: false                    |
 | building_name   | string     |                                |

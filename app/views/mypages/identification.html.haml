@@ -1,0 +1,67 @@
+= render partial: "news/header"
+= render "layouts/flash-message"
+.wrapper
+  = render partial: "mypages/navigationbar"
+  .identification-main
+    .identification-header
+      %h2 本人情報の登録
+    = form_for @address, url: @path do |f|
+      .identification-contents
+        .identification-explanation
+          %p お客さまの本人情報をご登録ください。
+          %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .identification-uploadlink
+            = link_to root_path ,class: "identification-link" do
+              %p 本人確認書類のアップロードについて
+              = fa_icon "angle-right"
+        .identification-name
+          %h3.identification-name.title お名前
+          %P.identification-name.content
+            = current_user.last_name 
+            = current_user.first_name
+        .identification-kana
+          %h3.identification-kana.title お名前カナ
+          %p.identification-kana.content
+            = current_user.last_name_kana 
+            = current_user.first_name_kana
+        .identification-birthday
+          %h3.identification-birthday.title 生年月日
+          %p.identification-birthday.content
+            = current_user.birth_day.strftime("%Y/%m/%d")
+        .identification-postalcode
+          .identification-postalcode__title.title-contents
+            %h3.identification-postalcode__title.title 郵便番号
+            %p.identification-postalcode__title.arbitrary 任意
+          = f.text_field :postal_code, class: "form", placeholder:"例) 1234567"
+          - if @address.errors.messages[:postal_code].any?
+            - @address.errors.messages[:postal_code].each do |message|
+              .error-message
+                = message
+        .identification-prefecture
+          .identification-prefecture__title.title-contents
+            %h3.identification-prefecture__title.title 都道府県
+            %p.identification-prefecture__title.arbitrary 任意
+          = f.select :prefecture, Address.prefectures.keys, {}
+        .identification-city
+          .identification-city__title.title-contents
+            %h3.identification-city__title.title 市区町村
+            %p.identification-city__title.arbitrary 任意
+          = f.text_field :city, class: "form", placeholder:"例) 横浜市緑区"
+        .identification-street
+          .identification-street__title.title-contents
+            %h3.identification-street__title.title 番地
+            %p.identification-street__title.arbitrary 任意
+          = f.text_field :street, class: "form", placeholder:"例) 青山1-1-1"
+        .identification-building
+          .identification-building__title.title-contents
+            %h3.identification-building__title.title 建物名
+            %p.identification-building__title.arbitrary 任意
+          = f.text_field :building_name, class: "form", placeholder:"例) 柳ビル103"
+        .identification-submit
+          = f.hidden_field :user_id, value: current_user.id
+          = f.submit "登録する", class: "identification-submit__submit"
+        .identification-detail
+          = link_to root_path ,class: "identification-link" do
+            %p 本人情報の登録について
+            = fa_icon "angle-right"
+= render partial: "news/footer"
