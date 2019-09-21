@@ -7,8 +7,7 @@ Rails.application.routes.draw do
     get 'step3_tel', to: 'users/registrations#step3_tel', as: 'step3_tel'
   end
 
-  root to: 'news#index'
-    resources :news, only: [:index,:new,:create]
+  root to: 'items#index'
     resources :items, only: [:new,:create]
     resources :mypages, only: [:index] do
       collection do

@@ -7,11 +7,11 @@ before_action :address_existence, only: [:identification, :identification_update
   end
 
   def identification
-    if @address == nil
+    if @address.present?
+      @path = identification_update_mypages_path(@address)
+    else
       @address = Address.new
       @path = identification_create_mypages_path
-    else
-      @path = identification_update_mypages_path(@address)
     end
   end
 
@@ -20,7 +20,7 @@ before_action :address_existence, only: [:identification, :identification_update
     if @address.save
       redirect_to identification_mypages_path, notice: '本人情報を登録しました'
     else
-      @path = identification_create_mypages_path
+      @path = identification_create_mypages_path(@address)
       render 'mypages/identification'
     end
   end
@@ -36,7 +36,7 @@ before_action :address_existence, only: [:identification, :identification_update
 
   private
   def address_existence
-    @address = current_user.address
+    @address = current_user.address.first
   end
 
   def address_params
