@@ -1,0 +1,20 @@
+.account-page
+  %header.header
+    %h1.header__logo
+      =link_to root_path do
+        = image_tag '/images/logo-main.png', height:"52px", width:"190px;", alt: "mercari", class: "header__logo"
+  %main.registration
+    %section.registration__container
+      %h2.registration__title 新規会員登録
+      .registration-form
+        .registration-form__content
+          =link_to step2_mail_path, class: "btn btn--mail" do
+            %i.fa.fa-envelope.envelop-icon
+            メールアドレスで登録する
+          =link_to root_path, class: "btn btn--facebook" do
+            %i.fa.fa-facebook-square.facebook-icon
+            Facebookで登録する
+          =link_to root_path, class: "btn btn--google" do
+            %i.fa.fa-google.google-icon
+            Googleで登録する
+  = render 'devise/registrations/footer'
