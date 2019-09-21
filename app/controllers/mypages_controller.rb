@@ -36,7 +36,7 @@ before_action :address_existence, only: [:identification, :identification_update
 
   private
   def address_existence
-    @address = Address.find_by(user_id: current_user.id)
+    @address = current_user.address
   end
 
   def address_params
