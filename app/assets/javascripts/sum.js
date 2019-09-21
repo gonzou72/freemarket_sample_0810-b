@@ -12,4 +12,11 @@ $(function () {
       $(".side_benefit").text("-");
       }
   });
+  $("#formbtn").click(function(){
+    var val = $('#sum').val();
+    if(val < 300){
+      $(".sale__error").css('display','inline-block')
+      return false;
+    }
+  })
 });

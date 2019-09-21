@@ -296,8 +296,9 @@
       .sale__error{
         color:red;
         text-align:center;
+        width:100%;
         padding:10px 0;
-        visibility: hidden;
+        display: none;
       }
     }
     &--attention{
