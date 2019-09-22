@@ -85,6 +85,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def step6_complete
+  def index
   end
   
   protected
