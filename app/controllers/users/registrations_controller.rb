@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:profile_update]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -20,9 +20,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    # super
+    current_user.assign_attributes(account_update_params)
+    if current_user.save(context: :account_update)
+      redirect_to profile_mypages_path , notice: 'プロフィールを更新しました' 
+      return
+    else
+      render 'mypages/profile' 
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -61,31 +68,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def profile_update
-    current_user.assign_attributes(account_update_params)
-    if current_user.save(context: :account_update)
-	    redirect_to profile_mypages_path, notice: 'プロフィールを更新しました'
-    else
-      render 'mypages/profile' 
-    end
-  end
-  
-  def step1_top
-  end
-
-  def step2_mail
-  end
-
-  def step3_tel
-  end
-
-  def step4_address
-  end
-
-  def step5_payment
-  end
-
-  def step6_complete
   def index
   end
   
