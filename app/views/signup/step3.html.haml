@@ -1,0 +1,27 @@
+.account-page
+  %header.header
+    %h1.header__logo
+      =link_to root_path do
+        = image_tag '/images/logo-main.png', height:"52px", width:"190px;", alt: "mercari"
+    %nav.header__progress-bar
+      = image_tag '/images/progress-bar.png',height:"50px",width:"500px;"
+  %main.registration
+    %section.registration__container
+      %h2.registration__title 電話番号の確認
+      %div.registration-form
+        .registration-form__content
+          %label.registration-form__number 携帯電話の番号
+          </br>
+          %input{type:"text", placeholder:"携帯電話の番号を入力",name:"phone-number", class: "registration-form__input"}
+          %p.phone-text
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        .registration-form__content
+          =link_to step4_signup_index_path, method: :get do
+            %button.btn-sms SMSを送信する
+          %p.phone-text
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .phone-text-right
+          %p
+            電話番号の確認が必要な理由
+            %i.fa.fa-chevron-right
+  = render 'devise/registrations/footer'
