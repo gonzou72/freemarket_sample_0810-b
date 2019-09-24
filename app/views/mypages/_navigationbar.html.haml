@@ -92,7 +92,7 @@
       %li.edit-profile
         %p.status__name 電話番号の確認
         =fa_icon "angle-right",class:"type__icon"
-    =link_to destroy_user_session_path, method: :delete, class:"btn" do
+    =link_to mypage_path(current_user.id), method: :delete, action: :destroy, class:"btn" do
       %li.edit-profile
         %p.status__name ログアウト
         =fa_icon "angle-right",class:"type__icon"
