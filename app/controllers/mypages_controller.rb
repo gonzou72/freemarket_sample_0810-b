@@ -6,6 +6,9 @@ before_action :address_existence, only: [:identification, :identification_update
   def profile
   end
 
+  def destroy
+  end
+
   def identification
     if @address.present?
       @path = identification_update_mypages_path(@address)
