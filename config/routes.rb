@@ -16,12 +16,12 @@ Rails.application.routes.draw do
     end
     resources :signup do
       collection do
-        get 'step1_top'
-        get 'step2_mail'
-        get 'step3_tel'
-        get 'step4_address'
-        get 'step5_payment'
-        get 'step6_complete'
+        get 'step1'
+        get 'step2'
+        get 'step3'
+        get 'step4'
+        get 'step5'
+        get 'step6'
       end
     end
 end
