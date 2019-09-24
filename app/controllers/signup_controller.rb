@@ -1,21 +1,21 @@
 class SignupController < ApplicationController
 
-  def step1_top
+  def step1
   end
 
-  def step2_mail
+  def step2
   end
 
-  def step3_tel
+  def step3
   end
 
-  def step4_address
+  def step4
   end
 
-  def step5_payment
+  def step5
   end
 
-  def step6_complete
+  def step6
   end
   
 end
