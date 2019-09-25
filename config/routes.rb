@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'items#index'
     resources :items, only: [:new,:create,:show]
-    resources :mypages, only: [:index] do
+    resources :mypages, only: [:index, :destroy] do
       collection do
         get :profile, :identification
         patch :identification_update
