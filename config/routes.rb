@@ -24,4 +24,8 @@ Rails.application.routes.draw do
         get 'step6'
       end
     end
+
+    scope '/mypages' do
+      resources :cards, only: [:index, :new]
+    end
 end
