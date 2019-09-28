@@ -3,7 +3,7 @@
 .wrapper
   = render partial: "mypages/navigationbar"
   .profile-contents
-    = form_for(current_user, url: profile_update_path) do |f|
+    = form_for(current_user, url: user_registration_path) do |f|
       .profile-title
         %h2 プロフィール
       .profile-content
