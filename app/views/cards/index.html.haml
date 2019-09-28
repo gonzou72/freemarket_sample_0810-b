@@ -1,0 +1,30 @@
+= render partial: "items/header"
+= render "layouts/flash-message"
+.wrapper
+  = render partial: "mypages/navigationbar"
+  .cards-contents
+    .cards-title
+      %h2.cards-title__title 支払い方法
+    .cards-detail
+      %h3.cards-detail__title クレジットカード一覧
+      .card-detail
+        .card-icons
+          .card-icon
+            = fa_icon "credit-card"
+          .card-delete.btn
+            %p 削除する
+        .card-detail__number
+          %p ************1234
+        .card-detail__expiration
+          %P 03 / 21
+      .card-add-newcard
+        = link_to new_card_path do
+          .card-add-newcard__button
+            %p
+              = fa_icon "credit-card"
+              クレジットカードを追加する
+    .cards-about
+      = link_to root_path ,class: "cards-link " do
+        %p 支払い方法について
+        = fa_icon "angle-right"
+= render partial: "items/footer"
