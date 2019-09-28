@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:profile_update]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -60,16 +60,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def profile_update
+  def update
     current_user.assign_attributes(account_update_params)
     if current_user.save(context: :account_update)
-	    redirect_to profile_mypages_path, notice: 'プロフィールを更新しました'
+      redirect_to edit_profile_path(current_user), notice: 'プロフィールを更新しました'
     else
-      render 'mypages/profile' 
+      render 'profiles/edit' 
     end
   end
-  
-  
   
   protected
   
