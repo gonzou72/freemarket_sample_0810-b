@@ -1,31 +1,19 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' } 
-  devise_scope :user do
-    patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
-  end
 
   root to: 'items#index'
     resources :items, only: [:new,:create,:show]
-    resources :mypages, only: [:index, :destroy] do
+    resources :signup, only: [] do
       collection do
-        get :profile, :identification
-        patch :identification_update
-        post :identification_create
-      end
-    end
-    resources :signup do
-      collection do
-        get 'step1'
-        get 'step2'
-        get 'step3'
-        get 'step4'
-        get 'step5'
-        get 'step6'
+        get 'step1', 'step2', 'step3', 'step4', 'step5', 'step6'
       end
     end
 
-    scope '/mypages' do
-      resources :cards, only: [:index, :new]
-    end
+  resources :mypages, only: [:index, :destroy] 
+  scope '/mypages' do
+    resources :cards, only: [:index, :new]
+    resources :identifications, only: [:index, :create, :update]
+    resources :profiles, only: [:edit]
+  end
 end
