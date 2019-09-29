@@ -4,7 +4,7 @@ require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
   if Rails.env.production?
-    config.storage :fog
+    config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',
@@ -16,7 +16,7 @@ CarrierWave.configure do |config|
     config.fog_directory = 'pixel3a'
     config.asset_host = 'https://ap-northeast-1.amazonaws.com/pixel3a'
   else
-    config.storage :file
+    config.storage = :file
     config.enable_processing = false if Rails.env.test?
   end
 end
