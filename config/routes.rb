@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'items#index'
+    resources :buyers, only: [:new,:create]
     resources :items, only: [:new,:create,:show]
     resources :mypages, only: [:index, :destroy] do
       collection do

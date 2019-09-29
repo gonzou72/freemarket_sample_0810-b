@@ -1,0 +1,118 @@
+.item{
+  text-align:center;
+  &__message{
+    height:150px;
+    width:100%;
+    background-color:rgb(245, 219, 113);
+    &--top{
+      position:relative;
+      top:20px;
+      color:red;
+      font-weight:bold;
+    }
+    .clock-icon::after{
+      font-family:'fontawesome';
+      content:'\f017';
+      font-size:60px;
+      vertical-align: middle;
+      font-weight:lighter;
+    }
+    &--bottom{
+      position:relative;
+      top:30px;
+    }
+  }
+  &__status{
+    height:100px;
+    width:100%;
+    line-height:100px;
+    font-weight:bold;
+    font-size:25px;
+    background-color:white;
+    border-bottom:1px solid rgb(210, 210, 210);
+  }
+  &__item{
+    height:200px;
+    width:100%;
+    border-bottom:1px solid rgb(210, 210, 210);
+    font-weight:bold;
+    background-color:white;
+  }
+  &__price{
+    height:100px;
+    width:100%;
+    line-height:100px;
+    border-bottom:1px solid rgb(210, 210, 210);
+    background-color:white;
+    &--cost{
+      font-weight:bold;
+      font-size:30px;
+      margin-right:20px;
+    }
+  }
+  &__delivery{
+    height:170px;
+    width:100%;
+    margin:0 auto;
+    padding-top:20px;
+    text-align:start;
+    border-bottom:1px solid rgb(210, 210, 210);
+    background-color:white;
+    &--border{
+      width:60%;
+      margin:0 auto;
+    }
+    &--top{
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+    &--postcode{
+      margin-bottom:10px;
+    }
+    &--address{
+      margin-bottom:10px;
+    }
+  }
+  &__payment{
+    height:150px;
+    width:100%;
+    margin:0 auto;
+    padding-top:20px;
+    text-align:start;
+    border-bottom:1px solid rgb(210, 210, 210);
+    background-color:white;
+    &--border{
+      width:60%;
+      margin:0 auto;
+    }
+    &--top{
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+    &--number{
+      margin-bottom:10px;
+    }
+    &--validday{
+      margin-bottom:10px;
+    }
+  }
+  &__flow{
+    height:350px;
+    width:100%;
+    background-color:white;
+    &--top{
+      padding:40px 0 20px 0;
+      font-weight:bold;
+    }
+    &--explation{
+      margin:20px 0;
+    }
+    &--link{
+      .btn{
+        color:$light_blue;
+        text-decoration: none;
+        font-weight:bold;
+      }
+    }
+  }
+}
