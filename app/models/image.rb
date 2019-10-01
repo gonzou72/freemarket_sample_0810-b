@@ -11,4 +11,5 @@ class Image < ApplicationRecord
     end
     true
   end
+  
 end

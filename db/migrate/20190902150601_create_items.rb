@@ -13,6 +13,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string      :ship_out_date   
       t.string      :category_id     
       t.references  :user            ,foreign_key: true
+      t.references  :image           ,foreign_key: true
       t.references  :status          ,foreign_key: true
       t.timestamps                   
     end
