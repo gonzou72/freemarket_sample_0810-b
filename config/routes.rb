@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' } 
+  devise_scope :user do
+    namespace :users do
+      resources :addresses, only: [:index, :create]
+      resources :creditcards, only: [:index]
+      resources :phones, only: [:index]
+      resources :signup, only: [:index, :new, :create] 
+    end
+  end
 
   root to: 'items#index'
     resources :buyers, only: [:new,:create]
     resources :items, only: [:new,:create,:show]
-    resources :signup, only: [] do
-      collection do
-        get 'step1', 'step2', 'step3', 'step4', 'step5', 'step6'
-      end
-    end
 
   resources :mypages, only: [:index, :destroy] 
   scope '/mypages' do
