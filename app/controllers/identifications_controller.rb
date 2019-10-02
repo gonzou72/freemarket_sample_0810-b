@@ -31,7 +31,7 @@ class IdentificationsController < ApplicationController
 
   private
   def address_existence
-    @address = current_user.address.first
+    @address = current_user.address
   end
 
   def address_params
