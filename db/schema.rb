@@ -41,23 +41,21 @@ ActiveRecord::Schema.define(version: 20190919040448) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.text     "detail",          limit: 65535
-    t.integer  "price"
-    t.string   "size"
+    t.string   "name",                          null: false
+    t.text     "detail",          limit: 65535, null: false
+    t.integer  "price",                         null: false
+    t.string   "size",                          null: false
     t.string   "brand"
-    t.string   "condition"
-    t.string   "shipping_fee"
-    t.string   "shipping_method"
-    t.string   "ship_out_area"
-    t.string   "ship_out_date"
-    t.string   "category_id"
-    t.integer  "user_id"
-    t.integer  "image_id"
+    t.string   "condition",                     null: false
+    t.string   "shipping_fee",                  null: false
+    t.string   "shipping_method",               null: false
+    t.string   "ship_out_area",                 null: false
+    t.string   "ship_out_date",                 null: false
+    t.string   "category_id",                   null: false
+    t.integer  "user_id",                       null: false
     t.integer  "status_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["image_id"], name: "index_items_on_image_id", using: :btree
     t.index ["status_id"], name: "index_items_on_status_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
@@ -90,7 +88,6 @@ ActiveRecord::Schema.define(version: 20190919040448) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "items", "images"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
 end
