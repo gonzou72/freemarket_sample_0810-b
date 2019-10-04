@@ -31,10 +31,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to controller: :items, action: :index
     else
-      render :new
     end
   end
-
 
   def show
   end
