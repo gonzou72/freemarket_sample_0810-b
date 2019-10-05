@@ -1,0 +1,13 @@
+-if @item.errors.any?
+  #error_explanation
+    %ul
+      -@item.errors.full_messages_for(content).each do |message|
+        %li
+          -if content == :name || content == :detail
+            入力してください
+          -elsif content == :image
+            = message
+          -elsif content == :price
+            300以上9999999以下で入力してください
+          -else
+            選択してください

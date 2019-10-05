@@ -6,8 +6,14 @@ class Item < ApplicationRecord
   has_one :buyer
   # has_many :comments
   # has_many :likes
-  # has_many :categories, through: :item_categories
   # has_one :status
   # has_many :delivery_methods
-  # mount_uploader :image, ImageUploader
+
+  validates :name, :detail, :price, :size, :condition, :shipping_fee, :shipping_method, :ship_out_area, :ship_out_date,presence: true
+  validates :name, length:{maximum:40,message:"商品名を入力してください"}  
+  validate  :image_save,on:[:new, :create]
+
+  def image_save
+    errors.add(:image, "画像を選択してください") if images.empty?
+  end
 end

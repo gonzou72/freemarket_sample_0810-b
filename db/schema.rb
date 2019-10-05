@@ -42,26 +42,26 @@ ActiveRecord::Schema.define(version: 20190926162533) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.binary   "image",      limit: 16777215
+    t.string   "image"
     t.integer  "item_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.text     "detail",          limit: 65535
-    t.integer  "price"
-    t.string   "size"
+    t.string   "name",                          null: false
+    t.text     "detail",          limit: 65535, null: false
+    t.integer  "price",                         null: false
+    t.string   "size",                          null: false
     t.string   "brand"
-    t.string   "condition"
-    t.string   "shipping_fee"
-    t.string   "shipping_method"
-    t.string   "ship_out_area"
-    t.string   "ship_out_date"
-    t.string   "category_id"
-    t.integer  "user_id"
+    t.string   "condition",                     null: false
+    t.string   "shipping_fee",                  null: false
+    t.string   "shipping_method",               null: false
+    t.string   "ship_out_area",                 null: false
+    t.string   "ship_out_date",                 null: false
+    t.string   "category_id",                   null: false
+    t.integer  "user_id",                       null: false
     t.integer  "status_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
@@ -97,7 +97,9 @@ ActiveRecord::Schema.define(version: 20190926162533) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "images", "items"
   add_foreign_key "buyers", "users"
+  add_foreign_key "buyers", "items"  
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
 end
