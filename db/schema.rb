@@ -97,9 +97,8 @@ ActiveRecord::Schema.define(version: 20190926162533) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "images", "items"
   add_foreign_key "buyers", "users"
-  add_foreign_key "buyers", "items"  
+  add_foreign_key "images", "items"
   add_foreign_key "items", "statuses"
   add_foreign_key "items", "users"
 end
