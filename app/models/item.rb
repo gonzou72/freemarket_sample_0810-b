@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validate  :image_save,on:[:new, :create]
 
   def image_save
-    errors.add(:image, "画像を選択してください") if images.blank?
+    errors.add(:image, "画像を選択してください") if images.empty?
   end
 
   # has_many :comments

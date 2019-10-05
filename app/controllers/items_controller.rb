@@ -31,6 +31,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to controller: :items, action: :index
     else
+      @item.images.build
+      render :new
     end
   end
 
@@ -39,6 +41,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[{image:[]}]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[:image]).merge(user_id: current_user.id)
   end
 end

@@ -19,7 +19,7 @@
           .image__contents--content
             = f.fields_for :images do |i|
               = i.label :image do
-                = i.file_field :image, multiple:true
+                = i.file_field :image
                 = fa_icon "camera",class:"camera-icon"
           = render partial: 'item_error',locals:{content: :image}
       .item__register--name
