@@ -1,0 +1,109 @@
+.mypage-new-card-contents{
+  margin-top: 40px;
+  width: 700px;
+  background-color: white;
+  display: table;
+  .new-card-title{
+    background-color: white;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-bottom: 2px solid whitesmoke;
+    &__title{
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  .new-card-detail{
+    padding: 20px 180px 60px;
+    width: 340px;
+    display: table;
+    .title{
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      h3{
+        font-weight: bold;
+      }
+      p{
+        width : 40px;
+        text-align: center;
+        font-weight: normal;
+        color: white;
+        border-radius: 2px;
+        background-color: #ea352d;
+        margin-left: 10px;
+      }
+    }
+    .card-icons{
+      margin-top: 5px;
+    }
+    .card-expiration__date{
+      margin-top: 10px;
+      display: flex;
+      .card-expiration__date-year{
+        margin-left: 10px;
+      }
+      select {
+        height: 48px;
+        width: 130px;
+        border: 1px solid #ccc;
+        background: 0;
+        font-size: 16px;
+        padding: 10px 16px 8px;
+      }
+    }
+    .card-security__input, .card-number__input{
+      margin-top: 10px;
+      box-sizing: border-box;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: 320px;
+    }
+  }
+  .card-about{
+    background-color: white;
+    height: 100px;
+    position: relative;
+    .card-link{
+      margin-top: 20px;
+      color: dodgerblue;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      position: absolute;
+      right: 10px;
+      i{
+        font-size: 22px;
+        line-height: 22px;
+        font-weight: bold;
+      }
+      &:hover{
+        color: deepskyblue;
+        p{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .new-card-addcard{
+    border-bottom: 1px solid whitesmoke;
+    font-size: 16px;
+      a{
+        text-decoration: none;
+      }
+      &__button{
+      text-align: center;
+      background-color: #ea352d;;
+      width: 320px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 1px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

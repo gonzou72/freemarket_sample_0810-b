@@ -2,19 +2,22 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' } 
   devise_scope :user do
-    patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
-    get 'step1_top', to: 'users/registrations#step1_top', as: 'step1_top'
-    get 'step2_mail', to: 'users/registrations#step2_mail', as: 'step2_mail'
-    get 'step3_tel', to: 'users/registrations#step3_tel', as: 'step3_tel'
+    namespace :users do
+      resources :addresses, only: [:index, :create]
+      resources :creditcards, only: [:index]
+      resources :phones, only: [:index]
+      resources :signup, only: [:index, :new, :create] 
+    end
   end
 
   root to: 'items#index'
+    resources :buyers, only: [:new,:create]
     resources :items, only: [:new,:create,:show]
-    resources :mypages, only: [:index] do
-      collection do
-        get :profile, :identification
-        patch :identification_update
-        post :identification_create
-      end
-    end
+
+  resources :mypages, only: [:index, :destroy] 
+  scope '/mypages' do
+    resources :cards, only: [:index, :new]
+    resources :identifications, only: [:index, :create, :update]
+    resources :profiles, only: [:edit]
+  end
 end

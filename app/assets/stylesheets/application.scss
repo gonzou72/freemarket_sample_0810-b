@@ -10,11 +10,20 @@
 @import "item_register";
 @import "item_details";
 @import "flash-message";
-@import "mypages-index";
-@import "mypages-profile";
-@import "mypages-identification";
-@import "navigation-bar";
+@import "mypages/mypages-index";
+@import "mypages/mypages-profile";
+@import "mypages/mypages-identification";
+@import "mypages/mypages-logout";
+@import "mypages/mypages-cards-index";
+@import "mypages/mypages-cards-new";
+@import "mypages/navigation-bar";
+@import "registration-new";
 @import "item_register";
+@import "item_buy";
 @import "signup/step1_top";
 @import "signup/step2_mail";
 @import "signup/step3_tel";
+@import "signup/step4_address";
+@import "signup/step5_payment";
+@import "signup/step6_complete";
+
