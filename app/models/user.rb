@@ -13,4 +13,17 @@ class User < ApplicationRecord
   has_one :address, inverse_of: :user
   accepts_nested_attributes_for :address
   has_many :buyers
+
+  def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    
+    if snscredential.present? 
+      user = User.where(id: snscredential.user_id).first
+    else
+      user = User.new
+    end
+    return user
+  end
 end
