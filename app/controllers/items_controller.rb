@@ -26,17 +26,23 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
-    redirect_to controller: :items, action: :index
+    @parents = Category.all.order("id ASC").limit(13)
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to controller: :items, action: :index
+    elsif params[:item][:images_attributes] != nil
+      render :new
+    else
+      @item.images.build
+      render :new
+    end
   end
-
 
   def show
   end
 
   private
   def item_params
-    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[{image:[]}]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[:image]).merge(user_id: current_user.id)
   end
-
 end
