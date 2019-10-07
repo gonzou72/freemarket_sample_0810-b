@@ -26,9 +26,12 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @parents = Category.all.order("id ASC").limit(13)
     @item = Item.new(item_params)
     if @item.save
       redirect_to controller: :items, action: :index
+    elsif params[:item][:images_attributes] != nil
+      render :new
     else
       @item.images.build
       render :new
