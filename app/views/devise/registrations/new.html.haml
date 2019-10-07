@@ -21,23 +21,27 @@
             メールアドレス
           .inner-registration__contents--require.side.top_space
             必須
-          .inner-registration__contents--input
+          .inner-registration__contents--input 
             = f.email_field :email, autocomplete: "email", placeholder:"PC・携帯どちらでも可", class: "input-form"
           = render partial: "devise/shared/custom_error_message", locals: { content: :email, f: f}
-          .inner-registration__contents--title.side.top_space
-            パスワード
-          .inner-registration__contents--require.side.top_space
-            必須
-          .inner-registration__contents--input
-            = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上", class: "input-form"
-          = render partial: "devise/shared/custom_error_message", locals: { content: :password, f: f}
-          .inner-registration__contents--title.side.top_space
-            パスワード（確認）
-          .inner-registration__contents--require.side.top_space
-            必須
-          .inner-registration__contents--input
-            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"7文字以上", class: "input-form"
-          = render partial: "devise/shared/custom_error_message", locals: { content: :password_confirmation, f: f}
+          - if session["devise.provider_data"].present?
+            = f.hidden_field :password, value: session["devise.provider_data"]["password"]
+            = f.hidden_field :password_confirmation, value: session["devise.provider_data"]["password"]
+          - unless session["devise.provider_data"].present?
+            .inner-registration__contents--title.side.top_space
+              パスワード
+            .inner-registration__contents--require.side.top_space
+              必須
+            .inner-registration__contents--input
+              = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上", class: "input-form"
+            = render partial: "devise/shared/custom_error_message", locals: { content: :password, f: f}
+            .inner-registration__contents--title.side.top_space
+              パスワード（確認）
+            .inner-registration__contents--require.side.top_space
+              必須
+            .inner-registration__contents--input
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"7文字以上", class: "input-form"
+            = render partial: "devise/shared/custom_error_message", locals: { content: :password_confirmation, f: f}
           .inner-registration__contents--identification
             本人確認
           .inner-registration__contents--text
