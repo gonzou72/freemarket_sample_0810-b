@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
+    @tetete = Image.find(20)
   end
 
   def new
@@ -41,6 +42,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[{image: []}]).merge(user_id: current_user.id)
   end
 end

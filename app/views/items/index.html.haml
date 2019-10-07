@@ -19,3 +19,12 @@
   = render partial: "frame",locals: {group:"シュプリーム"}
   = render partial: "frame",locals: {group:"ナイキ"}
 = render partial: "footer"
+= image_tag @tetete.image[0].url
+= image_tag @tetete.image[1].url
+= image_tag @tetete.image[2].url
+= image_tag Image.find(20).image[0].url
+= image_tag Image.find(20).image[1].url
+= image_tag Image.find(20).image[2].url
+= image_tag Item.find(29).images.first.image[0].url
+= image_tag Item.find(29).images.first.image[1].url
+= image_tag Item.find(29).images.first.image[2].url
