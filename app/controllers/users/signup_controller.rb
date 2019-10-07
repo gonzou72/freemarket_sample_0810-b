@@ -1,6 +1,8 @@
 class Users::SignupController < Devise::RegistrationsController
 
   def index
+    session["received_form"] = nil
+    session["devise.provider_data"] = nil
   end
 
   def new
