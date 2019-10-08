@@ -1,8 +1,8 @@
 class Address < ApplicationRecord
   validates :postal_code, format: { with: /\A[0-9]{7}\z/, message: 'のフォーマットが不適切です'}, on: :create
   validates :postal_code, format: { with: /\A[0-9]{7}\z/, message: 'のフォーマットが不適切です'}, allow_blank: true ,on: :update
-  validates :postal_code, :city, :street, presence: true, on: :create
-  validates :prefecture, exclusion: { in: %w(---) ,  message: 'を選択してください'}, on: :create
+  validates :prefecture, exclusion: { in: %w(---) ,  message: 'を選択してください'}, presence: true, on: :create
+  validates :postal_code, :prefecture, :city, :street, presence: true, on: :create
   belongs_to :user, inverse_of: :address
 
   enum prefecture:{
