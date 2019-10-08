@@ -23,7 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super { |resource|
-      if resource.persisted?
+      if session["devise.provider_data"].present?
         SnsCredential.create(
           uid: session["devise.provider_data"]["uid"],
           provider: session["devise.provider_data"]["provider"],
