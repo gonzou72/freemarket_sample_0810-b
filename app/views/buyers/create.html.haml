@@ -1,1 +1,68 @@
-dddddddd
+.item
+  .item__header
+    .item__header--image
+      = image_tag '/images/logo.png',height:"50px",width:"50px;"
+    .item__header--content
+      = link_to"merucari",root_path,method: :get,class:"btn"
+  .item__message
+    .item__message--top
+      = fa_icon "clock",class:"clock-icon"
+      発送をお待ちください
+    .item__message--bottom
+      出品者からの発送通知をお待ちください
+  .item__status
+    購入が完了しました
+  .item__item
+    .item__item--image
+      = link_to image_tag('/images/item_main.png', height:"150px", width:"150px"),"/items/show/"
+    .item__item--name
+      パックスナチュロン　キッチンスポンジ
+  .item__price
+    .item__price--cost.side
+      ¥500
+    .item__price--way.side
+      送料込み
+  .item__delivery
+    .item__delivery--border
+      .item__delivery--top
+        配送先
+      .item__delivery--postcode
+        ¥ 000-0000
+      .item__delivery--address
+        神奈川県メルカリ市メルカリ区メルカリ0ー0-00 メルカリ荘 第8号棟 0000号室
+      .item__delivery--name
+        藺牟田　佳佑
+  .item__payment
+    .item__payment--border
+      .item__payment--top
+        支払い方法
+      .item__payment--number
+        0000-0000-0000-0000
+      .item__payment--validday
+        00/00
+      .item__payment--company
+        visa
+  .item__flow
+    .item__flow--top
+      発送通知後の流れ
+    .item__flow--icon
+      = link_to image_tag('/images/valuation_face.png',height:"50px",width:"200px")
+    .item__flow--explation
+      商品を受け取ったら<br>
+      出品者の評価をしましょう。<br>
+      購入代金が出品者に振り込まれます。<br>
+      評価後に取引は完了です。
+    .item__flow--link
+      = link_to"マイページへ戻る",new_item_path,method: :get,class:"btn"
+  .item__guide
+    .item__guide--type
+      プライバシーポリシー
+    .item__guide--type
+      メルカリ利用規約
+    .item__guide--type
+      特定商取引に関する表記
+  .item__footer
+    .item__footer--image
+      = link_to image_tag('/images/logo.png',height:"50px",width:"50px"),"/"
+    .item__footer--content
+      © 2019 Mercari

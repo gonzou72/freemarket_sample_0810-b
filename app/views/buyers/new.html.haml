@@ -4,24 +4,28 @@
       = image_tag '/images/logo.png',height:"50px",width:"50px;"
     .item__header--content
       = link_to"merucari",root_path,method: :get,class:"btn"
-  .item__message
-    .item__message--top
-      = fa_icon "clock",class:"clock-icon"
-      発送をお待ちください
-    .item__message--bottom
-      出品者からの発送通知をお待ちください
-  .item__status
-    購入が完了しました
-  .item__item
-    .item__item--image
-      = link_to image_tag('/images/item_main.png', height:"150px", width:"150px"),"/items/show/"
-    .item__item--name
-      パックスナチュロン　キッチンスポンジ
-  .item__price
-    .item__price--cost.side
-      ¥500
-    .item__price--way.side
-      送料込み
+  .item__conform
+    購入内容の確認
+  .item__item-new
+    .item__item-new--main
+      .main__image.side
+        = image_tag '/images/item_main.png',height:"100px",width:"100px;"
+      .main__name.side
+        ヴィヴィアンウェストウッドマフラー
+    .item__item-new--sub
+      .sub__price.side
+        ¥3500
+      .sub__way.side
+        送料込み
+    .item__item-new--point
+      ポイントはありません
+    .item__item-new--bottom
+      .bottom__left.side
+        支払い金額
+      .bottom__right.side
+        ¥3500
+    .item__item-new--buy
+      = link_to"購入する",root_path,method: :get,class:"btn"
   .item__delivery
     .item__delivery--border
       .item__delivery--top
@@ -42,18 +46,6 @@
         00/00
       .item__payment--company
         visa
-  .item__flow
-    .item__flow--top
-      発送通知後の流れ
-    .item__flow--icon
-      = link_to image_tag('/images/valuation_face.png',height:"50px",width:"200px")
-    .item__flow--explation
-      商品を受け取ったら<br>
-      出品者の評価をしましょう。<br>
-      購入代金が出品者に振り込まれます。<br>
-      評価後に取引は完了です。
-    .item__flow--link
-      = link_to"マイページへ戻る",new_item_path,method: :get,class:"btn"
   .item__guide
     .item__guide--type
       プライバシーポリシー
