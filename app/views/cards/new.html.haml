@@ -6,12 +6,12 @@
     .new-card-title
       %h2.new-card-title__title クレジットカード情報入力
     .new-card-detail
-      =form_tag(pay_cards_path,method: :post,id: "charge-form") do
+      = form_tag(pay_cards_path,method: :post,id: "charge-form",name:"inputForm") do
         .card-number
           .cards-number__title.title
             %h3 カード番号
             %p 必須
-            = text_field_tag "number","",class:"card-number__input",placeholder:"半角英数字のみ",maxlength:"16",type:"text",id:"card_number"
+            = text_field_tag "number","",class:"card-number__input",placeholder:"半角数字のみ",maxlength:"16",type:"text",id:"card_number"
           .card-icons
             = image_tag '/images/cards-icon.png',height:"20px",width:"200px;"
         .card-expiration
@@ -20,7 +20,7 @@
             %p 必須
           .card-expiration__date
             .card-expiration__date-month
-            %select{name: "content",id:"exp-month"}
+            %select#exp_month{name: "exp_month"}
               %option{value: ""} ---
               %option{value: "01"} 01
               %option{value: "02"} 02
@@ -34,9 +34,9 @@
               %option{value: "10"} 10
               %option{value: "11"} 11
               %option{value: "12"} 12
-              月
+              月/
             .card-expiration__date-year
-            %select{name: "content",id:"exp-year"}
+            %select#exp_year{name: "exp_year"}
               %option{value: ""} ---
               %option{value: "2019"} 19
               %option{value: "2020"} 20

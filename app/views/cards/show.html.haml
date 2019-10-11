@@ -12,7 +12,7 @@
           .card-icon
             = fa_icon "credit-card"
           .card-delete.btn
-          = form_tag(delete_cards_path,method: :post,id:"charge-form")
+          = form_tag(delete_cards_path, method: :post, id:"charge-form", name:"inputForm") do
             %input{type:"hidden", name: "card_id",value:""}
             %button 削除する
         .card-detail__number
@@ -23,12 +23,6 @@
           - exp_month = @default_card_information.exp_month.to_s
           - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
           = exp_month +  " / " + exp_year
-      .card-add-newcard
-        = link_to new_card_path do
-          .card-add-newcard__button
-            %p
-              = fa_icon "credit-card"
-              クレジットカードを追加する
     .cards-about
       = link_to root_path ,class: "cards-link " do
         %p 支払い方法について
