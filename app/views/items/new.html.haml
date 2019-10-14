@@ -16,7 +16,7 @@
             必須
           .image__contents--description
             最大10枚までアップロードできます
-          .image__contents--content
+          .image__contents--content#image_field
             = f.fields_for :images do |i|
               = i.label :image do
                 = i.file_field :image
