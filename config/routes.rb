@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   end
 
   root to: 'items#index'
-    resources :buyers, only: [:new,:create]
-    resources :items, only: [:new,:create,:show]
+  resources :buyers, only: [:index] do
+    collection do
+      post 'pay', to: 'buyers#pay'
+      get 'done', to: 'buyers#done'
+    end
+  end
+  resources :items, only: [:new,:create,:show]
 
   resources :mypages, only: [:index, :destroy]
   scope '/mypages' do

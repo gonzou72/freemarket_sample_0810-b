@@ -37,9 +37,11 @@
       .item__payment--top
         支払い方法
       .item__payment--number
-        0000-0000-0000-0000
+        ="**** **** ****"+@default_card_information.last4
       .item__payment--validday
-        00/00
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
       .item__payment--company
         visa
   .item__flow
