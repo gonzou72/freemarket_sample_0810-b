@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20191010160019) do
     t.string   "ship_out_area",                 null: false
     t.string   "ship_out_date",                 null: false
     t.string   "category_id",                   null: false
-    t.integer  "user_id",                       null: false
+    t.integer  "user_id"
     t.integer  "status_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
