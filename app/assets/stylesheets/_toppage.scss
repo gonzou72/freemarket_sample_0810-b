@@ -27,17 +27,18 @@
       &--item{
         margin:10px;
         display:inline-block;
+        & a {
+          text-decoration: none;
+        }
       }
     }
     &__item {
       margin: 0 0 20px 20px;
       width: 213px;
+      
       &--contents {
         text-align:left;
         color: black;
-        & a {
-          text-decoration: none;
-        }
       }
       &--name {
         font-weight: 400;
