@@ -369,8 +369,8 @@ DEPENDENCIES
   faker
   fog-aws
   font-awesome-rails
-  gretel
   gimei
+  gretel
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
