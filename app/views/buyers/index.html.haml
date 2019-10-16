@@ -1,0 +1,63 @@
+.item
+  .item__header
+    .item__header--image
+      = image_tag '/images/logo.png',height:"50px",width:"50px;"
+    .item__header--content
+      = link_to"merucari",root_path,method: :get,class:"btn"
+  .item__conform
+    購入内容の確認
+  .item__item-new
+    .item__item-new--main
+      .main__image.side
+        = image_tag '/images/item_main.png',height:"100px",width:"100px;"
+      .main__name.side
+        ヴィヴィアンウェストウッドマフラー
+    .item__item-new--sub
+      .sub__price.side
+        ¥3500
+      .sub__way.side
+        送料込み
+    .item__item-new--point
+      ポイントはありません
+    .item__item-new--bottom
+      .bottom__left.side
+        支払い金額
+      .bottom__right.side
+        ¥3500
+    .item__item-new--buy
+      = form_tag(action: :pay, method: :post) do
+        %button 購入する
+  .item__delivery
+    .item__delivery--border
+      .item__delivery--top
+        配送先
+      .item__delivery--postcode
+        ¥ 000-0000
+      .item__delivery--address
+        神奈川県メルカリ市メルカリ区メルカリ0ー0-00 メルカリ荘 第8号棟 0000号室
+      .item__delivery--name
+        藺牟田　佳佑
+  .item__payment
+    .item__payment--border
+      .item__payment--top
+        支払い方法
+      .item__payment--number
+        ="**** **** ****"+@default_card_information.last4
+      .item__payment--validday
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+      .item__payment--company
+        visa
+  .item__guide
+    .item__guide--type
+      プライバシーポリシー
+    .item__guide--type
+      メルカリ利用規約
+    .item__guide--type
+      特定商取引に関する表記
+  .item__footer
+    .item__footer--image
+      = link_to image_tag('/images/logo.png',height:"50px",width:"50px"),"/"
+    .item__footer--content
+      © 2019 Mercari
