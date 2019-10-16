@@ -1,4 +1,9 @@
-.smallframe__item--image
-  = image_tag '/images/logo.png',height:"215px",width:"100%;"
-.smallframe__item--about
-  test
+.smallframe__items--item
+  = link_to item_path(item) do
+    .smallframe__item--image
+      = image_tag item.images[0].image,height:"200px",width:"200px;"
+    .smallframe__item--contents
+      .smallframe__item--name
+        = item.name
+      .smallframe__item--price
+        = "¥#{item.price}"
