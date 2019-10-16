@@ -37,9 +37,11 @@
       .item__payment--top
         支払い方法
       .item__payment--number
-        0000-0000-0000-0000
+        ="**** **** ****"+@default_card_information.last4
       .item__payment--validday
-        00/00
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
       .item__payment--company
         visa
   .item__flow
@@ -53,7 +55,7 @@
       購入代金が出品者に振り込まれます。<br>
       評価後に取引は完了です。
     .item__flow--link
-      = link_to"マイページへ戻る",new_item_path,method: :get,class:"btn"
+      = link_to"マイページへ戻る",mypages_path,method: :get,class:"btn"
   .item__guide
     .item__guide--type
       プライバシーポリシー

@@ -246,10 +246,12 @@
     background-color: #ea352d; 
     cursor: pointer;
     text-align: center;
-    line-height: 60px;
-    font-size: 25px;
-    font-weight: bold;
-    color: white;  
+    .btn{
+      line-height: 60px;
+      font-size: 25px;
+      font-weight: bold;  
+      color: white;
+    }
   }
   .message{
     padding: 40px 40px;

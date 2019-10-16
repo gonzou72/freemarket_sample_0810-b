@@ -14,12 +14,21 @@ Rails.application.routes.draw do
   end
 
   root to: 'items#index'
-    resources :buyers, only: [:new,:create]
-    resources :items, only: [:new,:create,:show]
-
-  resources :mypages, only: [:index, :destroy] 
+  resources :buyers, only: [:index] do
+    collection do
+      post 'pay', to: 'buyers#pay'
+      get 'done', to: 'buyers#done'
+    end
+  end
+  resources :items, only: [:new,:create,:show]
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
+  resources :mypages, only: [:index, :destroy]
   scope '/mypages' do
-    resources :cards, only: [:index, :new]
     resources :identifications, only: [:index, :create, :update]
     resources :profiles, only: [:edit]
   end
