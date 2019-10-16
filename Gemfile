@@ -44,6 +44,9 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'gimei'
 end
 
 group :development do
@@ -74,3 +77,8 @@ gem 'mini_magick'
 gem 'ancestry'
 gem 'rails-i18n'
 gem 'payjp'
+gem 'gretel'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'thin'

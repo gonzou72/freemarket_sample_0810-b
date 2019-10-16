@@ -89,25 +89,25 @@ describe User do
     it "is invalid other than double-byte characters is included in last_name"  do
       user = build(:user, last_name: "あいうえお愛ueお")
       user.valid?
-      expect(user.errors[:last_name]).to include("を全角で入力して下さい。")
+      expect(user.errors[:last_name]).to include("全角で入力して下さい。")
     end
 
     it "is invalid other than double-byte characters is included in first_name"  do
       user = build(:user, first_name: "かきくけこ牡蠣くけ5")
       user.valid?
-      expect(user.errors[:first_name]).to include("を全角で入力して下さい。")
+      expect(user.errors[:first_name]).to include("全角で入力して下さい。")
     end
 
     it "is invalid other than double-byte katakana characters is included in last_name_kana"  do
       user = build(:user, last_name_kana: "アイウエo愛ueお")
       user.valid?
-      expect(user.errors[:last_name_kana]).to include("を全角カタカナで入力して下さい。")
+      expect(user.errors[:last_name_kana]).to include("全角カタカナで入力して下さい。")
     end
 
     it "is invalid other than double-byte katakana characters is included in first_name_kana"  do
       user = build(:user, first_name_kana: "アイウエオ牡蠣くけ5")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("を全角カタカナで入力して下さい。")
+      expect(user.errors[:first_name_kana]).to include("全角カタカナで入力して下さい。")
     end
   end
 end

@@ -1,0 +1,22 @@
+.breadcrumbs{
+  font-size: 14px;
+  font-family: YuGothic;
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  padding-left: 10%;
+  border-top: 2px solid whitesmoke;
+  box-shadow: 0 -8px 3px -4px lightgray inset; 
+  a{
+    text-decoration: none;
+    color: #333333;
+  }
+  a:hover{
+    text-decoration: underline;
+    color: rgba(158, 152, 152, 0.993);
+  }
+  .current{
+    font-weight: bold;
+    color: #333333;
+  }
+}

@@ -5,14 +5,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new 
+    super { |resource|
+      if session["devise.provider_data"].present?
+        resource.attributes = {
+          nickname: session["devise.provider_data"]["info"]["name"],
+          email: session["devise.provider_data"]["info"]["email"],
+          first_name: session["devise.provider_data"]["info"]["first_name"],
+          last_name: session["devise.provider_data"]["info"]["last_name"],
+        }
+        session["devise.provider_data"]["password"] = Devise.friendly_token[0, 20]
+      else
+      end
+    }
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super { |resource|
+      if session["devise.provider_data"].present?
+        SnsCredential.create(
+          uid: session["devise.provider_data"]["uid"],
+          provider: session["devise.provider_data"]["provider"],
+          user_id: resource.id
+        )
+      else
+      end
+      session["received_form"] = nil
+      session["devise.provider_data"] = nil
+    }
+  end
 
   # GET /resource/edit
   # def edit
@@ -59,10 +81,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  def create
-    super
-    session.delete(:received_form)
-  end
 
   def update
     current_user.assign_attributes(account_update_params)

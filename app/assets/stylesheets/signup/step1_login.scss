@@ -1,0 +1,132 @@
+.account-page__login {
+  background-color:rgb(245, 245, 245);
+  position: relative;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  .header {
+    height: 128px;
+    text-align: center;
+    &__logo{
+      margin: 20px 0px 20px 0px;
+      display: inline-block;
+    }
+  }
+  .registration__container {
+    width: 456px;
+    margin: 0 auto;
+    background-color: white;
+  }
+  .registration__title {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 32px;
+    text-align: center;
+  }
+  .registration-form {
+    padding: 40px 32px 20px;
+    border-top: 1px solid #f5f5f5;
+    &__content {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  .btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; 
+    &--login {
+      margin: 40px 0;
+      color: #fff;
+      background-color: #ea352d;
+    }
+    &--facebook {
+      margin: 16px 0 0;
+      background: #385185;
+      color: #fff;
+    }
+    &--google {
+      margin: 16px 0 32px;
+      background: #fff;
+      border: #979797 solid 1px;
+      color: #333;
+    }
+    &--signup {
+      margin: 16px 0 0;
+      background: dodgerblue;
+      color: #fff;
+      height: 40px;
+      line-height: 40px;
+      font-weight: normal;
+    }
+  }
+  .forget-password{
+    color: dodgerblue;
+    text-decoration: none;
+  }
+  .envelop-icon {
+    position: absolute;
+    top: 25%;
+    left: 16px;
+    font-size: 22px;
+  }
+  .facebook-icon {
+    position: absolute;
+    top: 25%;
+    left: 16px;
+    font-size: 28px;
+  }
+  .google-icon {
+    position: absolute;
+    top: 25%;
+    left: 16px;
+    font-size: 26px;
+  }
+  .password-login, .email-login{
+    height: 30px;
+    width: calc(100% - 32px);
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: white;
+    margin: 16px 0 0 0;
+    &:focus{
+      border: 1px solid dodgerblue;
+      outline: 0;
+    }
+  }
+  .footer-user {
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+    &__guide {
+      list-style: none;
+      font-size: 12px;
+      display:flex;
+      justify-content: center;
+      margin-top: 30px;
+      &--privacy {
+        padding-right: 15px;
+      }
+      &--terms {
+        padding-right: 15px;
+      }
+      &--notification {
+        padding-right: 15px;
+      }
+    }
+    &__logo {
+    margin: 40px auto 0;
+    }
+    &__copyright {
+      font-size: 11px;
+    }
+  }
+}
