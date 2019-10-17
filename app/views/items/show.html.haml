@@ -4,41 +4,41 @@
   .main
     .title
       .title__item--name
-        ルイヴィトン サンダル ダミエ リボン パンプス
+        = @item.name
 
     .contents
       .contents__image
         .contents__image--main
-          =image_tag('/images/item_main.png', height:"300px", width:"300px")
+          = image_tag @item.images[0].image, height:"300px", width:"300px"
         .contents__image--top  
           .contents__image--top--one
-            =image_tag('/images/item_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[0].image, height:"60px", width:"60px" if @item.images[0].present?
           .contents__image--top--second
-            =image_tag('/images/item_sub_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[1].image, height:"60px", width:"60px" if @item.images[1].present?
           .contents__image--top--third
-            =image_tag('/images/item_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[2].image, height:"60px", width:"60px" if @item.images[2].present?
           .contents__image--top--fourth
-            =image_tag('/images/item_sub_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[3].image, height:"60px", width:"60px" if @item.images[3].present?
           .contents__image--top--fifth
-            =image_tag('/images/item_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[4].image, height:"60px", width:"60px" if @item.images[4].present?
         .contents__image--bottom  
           .contents__image--bottom--sixth
-            =image_tag('/images/item_sub_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[5].image, height:"60px", width:"60px" if @item.images[5].present?
           .contents__image--bottom--seventh
-            =image_tag('/images/item_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[6].image, height:"60px", width:"60px" if @item.images[6].present?
           .contents__image--bottom--eighth
-            =image_tag('/images/item_sub_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[7].image, height:"60px", width:"60px" if @item.images[7].present?
           .contents__image--bottom--nineth
-            =image_tag('/images/item_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[8].image, height:"60px", width:"60px" if @item.images[8].present?
           .contents__image--bottom--tenth
-            =image_tag('/images/item_sub_sub.png', height:"60px", width:"60px")
+          = image_tag @item.images[9].image, height:"60px", width:"60px" if @item.images[9].present?
       .contents-details
         .contents-details__user
           .contents-details__user-left
             出品者
           .contents-details__user-right
             .username
-              イチゴ寺
+              = @item.user.nickname
             .user-ratings
               %p
                 =fa_icon 'smile-o',class:"good"
@@ -54,46 +54,46 @@
             カテゴリー
           .contents-details__category-right
             %li
-              %p レディース
+              = @item.category.parent.parent.name
             %li
               =fa_icon "angle-right",class:"type__icon"
-              %pバッグ
+              = @item.category.parent.name
             %li  
               =fa_icon "angle-right",class:"type__icon"
-              %pショルダーバッグ
+              = @item.category.name
         .contents-details__brand
           .contents-details__brand-left
             ブランド
           .contents-details__brand-right
-            シャネル
+            = @item.brand
         .contents-details__status
           .contents-details__status-left
             商品の状態
           .contents-details__status-right
-            新品、未使用
+            = @item.condition
         .contents-details__fee
           .contents-details__fee-left
             配送料の負担
           .contents-details__fee-right
-            送料込み(出品者負担)
+            = @item.shipping_fee
         .contents-details__method
           .contents-details__method-left
             配送の方法
           .contents-details__method-right
-            未定
+            = @item.shipping_method
         .contents-details__area
           .contents-details__area-left
             配送元地域
           .contents-details__area-right
-            大阪府
+            = @item.ship_out_area
         .contents-details__date
           .contents-details__date-left
             発送日の目安
           .contents-details__date-right
-            5−7日で発送
+            = @item.ship_out_date
     .item-price
       %span.item-price-p
-        ¥10,280 
+        = "¥#{@item.price}"
       %span.item-price__tax
         (税込み）
       %span.item-price__fee
@@ -101,19 +101,7 @@
     .item_buy-btn
       = link_to"購入画面に進む",buyers_path,method: :get,class:"btn"
     .message
-      ご覧頂きありがとうございます。(*´∇｀*)
-      本革は、革本来の風合いを愉しむことができ、次のような特徴があります。バラキズ（引っかいたような小さな傷）、トラ（生きている間にできた皮膚のシワ）、色の濃度の違い。こちらは、天然皮革の為、表面に多少の傷、シワ、部分的なムラ、繊維の毛羽立ち、革匂い等がある場合がございます。革本来の風合いである模様（シワ、トラ、キズ、ムラ、）がそのままむき出しになっております。それらを自然から生まれた世界に一つの模様として受け入れて頂ければ幸いでございます。
-      高さ 20cm X 横 26cm X マチ幅 14cm
-      重さ:約0.5KG
-      素材：天然牛革
-      5 colors
-      新品未使用
-      素材の良さと機能性を兼ね備えた本革のバックがこの価格での提供はお買い得です。この機会にあなたのものにしてはいかがですか?
-      日々頑張るあなたにこそ使ってほしいバッグです。
-      ご覧頂く際の環境やお使いのパソコン環境及び携帯電話の動作環境などにより、商品画像の色が,実際の商品と若干異なる場合がございます。(╹ω╹ )
-      購入者様のご都合、イメージ違いなどでの返品はお受けできません。m(._.)m
-      上記にご理解の上、ご購入をお願い致します。
-      発送前に検品していますが、明らかな不良があれば、その際は評価前にご連絡をお願いします。m(._.)m
+      = @item.detail
     .item-button
       .item-button-left
         = fa_icon "heart-o"
@@ -129,7 +117,7 @@
       .comment_block-top
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       .comment_block-text
-        良い商品です。
+        
       .comment_block-send-btn
         コメントする
     .nav_item-link
@@ -151,7 +139,7 @@
           %i.fa.fa-pinterest-square.links-box-fa-low
   .bottom    
     .bottom-user-another-item
-      イチゴ寺さんのその他の出品
+      = "#{@item.user.nickname}のその他の出品"
     .bottom-same-category-item
       ショルダーバッグその他の商品
     
