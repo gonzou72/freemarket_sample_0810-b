@@ -1,5 +1,5 @@
 class Buyer < ApplicationRecord
   belongs_to :user
   belongs_to :item
-  has_one :card
+  # has_one :card
 end

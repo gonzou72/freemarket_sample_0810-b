@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_many :images
   accepts_nested_attributes_for :images
   has_one :buyer
-  has_one :card
+  # has_one :card
 
   validates :name, :detail, :price, :size, :condition, :shipping_fee, :shipping_method, :ship_out_area, :ship_out_date ,presence: true
   validates :name, length: {maximum: 40}
