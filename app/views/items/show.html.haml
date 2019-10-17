@@ -12,16 +12,26 @@
           = image_tag @item.images[0].image, height:"300px", width:"300px"
         .contents__image--top  
           .contents__image--top--one
+          = image_tag @item.images[0].image, height:"60px", width:"60px" if @item.images[0].present?
           .contents__image--top--second
+          = image_tag @item.images[1].image, height:"60px", width:"60px" if @item.images[1].present?
           .contents__image--top--third
+          = image_tag @item.images[2].image, height:"60px", width:"60px" if @item.images[2].present?
           .contents__image--top--fourth
+          = image_tag @item.images[3].image, height:"60px", width:"60px" if @item.images[3].present?
           .contents__image--top--fifth
+          = image_tag @item.images[4].image, height:"60px", width:"60px" if @item.images[4].present?
         .contents__image--bottom  
           .contents__image--bottom--sixth
+          = image_tag @item.images[5].image, height:"60px", width:"60px" if @item.images[5].present?
           .contents__image--bottom--seventh
+          = image_tag @item.images[6].image, height:"60px", width:"60px" if @item.images[6].present?
           .contents__image--bottom--eighth
+          = image_tag @item.images[7].image, height:"60px", width:"60px" if @item.images[7].present?
           .contents__image--bottom--nineth
+          = image_tag @item.images[8].image, height:"60px", width:"60px" if @item.images[8].present?
           .contents__image--bottom--tenth
+          = image_tag @item.images[9].image, height:"60px", width:"60px" if @item.images[9].present?
       .contents-details
         .contents-details__user
           .contents-details__user-left
