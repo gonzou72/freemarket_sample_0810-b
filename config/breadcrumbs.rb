@@ -6,8 +6,8 @@ crumb :mypage do
   link "マイページ", mypages_path
 end
 
-crumb :profile do
-  link "プロフィール", edit_profile_path
+crumb :profile do |current_user|
+  link "プロフィール", edit_profile_path(current_user)
   parent :mypage
 end
 
