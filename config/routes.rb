@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get 'done', to: 'buyers#done'
     end
   end
-  resources :items, only: [:new,:create,:show,:edit,:update]
+  resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :cards, only: [:new, :show] do
     collection do
       post 'pay', to: 'cards#pay'
