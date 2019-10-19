@@ -253,6 +253,22 @@
       color: white;
     }
   }
+  .item_edit-btn {
+    width: 625px;
+    margin: 0 auto;
+    background-color: #ea352d; 
+    cursor: pointer;
+    text-align: center;
+    .btn {
+      line-height: 48px;
+      font-size: 14px; 
+      color: white;
+    }
+  }
+  .text-center {
+    text-align: center;
+    margin: 16px 16px;
+  }
   .item_delete-btn {
     width: 625px;
     margin: 0 auto;
