@@ -6,7 +6,7 @@ class CardsController < ApplicationController
   def new
      @card = Card.where(user_id: current_user.id)
     if @card.exists?
-      @cards = Card.find(current_user.id)
+      @cards = Card.find_by(user_id:current_user.id)
       redirect_to card_path(@cards)
     end
   end
