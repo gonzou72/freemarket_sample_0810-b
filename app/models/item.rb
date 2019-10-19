@@ -4,14 +4,13 @@ class Item < ApplicationRecord
   has_many :images
   accepts_nested_attributes_for :images
   has_one :buyer
-  # has_one :card
 
-  validates :name, :detail, :price, :size, :condition, :shipping_fee, :shipping_method, :ship_out_area, :ship_out_date ,presence: true
+  validates :name, :detail, :price, :size, :category_id,:condition, :shipping_fee, :shipping_method, :ship_out_area, :ship_out_date ,presence: true
   validates :name, length: {maximum: 40}
   validate  :image_save,on:[:new, :create]
 
   def image_save
-    errors.add(:image, "fffffff") if images.empty?
+    errors.add(:image, "") if images.empty?
   end
 
   # has_many :comments
