@@ -253,6 +253,18 @@
       color: white;
     }
   }
+  .item_delete-btn {
+    width: 625px;
+    margin: 0 auto;
+    background-color: #aaa; 
+    cursor: pointer;
+    text-align: center;
+    .btn {
+      line-height: 48px;
+      font-size: 14px; 
+      color: white;
+    }
+  }
   .message{
     padding: 40px 40px;
     font-size: 17px;
