@@ -4,9 +4,8 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
   has_one :buyer
-  # has_one :card
 
-  validates :name, :detail, :price, :size, :condition, :shipping_fee, :shipping_method, :ship_out_area, :ship_out_date ,presence: true
+  validates :name, :detail, :price, :size, :category_id,:condition, :shipping_fee, :shipping_method, :ship_out_area, :ship_out_date ,presence: true
   validates :name, length: {maximum: 40}
   validate  :image_save,on:[:new, :create]
 

@@ -1,6 +1,7 @@
 require 'rails_helper'
 describe Item do
   describe '#create' do
+
     it "is invalid without name" do
       item = build(:item,name:"")
       item.valid?
@@ -25,6 +26,11 @@ describe Item do
       item = build(:item,size:"")
       item.valid?
       expect(item.errors[:size]).to include("が入力されていません。")
+    end
+    it "is invalid without category_id" do
+      item = build(:item,category_id:"")
+      item.valid?
+      expect(item.errors[:category_id]).to include("が入力されていません。")
     end
     it "is invalid without condition" do
       item = build(:item,condition:"")

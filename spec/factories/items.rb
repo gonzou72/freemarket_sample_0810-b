@@ -10,6 +10,7 @@ FactoryBot.define do
     shipping_method     {"a"}
     ship_out_area       {"a"}
     ship_out_date       {"a"}
+    category_id         {"1"}
+    user
   end
-
 end
