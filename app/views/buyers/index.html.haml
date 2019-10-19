@@ -9,7 +9,7 @@
   .item__item-new
     .item__item-new--main
       .main__image.side
-        = image_tag '/images/item_main.png',height:"100px",width:"100px;"
+        = image_tag @images.image.url, height:"100px",width:"100px;"
       .main__name.side
         = @items.name
     .item__item-new--sub

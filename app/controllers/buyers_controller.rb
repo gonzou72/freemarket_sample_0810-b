@@ -11,12 +11,14 @@ class BuyersController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
-    @items = Item.find(params[:item_id])
+    session[:item_id] = params[:item_id]
+    @items = Item.find(session[:item_id])
+    @images = Image.find(params[:item_id])
   end
 
   def pay
     card = Card.where(user_id: current_user.id).first
-    @items=Item.find(1)
+    @items = Item.find(session[:item_id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       amount: @items.price,
@@ -27,15 +29,10 @@ class BuyersController < ApplicationController
   end
 
   def done
-    @items=Item.(1)
+    @items = Item.find(session[:item_id])
     card = Card.where(user_id: current_user.id).last
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
+    session[:item_id] = nil
   end
-
-  private 
-  def item_id
-    params.require().permit(:id)
-  end
-
 end
