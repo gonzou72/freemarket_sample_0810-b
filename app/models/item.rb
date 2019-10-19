@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   validate  :image_save,on:[:new, :create]
 
   def image_save
-    errors.add(:image, "") if images.empty?
+    errors.add(:image, "fffffff") if images.empty?
   end
 
   # has_many :comments

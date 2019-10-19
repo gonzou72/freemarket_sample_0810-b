@@ -1,6 +1,12 @@
 require 'rails_helper'
 describe Item do
   describe '#create' do
+
+    it "is valid with a nickname, email, password, password_confirmation, last_name, first_name, last_name_kana, first_name_kana, birth_day" do
+      item = build(:item)
+      expect(item).to be_valid
+    end
+
     it "is invalid without name" do
       item = build(:item,name:"")
       item.valid?
