@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.destroy
+    if @item.update(update_item_params)
       redirect_to root_path, notice: "商品情報が変更されました"
     else
        redirect_to item_path(@item), alert: "商品情報の変更に失敗しました"
