@@ -22,8 +22,7 @@ $(function () {
         $("#item_images_attributes_" + i + "_image").css("display","none")
         $(".camera-icon").css("display","none")
       } else {
-        if (i == 0){
-        }else{
+        if (i != 0){
         append(i);
         }
         break;
