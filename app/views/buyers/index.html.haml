@@ -11,10 +11,10 @@
       .main__image.side
         = image_tag '/images/item_main.png',height:"100px",width:"100px;"
       .main__name.side
-        ヴィヴィアンウェストウッドマフラー
+        = @items.name
     .item__item-new--sub
       .sub__price.side
-        ¥3500
+        =@items.price
       .sub__way.side
         送料込み
     .item__item-new--point
@@ -23,7 +23,7 @@
       .bottom__left.side
         支払い金額
       .bottom__right.side
-        ¥3500
+        =@items.price
     .item__item-new--buy
       = form_tag(action: :pay, method: :post) do
         %button 購入する

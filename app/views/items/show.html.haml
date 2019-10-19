@@ -99,7 +99,7 @@
       %span.item-price__fee
         送料込み
     .item_buy-btn
-      = link_to"購入画面に進む",buyers_path,method: :get,class:"btn"
+      = link_to"購入画面に進む",buyers_path,method: :get,class:"btn",item_id: @item.id
     .message
       = @item.detail
     .item-button
