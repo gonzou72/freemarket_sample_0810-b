@@ -9,15 +9,15 @@
       = form_tag(pay_cards_path,method: :post,id: "charge-form",name:"inputForm") do
         .card-number
           .cards-number__title.title
-            %h3 カード番号
-            %p 必須
+            %h3{class:"side"} カード番号
+            %p{class:"side"} 必須
             = text_field_tag "number","",class:"card-number__input",placeholder:"半角数字のみ",maxlength:"16",type:"text",id:"card_number"
           .card-icons
             = image_tag '/images/cards-icon.png',height:"20px",width:"200px;"
         .card-expiration
           .cards-expiration__title.title
-            %h3 有効期限
-            %p 必須
+            %h3{class:"side"} 有効期限
+            %p{class:"side"} 必須
           .card-expiration__date
             .card-expiration__date-month
             %select#exp_month{name: "exp_month"}
@@ -52,8 +52,8 @@
               年 
         .card-security
           .cards-security__title.title
-            %h3 セキュリティーコード
-            %p 必須
+            %h3{class:"side"} セキュリティーコード
+            %p{class:"side"} 必須
             =text_field_tag "cvc","",class:"card-security__input",placeholder:"カードの背面4桁もしくは3桁の番号",maxlength:"4",id:"cvc"
         .card-about
           = link_to root_path ,class: "card-link" do
