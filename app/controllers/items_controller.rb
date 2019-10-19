@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @items = Item.order('id DESC').limit(4)
@@ -52,14 +52,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.includes(:images).find(params[:id])
-    # @item.image.cache! unless @item.image.blank?
   end
 
   def update
-    @item = Item.includes(:images).find(params[:id])
-    @item.update(update_item_params)
-    redirect_to root_path
+    if @item.destroy
+      redirect_to root_path, notice: "商品情報が変更されました"
+    else
+       redirect_to item_path(@item), alert: "商品情報の変更に失敗しました"
+    end
   end
 
   private
@@ -72,6 +72,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.includes(:images).find(params[:id])
   end
 end
