@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @items = Item.order('id DESC').limit(4)
@@ -40,11 +41,37 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path, notice: "商品が削除されました"
+    else
+       redirect_to item_path(@item), alert: "削除に失敗しました"
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(update_item_params)
+      redirect_to root_path, notice: "商品情報が変更されました"
+    else
+       redirect_to item_path(@item), alert: "商品情報の変更に失敗しました"
+    end
   end
 
   private
   def item_params
     params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[:image]).merge(user_id: current_user.id)
+  end
+
+  def update_item_params
+    params.require(:item).permit(:name,:detail,:price,:size,:brand,:condition,:shipping_fee,:shipping_method,:ship_out_area,:ship_out_date,:category_id,images_attributes:[:image, :id]).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.includes(:images).find(params[:id])
   end
 end
