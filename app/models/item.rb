@@ -12,7 +12,6 @@ class Item < ApplicationRecord
   def image_save
     errors.add(:image, "") if images.empty?
   end
-
   # has_many :comments
   # has_many :likes
   # has_one :status
