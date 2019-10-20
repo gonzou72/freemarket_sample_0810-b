@@ -74,8 +74,8 @@
           = render partial: "devise/shared/custom_error_message", locals: { content: :birth_day, f: f}
           .inner-registration__contents--attentions
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          .hinner-registration__contents--authentication
-          = image_tag '/images/reCAPTCHA.png',height:"80px",width:"320px;"
+          -# .hinner-registration__contents--authentication
+          -# = image_tag '/images/reCAPTCHA.png',height:"80px",width:"320px;"
           .inner-registration__contents--agreement
             「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
           = f.submit "次へ進む", class: "inner-registration__contents--next-btn"
