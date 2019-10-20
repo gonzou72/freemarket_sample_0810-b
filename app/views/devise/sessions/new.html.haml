@@ -11,13 +11,15 @@
           新規会員登録
       .registration-form
         .registration-form__content
-          =link_to user_facebook_omniauth_authorize_path, method: :post, class: "btn btn--facebook" do
-            %i.fa.fa-facebook-square.facebook-icon
-            Facebookでログイン
-          =link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn--google" do
-            %i.fa.fa-google.google-icon
-            Googleでログイン
+          -if Rails.env.development?
+            =link_to user_facebook_omniauth_authorize_path, method: :post, class: "btn btn--facebook" do
+              %i.fa.fa-facebook-square.facebook-icon
+              Facebookでログイン
+            =link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn--google" do
+              %i.fa.fa-google.google-icon
+              Googleでログイン
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            = render "devise/shared/error_messages", resource: resource
             .field
               = f.email_field :email, autofocus: true, autocomplete: "email", class: "email-login", placeholder: "メールアドレス"
             .field
