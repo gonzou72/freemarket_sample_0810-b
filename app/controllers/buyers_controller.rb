@@ -13,7 +13,7 @@ class BuyersController < ApplicationController
     end
     session[:item_id] = params[:item_id]
     @items = Item.find(session[:item_id])
-    @images = Image.find(params[:item_id])
+    @images = Image.find_by(item_id: params[:item_id])
   end
 
   def pay
