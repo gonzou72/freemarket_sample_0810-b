@@ -13,5 +13,6 @@
             画像を選択してください
           -elsif content == :price
             300以上9999999以下で入力してください
+          -elsif content == :size && params[:category_id].nil?
           -else
             選択してください
