@@ -5,64 +5,81 @@
         = image_tag '/images/logo-main.png', height:"52px", width:"190px;", alt: "mercari"
     %nav.header__progress-bar
       = image_tag '/images/progress-bar.png',height:"50px",width:"500px;"
-  %main.registration
-    %section.registration__container
-      %h2.registration__title 支払い方法
-      %div.inner-registration
-        = form_for @user, url: user_registration_path(@user) do |f|
-          .inner-registration__content
-            .inner-registration__contents--title.side
-              カード番号
-            .inner-registration__contents--require.side
-              必須
-            .inner-registration__contents--input
-              %input{type:"text", placeholder:"半角数字のみ",name:"content"}
-            .inner-registration__contents--icons
-            .inner-registration__contents--title.side
-              有効期限
-            .inner-registration__contents--require.side
-              必須
-            .inner-registration__contents--select
-              .inner-registration__contents--select-month
-                %form{action: "#", method: "GET"}
-                %select{name: "content"}
-                  %option{value: ""} ---
-                  %option{value: "01"} 01
-                月
-              .inner-registration__contents--select-year
-                %form{action: "#", method: "GET"}
-                %select{name: "content"}
-                  %option{value: ""} ---
-                  %option{value: "19"} 19
+  .mypage-new-card-contents-outer
+    .mypage-new-card-contents
+      .new-card-title
+        %h2.new-card-title__title クレジットカード情報入力
+      .new-card-detail
+        = form_for @user, url: user_registration_path(@user), html: { id: "charge-form", name: "inputForm"} do |f|
+          .card-number
+            .cards-number__title.title
+              %h3{class:"side"} カード番号
+              %p{class:"side"} 必須
+              = text_field_tag "number","",class:"card-number__input",placeholder:"半角数字のみ",maxlength:"16",type:"text",id:"card_number"
+            .card-icons
+              = image_tag '/images/cards-icon.png',height:"20px",width:"200px;"
+          .card-expiration
+            .cards-expiration__title.title
+              %h3{class:"side"} 有効期限
+              %p{class:"side"} 必須
+            .card-expiration__date
+              .card-expiration__date-month
+              %select#exp_month{name: "exp_month"}
+                %option{value: ""} ---
+                %option{value: "01"} 01
+                %option{value: "02"} 02
+                %option{value: "03"} 03
+                %option{value: "04"} 04
+                %option{value: "05"} 05
+                %option{value: "06"} 06
+                %option{value: "07"} 07
+                %option{value: "08"} 08
+                %option{value: "09"} 09
+                %option{value: "10"} 10
+                %option{value: "11"} 11
+                %option{value: "12"} 12
+                月/
+              .card-expiration__date-year
+              %select#exp_year{name: "exp_year"}
+                %option{value: ""} ---
+                %option{value: "2019"} 19
+                %option{value: "2020"} 20
+                %option{value: "2021"} 21
+                %option{value: "2022"} 22
+                %option{value: "2023"} 23
+                %option{value: "2024"} 24
+                %option{value: "2025"} 25
+                %option{value: "2026"} 26
+                %option{value: "2027"} 27
+                %option{value: "2028"} 28
+                %option{value: "2029"} 29
                 年 
-            .inner-registration__contents--title.side
-              セキュリティコード
-            .inner-registration__contents--require.side
-              必須
-            .inner-registration__contents--input-name
-              %input{type:"text", placeholder:"カード背面4桁もしくは3桁の番号",name:"content", class: "input-firstname"}
-            .inner-registration__contents--attentions-guide
-              %p
-                %i.fa.fa-question-circle
-                カード裏面の番号とは？
-            .hidden-information
-              = f.hidden_field :nickname, value: @user.nickname
-              = f.hidden_field :email, value: @user.email
-              = f.hidden_field :last_name, value: @user.last_name
-              = f.hidden_field :first_name, value: @user.first_name
-              = f.hidden_field :last_name_kana, value: @user.last_name_kana
-              = f.hidden_field :first_name_kana, value: @user.first_name_kana
-              = f.hidden_field :birth_day, value: @user.birth_day
-              = f.hidden_field :password, value: session[:received_form]["user"]["password"]
-              = f.hidden_field :password_confirmation, value: session[:received_form]["user"]["password_confirmation"]
-              = f.fields_for :address do |address|
-                = address.hidden_field :postal_code, value: @user.address.postal_code
-                = address.hidden_field :prefecture, value: @user.address.prefecture
-                = address.hidden_field :city, value: @user.address.city
-                = address.hidden_field :street, value: @user.address.street
-                = address.hidden_field :building_name, value: @user.address.building_name
-                = address.hidden_field :phone, value: @user.address.phone
-            .inner-registration__contents--next-btn
-              = f.submit "次へ進む", class: "btn-next"
-              -# =link_to "次へ進む", new_users_signup_path, method: :get, class: 'btn-next'
+          .card-security
+            .cards-security__title.title
+              %h3{class:"side"} セキュリティーコード
+              %p{class:"side"} 必須
+              =text_field_tag "cvc","",class:"card-security__input",placeholder:"カードの背面4桁もしくは3桁の番号",maxlength:"4",id:"cvc"
+          .card-about
+            = link_to root_path ,class: "card-link" do
+              = fa_icon "question-circle"
+              %p カード裏面の番号とは？
+          .hidden-information
+            = f.hidden_field :nickname, value: @user.nickname
+            = f.hidden_field :email, value: @user.email
+            = f.hidden_field :last_name, value: @user.last_name
+            = f.hidden_field :first_name, value: @user.first_name
+            = f.hidden_field :last_name_kana, value: @user.last_name_kana
+            = f.hidden_field :first_name_kana, value: @user.first_name_kana
+            = f.hidden_field :birth_day, value: @user.birth_day
+            = f.hidden_field :password, value: session[:received_form]["user"]["password"]
+            = f.hidden_field :password_confirmation, value: session[:received_form]["user"]["password_confirmation"]
+            = f.fields_for :address do |address|
+              = address.hidden_field :postal_code, value: @user.address.postal_code
+              = address.hidden_field :prefecture, value: @user.address.prefecture
+              = address.hidden_field :city, value: @user.address.city
+              = address.hidden_field :street, value: @user.address.street
+              = address.hidden_field :building_name, value: @user.address.building_name
+              = address.hidden_field :phone, value: @user.address.phone
+          .inner-registration__contents--next#card_token
+            = f.submit "次へ進む", class: "btn-next inner-registration__contents--next-btn", id: "token_submit" , name:"inputForm"
   = render 'devise/registrations/footer'
