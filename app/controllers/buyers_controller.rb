@@ -30,6 +30,7 @@ class BuyersController < ApplicationController
 
   def done
     @items = Item.find(session[:item_id])
+    @images = Image.find_by(item_id: session[:item_id])
     card = Card.where(user_id: current_user.id).last
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)

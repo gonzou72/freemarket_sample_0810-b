@@ -14,7 +14,7 @@
     購入が完了しました
   .item__item
     .item__item--image
-      = link_to image_tag('/images/item_main.png', height:"150px", width:"150px"),"/items/show/"
+      = image_tag @images.image.url, height:"100px",width:"100px;"
     .item__item--name
       = @items.name
   .item__price
