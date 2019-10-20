@@ -14,6 +14,7 @@
         = @items.name
     .item__item-new--sub
       .sub__price.side
+        ¥
         =@items.price
       .sub__way.side
         送料込み
@@ -23,6 +24,7 @@
       .bottom__left.side
         支払い金額
       .bottom__right.side
+        ¥
         =@items.price
     .item__item-new--buy
       = form_tag(action: :pay, method: :post) do
