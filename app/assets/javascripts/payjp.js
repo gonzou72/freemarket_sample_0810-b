@@ -24,6 +24,7 @@ document.addEventListener(
             console.log("登録が完了しました"); //確認用
           } else {
             console.log("カード情報が正しくありません。"); //確認用
+            alert("カード情報が正しくありません。")
           }
         });
       });

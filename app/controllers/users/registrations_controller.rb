@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-
+  require "payjp"
   # GET /resource/sign_up
   def new 
     super { |resource|
@@ -22,6 +22,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    if params['payjp-token'].blank?
+      redirect_to root_path
+    else
+      customer = Payjp::Customer.create(card: params['payjp-token'])
+      session[:customer_date] = customer.default_card
+    end
+
     super { |resource|
       if session["devise.provider_data"].present?
         SnsCredential.create(
@@ -31,8 +39,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       else
       end
+
+      @card = Card.new(
+        user_id: resource.id,
+        customer_id: customer.id,
+        card_id: session["customer_date"]
+        )
+      unless @card.save
+        redirect_to root_path
+      end
       session["received_form"] = nil
       session["devise.provider_data"] = nil
+      session["customer_date"] = nil  
     }
   end
 

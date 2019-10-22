@@ -98,10 +98,10 @@
         (税込）
       %span.item-price__fee
         送料込み
-    - unless @item.user_id == current_user.id
+    - unless current_user.present? && @item.user_id == current_user.id
       .item_buy-btn
         = link_to"購入画面に進む",buyers_path(item_id: @item.id),method: :get,class:"btn"
-    - if @item.user_id == current_user.id
+    - if current_user.present? && @item.user_id == current_user.id
       .item_edit-btn
         = link_to "商品の編集",edit_item_path(@item),method: :get,class:"btn"
       %p.text-center
