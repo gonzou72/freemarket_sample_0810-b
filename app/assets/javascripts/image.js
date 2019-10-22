@@ -7,13 +7,16 @@ $(function () {
     $("#image_field").append(append);
   };
 
-  i=["0","1","2","3","4","5","6","7","8"];
+  i=["0","1","2","3","4","5","6","7","8","9"];
 
   $.each(i,function(index){
     $(document).on("change","#item_images_attributes_" + index + "_image",function() { 
       $("#item_images_attributes_" + index + "_image").css("display","none")
       $(".camera-icon").css("display","none")
       append(index);
+      if (index == 9){
+        $("#item_images_attributes_10_image").css("display","none")
+      }  
     });
   });
   $(function(){

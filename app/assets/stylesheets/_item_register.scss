@@ -58,10 +58,11 @@
           width:100%;
           border:dashed 2px rgb(210, 210, 210);
           background-color:rgb(243, 243, 243);
-          input{
+          label input{
             height:160px;
             width:100%;
             opacity:0.0;
+            position:relative;
           }
           .camera-icon{
             position:relative;
