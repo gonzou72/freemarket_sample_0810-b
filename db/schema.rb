@@ -61,15 +61,15 @@ ActiveRecord::Schema.define(version: 20191010160019) do
     t.string   "name",                          null: false
     t.text     "detail",          limit: 65535, null: false
     t.integer  "price",                         null: false
-    t.string   "size",                          null: false
+    t.string   "size"
     t.string   "brand"
     t.string   "condition",                     null: false
     t.string   "shipping_fee",                  null: false
     t.string   "shipping_method",               null: false
     t.string   "ship_out_area",                 null: false
     t.string   "ship_out_date",                 null: false
-    t.string   "category_id",                   null: false
-    t.integer  "user_id",                       null: false
+    t.integer  "category_id",                   null: false
+    t.integer  "user_id"
     t.integer  "status_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
