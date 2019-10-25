@@ -21,6 +21,10 @@
               = i.label :image do
                 = i.file_field :image
                 = fa_icon "camera",class:"camera-icon"
+            #preview
+              -if @image != nil
+                -@image.each do |image|
+                  = image_tag image.image.url
           = render partial: 'item_error',locals:{content: :image}
       .item__register--name
         .name__contents

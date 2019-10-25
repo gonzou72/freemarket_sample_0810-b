@@ -69,6 +69,14 @@
             bottom:90px;
             left:50%;
           }
+          #preview{
+            display:block;
+            height:0;
+            img{
+            height:78px;
+            width:70px;
+            }
+          }
         }
         #error_explanation ul li{
           top:15px;

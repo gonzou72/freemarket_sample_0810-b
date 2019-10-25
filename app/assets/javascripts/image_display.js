@@ -1,23 +1,16 @@
-// $(function () {
-//   n=["0","1","2","3","4","5","6","7","8","9","10"];
-//   $.each(n,function(number){
-//     $(document).on("change","#item_images_attributes_" + number + "_image",function() { 
-//       var files = $(this).prop('files');
-//       var file = files[0];
-//       var fr = new FileReader();
-//       fr.onload = function(e){
-//         var src = e.target.result;
-//         var img ='<img src="'+ src +'" id="image_'+number+'" height=78px width=70px z-index=100 cursor=pointer>';
-//         $("#preview").append(img);
-//       }
-//       fr.readAsDataURL(file);
-//       $('#preview').css({
-//         "display":"block",
-//         "height":"0px",
-//       });
-//     });
-//   });
-//   $(document).on("mouseover","#image_0",function(){
-//     console.log("ffff")
-//   });  
-// });
+$(function () {
+  n=["0","1","2","3","4","5","6","7","8","9","10"];
+  $.each(n,function(number){
+    $(document).on("change","#item_images_attributes_" + number + "_image",function() { 
+      var files = $(this).prop('files');
+      var file = files[0];
+      var fr = new FileReader();
+      fr.onload = function(e){
+        var src = e.target.result;
+        var img ='<img src="'+ src +'" id="image_'+number+'">';
+     $("#preview").append(img);
+      }
+      fr.readAsDataURL(file);
+    });
+  });
+});

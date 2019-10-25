@@ -52,6 +52,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item_id=Item.find(params[:item_id])
+    @image=Image.where(item_id:@item_id)
   end
 
   def update

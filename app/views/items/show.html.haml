@@ -103,7 +103,7 @@
         = link_to"購入画面に進む",buyers_path(item_id: @item.id),method: :get,class:"btn"
     - if @item.user_id == current_user.id
       .item_edit-btn
-        = link_to "商品の編集",edit_item_path(@item),method: :get,class:"btn"
+        = link_to "商品の編集",edit_item_path(item_id: @item),method: :get,class:"btn"
       %p.text-center
         or
       .item_delete-btn

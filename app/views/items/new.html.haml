@@ -18,10 +18,10 @@
             最大10枚までアップロードできます
           .image__contents--content#image_field
             = f.fields_for :images do |i|
-              #preview
               = i.label :image do
                 = i.file_field :image
                 = fa_icon "camera",class:"camera-icon"
+            #preview
           = render partial: 'item_error',locals:{content: :image}
       .item__register--name
         .name__contents
