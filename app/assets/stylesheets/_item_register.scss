@@ -62,11 +62,20 @@
             height:160px;
             width:100%;
             opacity:0.0;
+            position:relative;
           }
           .camera-icon{
             position:relative;
             bottom:90px;
             left:50%;
+          }
+          #preview{
+            display:block;
+            height:0;
+            img{
+            height:78px;
+            width:70px;
+            }
           }
         }
         #error_explanation ul li{
@@ -272,11 +281,9 @@
           }
         }
         &--fee{
-          width:50%;
           padding:20px 0;
         }
         &--benefit{
-          width:50%;
           padding:30px 0 30px 0;
         }
         .border{
