@@ -53,7 +53,7 @@
           .detail__contents--btn.side
             必須
           .detail__contents--content#exist
-            -# = f.collection_select :category_id, @parents, :id, :name,{prompt:"---"},id:"display"
+            = f.collection_select :category_id, @parents, :id, :name,{prompt:"---"},id:"display"
           .detail__contents--content#append
           .detail__contents--content#append_two
           = render partial: 'item_error',locals:{content: :category_id}

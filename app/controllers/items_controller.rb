@@ -52,6 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @parents = Category.all.order("id ASC").limit(13)
     @item_id=Item.find(params[:item_id])
     @image=Image.where(item_id:@item_id)
   end
