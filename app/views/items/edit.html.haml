@@ -1,5 +1,9 @@
 .item
   = form_for [@item] do |f|
+    = hidden_field_tag "hidden-category-parent", @item.category.root.id
+    = hidden_field_tag "hidden-category", @item.category.parent.id
+    = hidden_field_tag "hidden-category-child", @item.category.id
+    = hidden_field_tag "hidden-size-setting", @item.size
     .item__header
       .item__header--image
         = image_tag '/images/logo.png',height:"50px",width:"50px;"
@@ -53,7 +57,7 @@
           .detail__contents--btn.side
             必須
           .detail__contents--content#exist
-            = f.collection_select :category_id, @parents, :id, :name,{prompt:"---"},id:"display"
+            = f.collection_select :category_id, @parents, :id, :name,{prompt:"---"},id:"display",value: 0
           .detail__contents--content#append
           .detail__contents--content#append_two
           = render partial: 'item_error',locals:{content: :category_id}

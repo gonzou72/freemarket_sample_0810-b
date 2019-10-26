@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path, notice: "商品が削除されました"
     else
-       redirect_to item_path(@item), alert: "削除に失敗しました"
+      redirect_to item_path(@item), alert: "削除に失敗しました"
     end
   end
 
@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
     if @item.update(update_item_params)
       redirect_to root_path, notice: "商品情報が変更されました"
     else
-       redirect_to item_path(@item), alert: "商品情報の変更に失敗しました"
+    render :edit
     end
   end
 
