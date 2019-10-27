@@ -1,12 +1,13 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_category_parents, only: [:new, :create, :edit, :update]
+  before_action :set_images, only: [:edit, :update]
 
   def index
     @items = Item.order('id DESC').limit(4)
   end
 
   def new
-    @parents = Category.all.order("id ASC").limit(13)
     respond_to do |format|
       format.html
       format.json do
@@ -28,7 +29,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @parents = Category.all.order("id ASC").limit(13)
     @item = Item.new(item_params)
     if @item.save
       redirect_to controller: :items, action: :index
@@ -52,9 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @parents = Category.all.order("id ASC").limit(13)
-    @item_id=Item.find(params[:item_id])
-    @image=Image.where(item_id:@item_id)
+    @image = Image.where(item_id: @item.id)
   end
 
   def update
@@ -76,5 +74,13 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.includes(:images).find(params[:id])
+  end
+
+  def set_category_parents
+    @parents = Category.all.order("id ASC").limit(13)
+  end
+
+  def set_images
+    @image = Image.where(item_id: @item.id)
   end
 end
