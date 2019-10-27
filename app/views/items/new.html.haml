@@ -1,5 +1,12 @@
 .item
   = form_for [@item] do |f|
+    - if @item.category.present?
+      = hidden_field_tag "hidden-category-parent", @item.category.root.id
+      = hidden_field_tag "hidden-category", @item.category.parent.id
+      = hidden_field_tag "hidden-category-child", @item.category.id
+    = hidden_field_tag "hidden-size-setting", @item.size
+    = hidden_field_tag "hidden-shipping_fee", @item.shipping_fee
+    = hidden_field_tag "hidden-shipping_method", @item.shipping_method
     .item__header
       .item__header--image
         = image_tag '/images/logo.png',height:"50px",width:"50px;"
