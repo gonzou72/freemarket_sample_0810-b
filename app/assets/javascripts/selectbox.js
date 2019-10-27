@@ -117,8 +117,9 @@ $(function () {
                       `
     $(".delivery_way").append(delivery_two);
   }
-  $("#exist").on("change",function() { 
-    var val = document.getElementById("display").value;
+  
+  function exist_change(val){
+    var d = $.Deferred();
     $.ajax({
       type:"GET",
       url:'/items/new',
@@ -131,13 +132,16 @@ $(function () {
       $("#append").empty();
       append();
       choice(children);
+      d.resolve();
     })
     .fail(function(){
       $(".detail__contents--type").text("fail")
     })
-  });
-  $("#append").on("change",function() { 
-    var val = document.getElementById("hidden_one").value;
+    return d.promise();
+  };
+
+  function appendchange(val){
+    var d = $.Deferred();
     $.ajax({
       type:"GET",
       url:'/items/new',
@@ -150,22 +154,23 @@ $(function () {
       $("#append_two").empty();
       append_two();
       choice_two(children_two);
+      d.resolve();
     })
     .fail(function(){
       $(".detail__contents--type").text("fail")
     })
-  });
-  $("#append_two").on("change",function() { 
-    var val = document.getElementById("display").value;
-    var val_two = document.getElementById("hidden_one").value;
-    var val_three = document.getElementById("hidden_two").value;
+    return d.promise();
+  };
+
+  function append_two_change(val, val_two, val_three){
+    var d = $.Deferred();
     $.ajax({
       type:"GET",
       url:'/items/new',
       data:{
-        size:val,
-        size_two:val_two,
-        size_three:val_three
+        size: val,
+        size_two: val_two,
+        size_three: val_three
       },
       dataType:'json'
     })
@@ -178,16 +183,16 @@ $(function () {
       if(size.id_two == "19" || size.id_two == "36" || size.id_two == "53"){
         size_shoes();
       }
+      d.resolve();
     })
     .fail(function(){
       $(".delivery__title").text("fail")
     })
-  });
-  $("#append_two").change(function() {
-    $('.hidden_bland').css("display","inline-block");
-  });
-  $("#item_shipping_fee").on("change",function() { 
-    var val = document.getElementById("item_shipping_fee").value;
+    return d.promise();
+  };
+
+  function shipping_free_change(val){
+    var d = $.Deferred();
     $.ajax({
       type:"GET",
       url:'/items/new',
@@ -204,9 +209,85 @@ $(function () {
       if(delivery.way == "着払い(購入者負担)"){
         delivery_two();
       }
+      d.resolve();
     })
     .fail(function(){
       $(".delivery__title").text("fail")
     })
+    return d.promise();
+  };
+
+  $("#exist").on("change",function() { 
+    var val = document.getElementById("display").value;
+    $("#append").empty();
+    $("#append_two").empty();
+    $("#hidden_size").empty();
+    exist_change(val);
   });
+
+  $("#append").on("change",function() { 
+    var val = document.getElementById("hidden_one").value;
+    $("#append_two").empty();
+    $("#hidden_size").empty();
+    appendchange(val);
+  });
+
+  $("#append_two").on("change",function() { 
+    var val = document.getElementById("display").value;
+    var val_two = document.getElementById("hidden_one").value;
+    var val_three = document.getElementById("hidden_two").value;
+    append_two_change(val, val_two, val_three);
+  });
+
+  $("#append_two").change(function() {
+    $('.hidden_bland').css("display","inline-block");
+  });
+
+  $("#item_shipping_fee").on("change",function() { 
+    var val = document.getElementById("item_shipping_fee").value;
+    shipping_free_change(val);
+  });
+
+  function setting() {
+    var category_child = $("#hidden-category-child").val();
+    var shipping_free = $("#item_shipping_fee").val();
+
+    if (category_child !== void 0){
+      $.when()
+        .then(function() {
+          var category_parent = $("#hidden-category-parent").val();
+          $("#display").val(category_parent);
+          return exist_change(category_parent);
+        })
+        .then(function() {
+          var category = $("#hidden-category").val();
+          $("#hidden_one").val(category);
+          return appendchange(category);
+        })
+        .then(function() {
+          var category_parent = $("#hidden-category-parent").val();
+          var category = $("#hidden-category").val();
+          var category_child = $("#hidden-category-child").val();
+          $("#hidden_two").val(category_child);
+          return append_two_change(category_parent, category, category_child);
+        })
+        .then(function() {
+          var size = $("#hidden-size-setting").val();
+          $("#item_size").val(size);
+          $('.hidden_bland').css("display","inline-block");
+        })
+    };
+    if (shipping_free !== void 0){
+      $.when()
+        .then(function() {
+          return shipping_free_change(shipping_free);
+        })
+        .then(function() {
+          var shipping_method = $("#hidden-shipping_method").val();
+          $("#item_shipping_method").val(shipping_method);
+        })
+    };
+  };
+
+  setting();
 });
