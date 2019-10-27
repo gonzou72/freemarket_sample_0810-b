@@ -191,12 +191,8 @@ $(function () {
     return d.promise();
   };
 
-  $("#append_two").change(function() {
-    $('.hidden_bland').css("display","inline-block");
-  });
-
-  $("#item_shipping_fee").on("change",function() { 
-    var val = document.getElementById("item_shipping_fee").value;
+  function shipping_free_change(val){
+    var d = $.Deferred();
     $.ajax({
       type:"GET",
       url:'/items/new',
@@ -213,11 +209,13 @@ $(function () {
       if(delivery.way == "着払い(購入者負担)"){
         delivery_two();
       }
+      d.resolve();
     })
     .fail(function(){
       $(".delivery__title").text("fail")
     })
-  });
+    return d.promise();
+  };
 
   $("#exist").on("change",function() { 
     var val = document.getElementById("display").value;
@@ -241,8 +239,19 @@ $(function () {
     append_two_change(val, val_two, val_three);
   });
 
+  $("#append_two").change(function() {
+    $('.hidden_bland').css("display","inline-block");
+  });
+
+  $("#item_shipping_fee").on("change",function() { 
+    var val = document.getElementById("item_shipping_fee").value;
+    shipping_free_change(val);
+  });
+
   function setting() {
-    category_child = $("#hidden-category-child").val();
+    var category_child = $("#hidden-category-child").val();
+    var shipping_free = $("#item_shipping_fee").val();
+
     if (category_child !== void 0){
       $.when()
         .then(function() {
@@ -260,13 +269,24 @@ $(function () {
           var category = $("#hidden-category").val();
           var category_child = $("#hidden-category-child").val();
           $("#hidden_two").val(category_child);
-          return append_two_change(category_parent, category , category_child);
+          return append_two_change(category_parent, category, category_child);
         })
         .then(function() {
           var size = $("#hidden-size-setting").val();
           $("#item_size").val(size);
+          $('.hidden_bland').css("display","inline-block");
         })
-      };
+    };
+    if (shipping_free !== void 0){
+      $.when()
+        .then(function() {
+          return shipping_free_change(shipping_free);
+        })
+        .then(function() {
+          var shipping_method = $("#hidden-shipping_method").val();
+          $("#item_shipping_method").val(shipping_method);
+        })
+    };
   };
 
   setting();
